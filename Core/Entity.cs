@@ -1,7 +1,7 @@
 namespace ByteCrusher.Core
 {
-  public abstract class Entity
+  public class Entity
   {
-    
+    public Position Position { get; private set; }
   }
 }
