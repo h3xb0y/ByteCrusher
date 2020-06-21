@@ -1,25 +1,43 @@
 using System.Collections.Generic;
-using System.Linq.Expressions;
+using System.Threading;
 
 namespace ByteCrusher.Core
 {
   public class Game
   {
-    private int _width;
-    private int _height;
+    internal int _width;
+    internal int _height;
 
     internal int _frameRate;
 
     internal List<IScene> _scenes;
+    
+    private Thread _thread;
 
-    public Game(int width, int height)
-    {
-      _width = width;
-      _height = height;
-    }
+    private ILogger _logger;
+    private bool _isPlaying;
+
+    public Game(ILogger logger = null)
+      => _logger = logger;
 
     public void Play()
-      => Expression.Empty();
+    {
+      _thread = new Thread(_StartThread);
+      _isPlaying = true;
+      _thread.Start();
+    }
+
+    public void Stop()
+      => _isPlaying = false;
+    
+    private void _StartThread()
+    {
+      while (_isPlaying)
+      {
+        _scenes.ForEach(x => x.Process());
+        Thread.Sleep(_frameRate);
+      }
+    }
   }
 
   public static class GameExtensions
@@ -37,6 +55,14 @@ namespace ByteCrusher.Core
     public static Game ByFrameRate(this Game game, int frameRate)
     {
       game._frameRate = frameRate;
+      return game;
+    }
+
+    public static Game WithWidthAndHeight(this Game game, int width, int height)
+    {
+      game._width = width;
+      game._height = height;
+
       return game;
     }
   }

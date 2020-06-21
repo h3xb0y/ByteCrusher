@@ -26,5 +26,8 @@ namespace ByteCrusher.Core
 
       return this;
     }
+
+    public void Process()
+      => _entities.ForEach(x => x.Process(this));
   }
 }

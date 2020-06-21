@@ -42,16 +42,14 @@
         <Compile Include="Core\Entity.cs" />
         <Compile Include="Core\Game.cs" />
         <Compile Include="Core\IEntityController.cs" />
+        <Compile Include="Core\ILogger.cs" />
         <Compile Include="Core\IScene.cs" />
         <Compile Include="Core\ISceneUI.cs" />
         <Compile Include="Core\IUIElement.cs" />
         <Compile Include="Core\Position.cs" />
         <Compile Include="Core\Scene.cs" />
-        <Compile Include="Program.cs" />
+        <Compile Include="Game\Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Game" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

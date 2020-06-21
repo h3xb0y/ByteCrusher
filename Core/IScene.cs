@@ -7,5 +7,7 @@ namespace ByteCrusher.Core
     IReadOnlyCollection<Entity> Entities();
     IScene WithEntity(Entity entity);
     IScene WithUI(ISceneUI sceneUi);
+
+    void Process();
   }
 }
