@@ -8,25 +8,36 @@ namespace ByteCrusher.Core
     private int _width;
     private int _height;
 
-    private List<IScene> Scenes;
-    
+    internal int _frameRate;
+
+    internal List<IScene> _scenes;
+
     public Game(int width, int height)
     {
       _width = width;
       _height = height;
     }
 
-    public Game WithScene(IScene scene)
-    {
-      if(Scenes == null)
-        Scenes = new List<IScene>();
-      
-      Scenes.Add(scene);
-      
-      return this;
-    }
-
     public void Play()
       => Expression.Empty();
+  }
+
+  public static class GameExtensions
+  {
+    public static Game WithScene(this Game game, IScene scene)
+    {
+      if (game._scenes == null)
+        game._scenes = new List<IScene>();
+
+      game._scenes.Add(scene);
+
+      return game;
+    }
+
+    public static Game ByFrameRate(this Game game, int frameRate)
+    {
+      game._frameRate = frameRate;
+      return game;
+    }
   }
 }
