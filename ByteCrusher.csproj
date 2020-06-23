@@ -49,7 +49,7 @@
         <Compile Include="Core\IUIElement.cs" />
         <Compile Include="Core\Position.cs" />
         <Compile Include="Core\Scene.cs" />
-        <Compile Include="Game\BlockDrawer.cs" />
+        <Compile Include="Game\BlockEntity.cs" />
         <Compile Include="Game\Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>

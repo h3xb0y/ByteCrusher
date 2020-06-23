@@ -1,6 +1,6 @@
 namespace ByteCrusher.Core
 {
-  public abstract class AsciiCodeBuilder
+  public class AsciiCodeBuilder
   {
     private string _code;
     
@@ -12,7 +12,7 @@ namespace ByteCrusher.Core
 
     public AsciiCodeBuilder Where(string pattern, string color)
     {
-      // todo replace colors in pattern
+      _code.Replace(pattern, "{0,-12} #{1:X6}", n, Color.FromName(n).ToArgb() & 0xFFFFFF)
       return this;
     }
 

@@ -4,16 +4,12 @@ namespace ByteCrusher.Core
 {
   public abstract class Entity
   {
-    public Position Position;
     private List<IEntityController> _controllers;
 
-    private IEntityDrawer _drawer;
+    protected abstract IEntityDrawer Drawer();
 
-    public Entity(IEntityDrawer drawer)
-      => _drawer = drawer;
-
-    internal void Initialize(Scene scene)
-      => _drawer.Draw(scene);
+    internal string Drawing(Scene scene)
+      => Drawer().Drawing();
 
     internal void Process(Scene scene)
       => _controllers?.ForEach(c => c.Process(scene, this));

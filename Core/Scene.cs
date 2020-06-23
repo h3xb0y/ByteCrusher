@@ -1,14 +1,12 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ByteCrusher.Core
 {
   public sealed class Scene
   {
     private List<Entity> _entities;
-    private ISceneUI _ui;
-
-    public List<Entity> Entities()
-      => _entities;
 
     public Scene WithEntity(Entity entity)
     {
@@ -20,17 +18,17 @@ namespace ByteCrusher.Core
       return this;
     }
 
-    public Scene WithUI(ISceneUI sceneUi)
-    {
-      _ui = sceneUi;
-
-      return this;
-    }
-
     public void Process()
       => _entities.ForEach(x => x.Process(this));
 
     public void Initialize()
-      => _entities.ForEach(x => x.Initialize(this));
+    {
+      var asciiCodes = _entities
+        .Select(x => x.Drawing(this))
+        .ToList();
+      
+      Console.Write(asciiCodes.First());
+    }
+    
   }
 }
