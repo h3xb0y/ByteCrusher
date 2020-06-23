@@ -2,15 +2,15 @@ using System.Collections.Generic;
 
 namespace ByteCrusher.Core
 {
-  public class Scene : IScene
+  public sealed class Scene
   {
     private List<Entity> _entities;
     private ISceneUI _ui;
 
-    public IReadOnlyCollection<Entity> Entities()
+    public List<Entity> Entities()
       => _entities;
 
-    public IScene WithEntity(Entity entity)
+    public Scene WithEntity(Entity entity)
     {
       if(_entities == null)
         _entities = new List<Entity>();
@@ -20,7 +20,7 @@ namespace ByteCrusher.Core
       return this;
     }
 
-    public IScene WithUI(ISceneUI sceneUi)
+    public Scene WithUI(ISceneUI sceneUi)
     {
       _ui = sceneUi;
 
@@ -29,5 +29,8 @@ namespace ByteCrusher.Core
 
     public void Process()
       => _entities.ForEach(x => x.Process(this));
+
+    public void Initialize()
+      => _entities.ForEach(x => x.Initialize(this));
   }
 }

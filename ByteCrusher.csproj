@@ -40,14 +40,16 @@
     <ItemGroup>
         <Compile Include="Core\Camera.cs" />
         <Compile Include="Core\Entity.cs" />
+        <Compile Include="Core\AsciiCodeBuilder.cs" />
         <Compile Include="Core\Game.cs" />
         <Compile Include="Core\IEntityController.cs" />
+        <Compile Include="Core\IEntityDrawer.cs" />
         <Compile Include="Core\ILogger.cs" />
-        <Compile Include="Core\IScene.cs" />
         <Compile Include="Core\ISceneUI.cs" />
         <Compile Include="Core\IUIElement.cs" />
         <Compile Include="Core\Position.cs" />
         <Compile Include="Core\Scene.cs" />
+        <Compile Include="Game\BlockDrawer.cs" />
         <Compile Include="Game\Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>

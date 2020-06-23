@@ -8,8 +8,7 @@ namespace ByteCrusher
       => new Game()
         .ByFrameRate(30)
         .WithScene(new Scene()
-          .WithEntity(new Entity())
-          .WithEntity(new Entity())
+          .WithEntity(new Entity(new BlockDrawer()))
         )
         .Play();
   }

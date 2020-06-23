@@ -2,10 +2,18 @@ using System.Collections.Generic;
 
 namespace ByteCrusher.Core
 {
-  public class Entity
+  public abstract class Entity
   {
     public Position Position;
     private List<IEntityController> _controllers;
+
+    private IEntityDrawer _drawer;
+
+    public Entity(IEntityDrawer drawer)
+      => _drawer = drawer;
+
+    internal void Initialize(Scene scene)
+      => _drawer.Draw(scene);
 
     internal void Process(Scene scene)
       => _controllers?.ForEach(c => c.Process(scene, this));

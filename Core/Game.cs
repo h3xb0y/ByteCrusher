@@ -10,7 +10,7 @@ namespace ByteCrusher.Core
 
     internal int _frameRate;
 
-    internal List<IScene> _scenes;
+    internal List<Scene> _scenes;
     
     private Thread _thread;
 
@@ -22,6 +22,7 @@ namespace ByteCrusher.Core
 
     public void Play()
     {
+      _scenes.ForEach(x => x.Initialize());
       _thread = new Thread(_StartThread);
       _isPlaying = true;
       _thread.Start();
@@ -42,10 +43,10 @@ namespace ByteCrusher.Core
 
   public static class GameExtensions
   {
-    public static Game WithScene(this Game game, IScene scene)
+    public static Game WithScene(this Game game, Scene scene)
     {
       if (game._scenes == null)
-        game._scenes = new List<IScene>();
+        game._scenes = new List<Scene>();
 
       game._scenes.Add(scene);
 
