@@ -12,15 +12,15 @@ namespace ByteCrusher
   {
     public string Drawing()
     {
-      var builder = new AsciiCodeBuilder();
+      var code = new AsciiCode();
 
-      const string code = "  ****  \n" +
-                          "********\n" +
-                          "  ***  ";
+      const string drawing = "  ****  \n" +
+                             "********\n" +
+                             "  ***  ";
 
-      return builder
-        .WithCode(code)
-        .Where("*", "0x000015")
+      return code
+        .WithDrawing(drawing)
+        .WhereColor("*", "0x000015")
         .Build();
     }
   }
