@@ -18,16 +18,19 @@ namespace ByteCrusher.Core
       return this;
     }
 
+    public void Initialize()
+    {
+      
+    }
+
     public void Process()
       => _entities.ForEach(x => x.Process(this));
 
-    public void Initialize()
+    public string Drawing()
     {
-      var asciiCodes = _entities
+     return _entities
         .Select(x => x.Drawing(this))
-        .ToList();
-      
-      Console.Write(asciiCodes.First());
+        .First();
     }
     
   }

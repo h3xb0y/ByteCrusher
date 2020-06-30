@@ -7,14 +7,24 @@ namespace ByteCrusher.Core
 {
   public class Game
   {
-    [DllImport("kernel32.dll", SetLastError = true)]
-    public static extern bool SetConsoleMode(IntPtr hConsoleHandle, int mode);
+    #region API
 
     [DllImport("kernel32.dll", SetLastError = true)]
-    public static extern bool GetConsoleMode(IntPtr handle, out int mode);
+    private static extern bool SetConsoleMode(IntPtr hConsoleHandle, int mode);
 
     [DllImport("kernel32.dll", SetLastError = true)]
-    public static extern IntPtr GetStdHandle(int handle);
+    private static extern bool GetConsoleMode(IntPtr handle, out int mode);
+
+    [DllImport("kernel32.dll", SetLastError = true)]
+    private static extern IntPtr GetStdHandle(int handle);
+
+    private const int ENABLE_QUICK_EDIT = 0x0040;
+
+    private const int STD_INPUT_HANDLE = -10;
+
+    private const int STD_OUTPUT_HANDLE = -11;
+
+    #endregion
 
 
     internal int _width;
@@ -28,7 +38,7 @@ namespace ByteCrusher.Core
 
     private ILogger _logger;
     private bool _isPlaying;
-    private int _activeSceneIndex = 1;
+    private int _activeSceneIndex = 0;
 
     public Game(ILogger logger = null)
       => _logger = logger;
@@ -39,6 +49,15 @@ namespace ByteCrusher.Core
       _thread = new Thread(_StartThread);
       _isPlaying = true;
       _thread.Start();
+
+      var handle = GetStdHandle(STD_INPUT_HANDLE);
+      GetConsoleMode(handle, out var mode);
+      mode &= ~ENABLE_QUICK_EDIT;
+      SetConsoleMode(handle, mode | 0x4);
+
+      handle = GetStdHandle(STD_OUTPUT_HANDLE);
+      GetConsoleMode(handle, out mode);
+      SetConsoleMode(handle, mode | 0x4);
     }
 
     public void Stop()
@@ -56,8 +75,10 @@ namespace ByteCrusher.Core
     private void _Draw()
     {
       var activeScene = _scenes[_activeSceneIndex];
-      activeScene.Drawing();
       _scenes.ForEach(x => x.Process());
+
+      Console.Clear();
+      Console.Write(activeScene.Drawing());
     }
   }
 

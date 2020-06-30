@@ -20,7 +20,7 @@ namespace ByteCrusher
 
       return code
         .WithDrawing(drawing)
-        .WhereColor("*", "0x000015")
+        .WhereColor("*", "100")
         .Build();
     }
   }
