@@ -38,6 +38,7 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Core\Calculation\Positioning.cs" />
         <Compile Include="Core\Camera.cs" />
         <Compile Include="Core\Entity.cs" />
         <Compile Include="Core\AsciiCodecs.cs" />

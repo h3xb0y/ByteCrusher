@@ -78,7 +78,7 @@ namespace ByteCrusher.Core
       _scenes.ForEach(x => x.Process());
 
       Console.Clear();
-      Console.Write(activeScene.Drawing());
+      Console.Write(activeScene.Drawing(this));
     }
   }
 

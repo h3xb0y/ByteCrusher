@@ -16,7 +16,7 @@ namespace ByteCrusher
 
       const string drawing = "  ****  \n" +
                              "********\n" +
-                             "  ***  ";
+                             "  ****  ";
 
       return code
         .WithDrawing(drawing)
