@@ -8,7 +8,7 @@ namespace ByteCrusher.Core
     
     private List<IEntityController> _controllers;
 
-    protected abstract IEntityDrawer Drawer();
+    public abstract IEntityDrawer Drawer();
 
     internal string Drawing(Scene scene)
       => Drawer().Drawing();

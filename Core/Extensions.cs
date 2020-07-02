@@ -12,10 +12,10 @@ namespace ByteCrusher.Core
       
       for (var i = 0; i < clone.Length; i++)
       {
-        if(clone[i] != '\n')
+        if(clone[i] != '\n' && i != clone.Length - 1)
           continue;
 
-        strings.Add(clone.Remove(lastIndex, i - lastIndex));
+        strings.Add(clone.Substring(lastIndex, i - lastIndex).Replace('\n', '\0'));
         lastIndex = i;
       }
 

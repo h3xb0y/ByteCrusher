@@ -37,7 +37,7 @@ namespace ByteCrusher.Core
       var layer = new Layer.Layer(game._width, game._height);
 
       foreach (var entity in _entities)
-        layer.Apply(entity.Drawing(this), entity.Position);
+        layer.Apply(entity.Drawer(), entity.Position);
       
       return layer.ToString();
     }

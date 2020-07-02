@@ -17,17 +17,15 @@ namespace ByteCrusher.Core.Layer
         _symbols[i] += " ";
     }
 
-    public void Apply(string drawing, Position position = null)
+    public void Apply(IEntityDrawer drawer, Position position = null)
     {
-      var splitedDrawing = drawing.SplitNewLine();
+      var splitedDrawing = drawer.Code().SplitNewLine();
 
       for (var i = 0; i < splitedDrawing.Length; i++)
       {
         var builder = new StringBuilder(_symbols[i]);
-        for (var j = 0; j < splitedDrawing[i].Length; j++)
-        {
-          builder[j] = Convert.ToChar(splitedDrawing[i][j]);
-        }
+        for (var ii = 0; ii < splitedDrawing[i].Length; ii++)
+          builder[ii] = Convert.ToChar(splitedDrawing[i][ii]);
 
         _symbols[i] = builder.ToString();
       }
