@@ -10,7 +10,7 @@ namespace ByteCrusher
         .WithScene(new Scene()
           .WithEntity(new BlockEntity())
         )
-        .WithWidthAndHeight(50, 50)
+        .WithWidthAndHeight(100, 20)
         .Play();
   }
 }

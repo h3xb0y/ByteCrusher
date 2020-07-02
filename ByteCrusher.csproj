@@ -38,7 +38,6 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Core\Calculation\Positioning.cs" />
         <Compile Include="Core\Camera.cs" />
         <Compile Include="Core\Entity.cs" />
         <Compile Include="Core\AsciiCodecs.cs" />
@@ -48,6 +47,7 @@
         <Compile Include="Core\ILogger.cs" />
         <Compile Include="Core\ISceneUI.cs" />
         <Compile Include="Core\IUIElement.cs" />
+        <Compile Include="Core\Layer\Layer.cs" />
         <Compile Include="Core\Position.cs" />
         <Compile Include="Core\Scene.cs" />
         <Compile Include="Game\BlockEntity.cs" />

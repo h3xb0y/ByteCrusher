@@ -4,6 +4,8 @@ namespace ByteCrusher.Core
 {
   public abstract class Entity
   {
+    public Position Position = new Position();
+    
     private List<IEntityController> _controllers;
 
     protected abstract IEntityDrawer Drawer();

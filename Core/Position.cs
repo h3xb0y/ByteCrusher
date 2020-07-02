@@ -1,6 +1,6 @@
 namespace ByteCrusher.Core
 {
-  public struct Position
+  public class Position
   {
     public int X;
     public int Y;

@@ -34,10 +34,12 @@ namespace ByteCrusher.Core
 
     public string Drawing(Game game)
     {
+      var layer = new Layer.Layer(game._width, game._height);
+
+      foreach (var entity in _entities)
+        layer.Apply(entity.Drawing(this), entity.Position);
       
-     return _entities
-        .Select(x => x.Drawing(this))
-        .First();
+      return layer.ToString();
     }
     
   }
