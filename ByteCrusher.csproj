@@ -41,6 +41,7 @@
         <Compile Include="Core\Camera.cs" />
         <Compile Include="Core\Entity.cs" />
         <Compile Include="Core\AsciiCodecs.cs" />
+        <Compile Include="Core\Extensions.cs" />
         <Compile Include="Core\Game.cs" />
         <Compile Include="Core\IEntityController.cs" />
         <Compile Include="Core\IEntityDrawer.cs" />
