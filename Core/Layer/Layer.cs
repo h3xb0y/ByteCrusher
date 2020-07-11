@@ -23,15 +23,15 @@ namespace ByteCrusher.Core.Layer
 
       for (var i = 0; i < splitedDrawing.Length; i++)
       {
-        var builder = new StringBuilder(_symbols[i]);
+        var builder = new StringBuilder(_symbols[position?.Y + i ?? i]);
         for (var ii = 0; ii < splitedDrawing[i].Length; ii++)
-          builder[ii] = Convert.ToChar(splitedDrawing[i][ii]);
+          builder[position?.X + ii ?? ii] = Convert.ToChar(splitedDrawing[i][ii]);
 
-        _symbols[i] = builder.ToString();
+        _symbols[position?.Y + i ?? i] = builder.ToString();
       }
     }
 
     public override string ToString()
-      => _symbols.Aggregate("", (current, symbol) => current + symbol + "\n");
+      => _symbols.Aggregate(string.Empty, (current, symbol) => current + symbol + '\n');
   }
 }
