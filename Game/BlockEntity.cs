@@ -32,6 +32,7 @@ namespace ByteCrusher
     public string Code()
       => _drawing;
 
+    // TODO : INCORRECT SYMBOL REPLACING(maybe ascii code trouble)
     public string Replace(char element)
       => new AsciiCode()
         .WithDrawing(element.ToString())
