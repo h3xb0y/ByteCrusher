@@ -25,7 +25,10 @@ namespace ByteCrusher.Core.Layer
       {
         var builder = new StringBuilder(_symbols[position?.Y + i ?? i]);
         for (var ii = 0; ii < splitedDrawing[i].Length; ii++)
-          builder[position?.X + ii ?? ii] = Convert.ToChar(splitedDrawing[i][ii]);
+        {
+          builder.Insert(position?.X + ii ?? ii, drawer.Replace(splitedDrawing[i][ii]));
+          //builder[position?.X + ii ?? ii] = drawer.Replace(splitedDrawing[i][ii]);
+        }
 
         _symbols[position?.Y + i ?? i] = builder.ToString();
       }

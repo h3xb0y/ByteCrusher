@@ -4,5 +4,6 @@ namespace ByteCrusher.Core
   {
     string Drawing();
     string Code();
+    string Replace(char element);
   }
 }

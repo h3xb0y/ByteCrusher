@@ -31,5 +31,13 @@ namespace ByteCrusher
 
     public string Code()
       => _drawing;
+
+    public string Replace(char element)
+      => new AsciiCode()
+        .WithDrawing(element.ToString())
+        .WhereColor("*", "100")
+        .WhereColor("]", "90")
+        .WhereColor("[", "70")
+        .Build();
   }
 }
