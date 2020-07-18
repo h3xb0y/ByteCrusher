@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ByteCrusher.Core
 {
@@ -26,7 +25,7 @@ namespace ByteCrusher.Core
 
     public void Initialize()
     {
-      
+      // TODO
     }
 
     public void Process()
@@ -36,6 +35,7 @@ namespace ByteCrusher.Core
     {
       var layer = new Layer.Layer(game._width, game._height);
 
+      // apply all entities drawing by layering
       foreach (var entity in _entities)
         layer.Apply(entity.Drawer(), entity.Position);
       

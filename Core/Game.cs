@@ -26,7 +26,6 @@ namespace ByteCrusher.Core
 
     #endregion
 
-
     internal int _width;
     internal int _height;
 
@@ -50,11 +49,13 @@ namespace ByteCrusher.Core
       _isPlaying = true;
       _thread.Start();
 
+      // block input mode in console
       var handle = GetStdHandle(STD_INPUT_HANDLE);
       GetConsoleMode(handle, out var mode);
       mode &= ~ENABLE_QUICK_EDIT;
       SetConsoleMode(handle, mode | 0x4);
 
+      // set console output ansii style
       handle = GetStdHandle(STD_OUTPUT_HANDLE);
       GetConsoleMode(handle, out mode);
       SetConsoleMode(handle, mode | 0x4);
@@ -74,8 +75,9 @@ namespace ByteCrusher.Core
 
     private void _Draw()
     {
+      // process active scene redrawing by tick
       var activeScene = _scenes[_activeSceneIndex];
-      _scenes.ForEach(x => x.Process());
+      _scenes.ForEach(x => x.Process()); 
 
       Console.Clear();
       Console.Write(activeScene.Drawing(this));
