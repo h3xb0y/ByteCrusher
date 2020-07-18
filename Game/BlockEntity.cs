@@ -1,6 +1,6 @@
 using ByteCrusher.Core;
 
-namespace ByteCrusher
+namespace ByteCrusher.Game
 {
   public class BlockEntity : Entity
   {
@@ -37,8 +37,8 @@ namespace ByteCrusher
       => new AsciiCode()
         .WithDrawing(element.ToString())
         .WhereColor("*", "100")
-        .WhereColor("]", "90")
-        .WhereColor("[", "70")
+        .WhereColor("]", "100")
+        .WhereColor("[", "100")
         .Build();
   }
 }

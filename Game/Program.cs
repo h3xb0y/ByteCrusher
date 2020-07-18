@@ -1,11 +1,11 @@
 ﻿using ByteCrusher.Core;
 
-namespace ByteCrusher
+namespace ByteCrusher.Game
 {
-  internal class Program
+  internal static class Program
   {
     public static void Main()
-      => new Game()
+      => new Core.Game()
         .ByFrameRate(30)
         .WithScene(new Scene()
           .WithEntity(new BlockEntity())
