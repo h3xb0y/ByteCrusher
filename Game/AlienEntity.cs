@@ -2,9 +2,9 @@ using ByteCrusher.Core;
 
 namespace ByteCrusher.Game
 {
-  public class BlockEntity : Entity
+  public class AlienEntity : Entity
   {
-    public BlockEntity()
+    public AlienEntity()
     {
       Position = new Position
       {
@@ -14,10 +14,10 @@ namespace ByteCrusher.Game
     }
     
     public override IEntityDrawer Drawer()
-      => new BlockDrawer();
+      => new AlienDrawer();
   }
 
-  public class BlockDrawer : IEntityDrawer
+  public class AlienDrawer : IEntityDrawer
   {
     private const string _drawing = "  ]**[  \n" +
                                     "]******[\n" +

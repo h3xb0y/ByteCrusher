@@ -8,7 +8,10 @@ namespace ByteCrusher.Game
       => new Core.Game()
         .ByFrameRate(30)
         .WithScene(new Scene()
-          .WithEntity(new BlockEntity())
+          .WithEntity(
+            new AlienEntity()
+              .WithController(new AlienController())
+          )
         )
         .WithWidthAndHeight(100, 20)
         .Play();
