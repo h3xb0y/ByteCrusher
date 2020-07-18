@@ -36,9 +36,9 @@ namespace ByteCrusher.Game
     public string Replace(char element)
       => new AsciiCode()
         .WithDrawing(element.ToString())
-        .WhereColor("*", "90")
-        .WhereColor("]", "50")
-        .WhereColor("[", "50")
+        .WhereColor("*", "100")
+        .WhereColor("]", "100")
+        .WhereColor("[", "100")
         .Build();
   }
 }

@@ -19,19 +19,18 @@ namespace ByteCrusher.Core.Layer
 
     public void Apply(IEntityDrawer drawer, Position position = null)
     {
-      var splittedDrawing = drawer.Code().SplitNewLine();
+      var splitedDrawing = drawer.Code().SplitNewLine();
 
-      for (var i = 0; i < splittedDrawing.Length; i++)
+      for (var i = 0; i < splitedDrawing.Length; i++)
       {
-        var rowText = "";
-        for (var ii = 0; ii < splittedDrawing[i].Length; ii++)
+        var builder = new StringBuilder(_symbols[position?.Y + i ?? i]);
+        for (var ii = 0; ii < splitedDrawing[i].Length; ii++)
         {
-          var replaceCandidate = splittedDrawing[i][ii];
-          var replacedSymbol = drawer.Replace(replaceCandidate);
-          rowText += replacedSymbol;
+          builder.Insert(position?.X + ii ?? ii, drawer.Replace(splitedDrawing[i][ii]));
+          //builder[position?.X + ii ?? ii] = drawer.Replace(splitedDrawing[i][ii]);
         }
 
-        _symbols[position?.Y + i ?? i] = rowText;
+        _symbols[position?.Y + i ?? i] = builder.ToString();
       }
     }
 
