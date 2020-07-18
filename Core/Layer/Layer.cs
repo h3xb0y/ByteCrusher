@@ -24,10 +24,12 @@ namespace ByteCrusher.Core.Layer
       for (var i = 0; i < splitedDrawing.Length; i++)
       {
         var builder = new StringBuilder(_symbols[position?.Y + i ?? i]);
+        var pastedCount = 0;
         for (var ii = 0; ii < splitedDrawing[i].Length; ii++)
         {
-          builder.Insert(position?.X + ii ?? ii, drawer.Replace(splitedDrawing[i][ii]));
-          //builder[position?.X + ii ?? ii] = drawer.Replace(splitedDrawing[i][ii]);
+          var replacedDrawing = drawer.Replace(splitedDrawing[i][ii]);
+          builder.Insert(position?.X + ii + pastedCount ?? ii + pastedCount, replacedDrawing);
+          pastedCount += replacedDrawing.Length - 1;
         }
 
         _symbols[position?.Y + i ?? i] = builder.ToString();
