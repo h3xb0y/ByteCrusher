@@ -31,11 +31,15 @@ namespace ByteCrusher.Core
 
     public string Build()
     {
-      var newDrawing = "";
+      var newDrawing = " ";
       foreach (var colorByPattern in _colorsByPattern)
       {
-        newDrawing = _drawing.Replace(colorByPattern.Key,
-          "\x1b[38;5;" + colorByPattern.Value + "m" + colorByPattern.Key);
+        var pattern = colorByPattern.Key;
+        if (!_drawing.Contains(pattern))
+          continue;
+
+        var color = colorByPattern.Value;
+        newDrawing = _drawing.Replace(pattern, "\x1b[38;5;" + color + "m" + pattern);
       }
 
       return newDrawing;
