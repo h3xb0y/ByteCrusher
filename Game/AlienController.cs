@@ -1,3 +1,4 @@
+using System;
 using ByteCrusher.Core;
 
 namespace ByteCrusher.Game
@@ -8,25 +9,26 @@ namespace ByteCrusher.Game
     
     public void Process(Scene scene, Entity entity)
     {
-      if (_direction == MovementDirection.Right)
+      switch (_direction)
       {
-        entity.Position.X += 1;
-        _direction = MovementDirection.Bottom;
-      }
-      else if (_direction == MovementDirection.Bottom)
-      {
-        entity.Position.Y -= 1;
-        _direction = MovementDirection.Left;
-      }
-      else if (_direction == MovementDirection.Left)
-      {
-        entity.Position.X -= 1;
-        _direction = MovementDirection.Top;
-      }
-      else if (_direction == MovementDirection.Top)
-      {
-        entity.Position.Y += 1;
-        _direction = MovementDirection.Right;
+        case MovementDirection.Right:
+          entity.Position.X += 1;
+          _direction = MovementDirection.Bottom;
+          break;
+        case MovementDirection.Bottom:
+          entity.Position.Y -= 1;
+          _direction = MovementDirection.Left;
+          break;
+        case MovementDirection.Left:
+          entity.Position.X -= 1;
+          _direction = MovementDirection.Top;
+          break;
+        case MovementDirection.Top:
+          entity.Position.Y += 1;
+          _direction = MovementDirection.Right;
+          break;
+        default:
+          throw new ArgumentOutOfRangeException();
       }
     }
 
