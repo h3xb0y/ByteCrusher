@@ -44,6 +44,7 @@ namespace ByteCrusher.Core
 
     public void Play()
     {
+      Console.CursorVisible = false;
       _scenes.ForEach(x => x.Initialize());
       _thread = new Thread(_StartThread);
       _isPlaying = true;
@@ -77,9 +78,9 @@ namespace ByteCrusher.Core
     {
       // process active scene redrawing by tick
       var activeScene = _scenes[_activeSceneIndex];
-      _scenes.ForEach(x => x.Process()); 
-
-      Console.Clear();
+      _scenes.ForEach(x => x.Process());
+      
+      Console.SetCursorPosition(0, 0);
       Console.Write(activeScene.Drawing(this));
     }
   }
