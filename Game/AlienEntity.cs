@@ -23,12 +23,6 @@ namespace ByteCrusher.Game
   {
     private AlienAnimatedDrawing _animatedDrawing = new AlienAnimatedDrawing();
 
-    public string Drawing()
-      => new AsciiCode()
-        .WithDrawing(_animatedDrawing.Drawing())
-        .WhereColor("*", "100")
-        .Build();
-
     public string Code()
       => _animatedDrawing.Drawing();
 

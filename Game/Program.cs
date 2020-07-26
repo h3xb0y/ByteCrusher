@@ -12,8 +12,9 @@ namespace ByteCrusher.Game
             new AlienEntity()
               .WithController(new AlienController())
           )
+          .WithBackground(new BackgroundDrawer())
         )
-        .WithWidthAndHeight(100, 20)
+        .WithWidthAndHeight(50, 50)
         .Play();
   }
 }

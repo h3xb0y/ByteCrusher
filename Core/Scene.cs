@@ -34,6 +34,8 @@ namespace ByteCrusher.Core
     public string Drawing(Game game)
     {
       var layer = new Layer.Layer(game._width, game._height);
+      
+      layer.Apply(_backgroundDrawer);
 
       // apply all entities drawing by layering
       foreach (var entity in _entities)

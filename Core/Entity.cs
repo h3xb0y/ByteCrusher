@@ -10,9 +10,6 @@ namespace ByteCrusher.Core
 
     public abstract IEntityDrawer Drawer();
 
-    internal string Drawing(Scene scene)
-      => Drawer().Drawing();
-
     internal void Process(Scene scene)
       => _controllers?.ForEach(c => c.Process(scene, this));
 

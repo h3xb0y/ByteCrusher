@@ -19,6 +19,9 @@ namespace ByteCrusher.Core.Layer
 
     public void Apply(IEntityDrawer drawer, Position position = null)
     {
+      if (drawer == null)
+        return;
+      
       var splitedDrawing = drawer.Code().SplitNewLine();
 
       for (var i = 0; i < splitedDrawing.Length; i++)
