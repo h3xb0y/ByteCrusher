@@ -9,9 +9,9 @@ namespace ByteCrusher.Core
 
     public Scene WithEntity(Entity entity)
     {
-      if(_entities == null)
+      if (_entities == null)
         _entities = new List<Entity>();
-      
+
       _entities.Add(entity);
 
       return this;
@@ -34,15 +34,15 @@ namespace ByteCrusher.Core
     public string Drawing(Game game)
     {
       var layer = new Layer.Layer(game._width, game._height);
-      
-      layer.Apply(_backgroundDrawer);
+
+      if (_backgroundDrawer != null)
+        layer.Apply(_backgroundDrawer);
 
       // apply all entities drawing by layering
       foreach (var entity in _entities)
         layer.Apply(entity.Drawer(), entity.Position);
-      
+
       return layer.ToString();
     }
-    
   }
 }
