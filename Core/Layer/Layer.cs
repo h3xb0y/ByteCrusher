@@ -23,12 +23,20 @@ namespace ByteCrusher.Core.Layer
         return;
       
       var splitedDrawing = drawer.Code().SplitNewLine();
+        
+      if(splitedDrawing.Length > _symbols.Length)
+        throw new Exception("Drawing height cannot be larger than game height.");
 
       for (var i = 0; i < splitedDrawing.Length; i++)
       {
         var builder = new StringBuilder(_symbols[position?.Y + i ?? i]);
         var pastedCount = 0;
-        for (var ii = 0; ii < splitedDrawing[i].Length; ii++)
+        var line = splitedDrawing[i];
+        
+        if(line.Length > builder.Length)
+          throw new Exception("Drawing length cannot be larger than game width.");
+        
+        for (var ii = 0; ii < line.Length; ii++)
         {
           var replacedDrawing = drawer.Replace(splitedDrawing[i][ii]);
           var index = position?.X + ii + pastedCount ?? ii + pastedCount;
