@@ -15,7 +15,7 @@ namespace ByteCrusher.Core
         if(clone[i] != '\n' && i != clone.Length - 1)
           continue;
 
-        strings.Add(clone.Substring(lastIndex, i - lastIndex).Replace('\n', '\0'));
+        strings.Add(clone.Substring(lastIndex, i - lastIndex).Replace("\n", string.Empty));
         lastIndex = i;
       }
 
