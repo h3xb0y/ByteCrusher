@@ -6,29 +6,23 @@ namespace ByteCrusher.Game
   public class AlienController : IEntityController
   {
     private MovementDirection _direction;
-    
+
     public void Process(Scene scene, Entity entity)
     {
-      switch (_direction)
+      switch (Input.GetKey())
       {
-        case MovementDirection.Right:
+        case ConsoleKey.RightArrow:
           entity.Position.X += 1;
-          _direction = MovementDirection.Bottom;
           break;
-        case MovementDirection.Bottom:
-          entity.Position.Y -= 1;
-          _direction = MovementDirection.Left;
-          break;
-        case MovementDirection.Left:
-          entity.Position.X -= 1;
-          _direction = MovementDirection.Top;
-          break;
-        case MovementDirection.Top:
+        case ConsoleKey.DownArrow:
           entity.Position.Y += 1;
-          _direction = MovementDirection.Right;
           break;
-        default:
-          throw new ArgumentOutOfRangeException();
+        case ConsoleKey.LeftArrow:
+          entity.Position.X -= 1;
+          break;
+        case ConsoleKey.UpArrow:
+          entity.Position.Y -= 1;
+          break;
       }
     }
 
@@ -36,7 +30,7 @@ namespace ByteCrusher.Game
     {
       Right,
       Bottom,
-      Left, 
+      Left,
       Top
     }
   }
