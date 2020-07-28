@@ -31,7 +31,10 @@ namespace ByteCrusher.Core.Layer
         for (var ii = 0; ii < splitedDrawing[i].Length; ii++)
         {
           var replacedDrawing = drawer.Replace(splitedDrawing[i][ii]);
-          builder.Insert(position?.X + ii + pastedCount ?? ii + pastedCount, replacedDrawing);
+          var index = position?.X + ii + pastedCount ?? ii + pastedCount;
+          builder.Remove(index, 1);
+          builder.Insert(index, replacedDrawing);
+          
           pastedCount += replacedDrawing.Length - 1;
         }
 
