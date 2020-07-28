@@ -4,27 +4,17 @@ namespace ByteCrusher.Game
 {
   public class BackgroundDrawer : IEntityDrawer
   {
-    private readonly string _code =
-      "*                                                                                                  *\n" +
-      "*                                                                                                  *\n" +
-      "*                                                                                                  *\n" +
-      "*                                                                                                  *\n" +
-      "*                                                                                                  *\n" +
-      "*                                                                                                  *\n" +
-      "*                                                                                                  *\n" +
-      "*                                                                                                  *\n" +
-      "*                                                                                                  *\n" +
-      "*                                                                                                  *\n" +
-      "*                                                                                                  *\n" +
-      "*                                                                                                  *\n" +
-      "*                                                                                                  *\n" +
-      "*                                                                                                  *\n" +
-      "*                                                                                                  *\n" +
-      "*                                                                                                  *\n" +
-      "*                                                                                                  *\n" +
-      "*                                                                                                  *\n" +
-      "*                                                                                                  *\n" +
-      "*                                                                                                  *\n";
+    private const string _code =
+      "****************************************************\n" +
+      "*                                                  *\n" +
+      "*                                                  *\n" +
+      "*                                                  *\n" +
+      "*                                                  *\n" +
+      "*                                                  *\n" +
+      "*                                                  *\n" +
+      "*                                                  *\n" +
+      "*                                                  *\n" +
+      "****************************************************\n";
 
     public string Code()
       => _code;
