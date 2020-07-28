@@ -44,7 +44,6 @@ namespace ByteCrusher.Core
 
     public void Play()
     {
-      Console.CursorVisible = false;
       _scenes.ForEach(x => x.Initialize());
       _thread = new Thread(_StartThread);
       _isPlaying = true;
@@ -81,6 +80,7 @@ namespace ByteCrusher.Core
       _scenes.ForEach(x => x.Process());
       
       Console.SetCursorPosition(0, 0);
+      Console.CursorVisible = false;
       Console.Write(activeScene.Drawing(this));
     }
   }
