@@ -29,7 +29,12 @@ namespace ByteCrusher.Core.Layer
 
       for (var i = 0; i < splitedDrawing.Length; i++)
       {
-        var builder = new StringBuilder(_symbols[position?.Y + i ?? i]);
+        var currentYPos = position?.Y + i ?? i;
+        if (currentYPos >= _symbols.Length || currentYPos < 0)
+          continue;
+        
+        var currentLine = _symbols[currentYPos];
+        var builder = new StringBuilder(currentLine);
         var pastedCount = 0;
         var line = splitedDrawing[i];
         
@@ -39,9 +44,12 @@ namespace ByteCrusher.Core.Layer
         for (var ii = 0; ii < line.Length; ii++)
         {
           var replacedDrawing = drawer.Replace(splitedDrawing[i][ii]);
-          var index = position?.X + ii + pastedCount ?? ii + pastedCount;
-          builder.Remove(index, 1);
-          builder.Insert(index, replacedDrawing);
+          var currentXPos = position?.X + ii + pastedCount ?? ii + pastedCount;
+          if(currentXPos >= builder.Length || currentXPos < 0)
+            continue;
+          
+          builder.Remove(currentXPos, 1);
+          builder.Insert(currentXPos, replacedDrawing);
           
           pastedCount += replacedDrawing.Length - 1;
         }
