@@ -5,8 +5,6 @@ namespace ByteCrusher.Game
 {
   public class AlienController : IEntityController
   {
-    private MovementDirection _direction;
-
     public void Process(Scene scene, Entity entity)
     {
       switch (Input.GetKey())
@@ -24,14 +22,6 @@ namespace ByteCrusher.Game
           entity.Position.Y -= 1;
           break;
       }
-    }
-
-    private enum MovementDirection
-    {
-      Right,
-      Bottom,
-      Left,
-      Top
     }
   }
 }

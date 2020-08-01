@@ -1,10 +1,11 @@
-using System.Collections.Generic;
 using ByteCrusher.Core;
 
 namespace ByteCrusher.Game
 {
   public class AlienEntity : Entity
   {
+    private readonly AlienDrawer _drawer = new AlienDrawer();
+    
     public AlienEntity()
     {
       Position = new Position
@@ -13,8 +14,7 @@ namespace ByteCrusher.Game
         Y = 2
       };
     }
-
-    private AlienDrawer _drawer = new AlienDrawer();
+    
     public override IEntityDrawer Drawer()
       => _drawer;
   }

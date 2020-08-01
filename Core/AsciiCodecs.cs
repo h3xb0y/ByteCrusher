@@ -4,8 +4,8 @@ namespace ByteCrusher.Core
 {
   public class AsciiCode
   {
-    private Dictionary<string, string> _colorsByPattern = new Dictionary<string, string>();
-    private Dictionary<string, string> _backgroundByPattern = new Dictionary<string, string>();
+    private readonly Dictionary<string, string> _colorsByPattern = new Dictionary<string, string>();
+    private readonly Dictionary<string, string> _backgroundByPattern = new Dictionary<string, string>();
 
     private string _drawing;
 
