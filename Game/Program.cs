@@ -14,7 +14,7 @@ namespace ByteCrusher.Game
           )
           .WithBackground(new BackgroundDrawer())
         )
-        .WithWidthAndHeight(50, 10)
+        .WithWidthAndHeight(100, 20)
         .Play();
   }
 }
