@@ -6,7 +6,6 @@ namespace ByteCrusher.Game
   {
     public static void Main()
       => new Core.Game()
-        .ByFrameRate(60)
         .WithScene(new Scene()
           .WithEntity(
             new AlienEntity()

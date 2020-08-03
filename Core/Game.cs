@@ -29,7 +29,7 @@ namespace ByteCrusher.Core
     internal int _width;
     internal int _height;
 
-    internal int _frameRate;
+    internal int _frameRate = 1;
 
     internal List<Scene> _scenes;
 
