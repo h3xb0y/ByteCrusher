@@ -4,7 +4,7 @@ namespace ByteCrusher.Core
 {
   public class Game
   {
-    private Kernel _kernel;
+    private readonly Kernel _kernel;
 
     public Game(int width, int height)
       => _kernel = new Kernel()
