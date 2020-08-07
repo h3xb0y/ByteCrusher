@@ -31,9 +31,9 @@ namespace ByteCrusher.Core
     public void Process()
       => _entities.ForEach(x => x.Process(this));
 
-    public string Drawing(Game game)
+    public string Drawing(Kernel kernel)
     {
-      var layer = new Layer.Layer(game._width, game._height);
+      var layer = new Layer.Layer(kernel._width, kernel._height);
 
       if (_backgroundDrawer != null)
         layer.Apply(_backgroundDrawer);

@@ -11,6 +11,5 @@ namespace ByteCrusher.Core
 
       return Console.ReadKey().Key;
     }
-    
   }
 }
