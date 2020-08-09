@@ -3,7 +3,7 @@ using ByteCrusher.Core;
 
 namespace ByteCrusher.Game
 {
-  internal class Program
+  internal static class Program
   {
     public static void Main()
     {
