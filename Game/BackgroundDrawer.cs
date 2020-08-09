@@ -30,6 +30,9 @@ namespace ByteCrusher.Game
       => _code;
 
     public string Replace(char element)
-      => element.ToString();
+      => new AsciiCode()
+        .WithDrawing(element.ToString())
+        .WhereColor("*", "250")
+        .Build();
   }
 }
