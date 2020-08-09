@@ -82,6 +82,7 @@ namespace ByteCrusher.Core
       Console.SetCursorPosition(0, 0);
       Console.CursorVisible = false;
       var drawing = activeScene.Drawing(this);
+      _logger.LogDrawing(drawing);
       Console.Write(drawing);
     }
   }

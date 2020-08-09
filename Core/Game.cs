@@ -6,17 +6,28 @@ namespace ByteCrusher.Core
   {
     private readonly Kernel _kernel;
 
-    public Game(int width, int height)
-      => _kernel = new Kernel()
-        .WithWidthAndHeight(width, height);
+    public Game(ILogger logger = null)
+    {
+      _kernel = new Kernel(logger);
+    }
 
-    public void Play()
-      => _kernel.Play();
+    public Game WithWidthAndHeight(int width, int height)
+    {
+      _kernel._width = width;
+      _kernel._height = height;
 
-    public void AddScenes(IEnumerable<Scene> scenes)
+      return this;
+    }
+
+    public Game WithScenes(IEnumerable<Scene> scenes)
     {
       foreach (var scene in scenes)
         _kernel.WithScene(scene);
+
+      return this;
     }
+
+    public void Play()
+      => _kernel.Play();
   }
 }
