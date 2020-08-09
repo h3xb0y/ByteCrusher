@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ByteCrusher.Core;
 
 namespace ByteCrusher.Game
 {
   internal class Program
   {
-    private static Program _program;
-
     public static void Main()
     {
       var game = new Core.Game(100, 20);
