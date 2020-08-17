@@ -49,8 +49,6 @@
     <Compile Include="Core\IEntityDrawer.cs" />
     <Compile Include="Core\ILogger.cs" />
     <Compile Include="Core\Input.cs" />
-    <Compile Include="Core\ISceneUI.cs" />
-    <Compile Include="Core\IUIElement.cs" />
     <Compile Include="Core\Layer\Layer.cs" />
     <Compile Include="Core\Position.cs" />
     <Compile Include="Core\Scene.cs" />
