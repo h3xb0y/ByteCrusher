@@ -21,7 +21,7 @@ namespace ByteCrusher.Game
           new AlienEntity()
             .WithController(new AlienController())
         )
-        .WithBackground(new BackgroundDrawer());
+      .WithBackground(new BackgroundDrawer());
     }
   }
 

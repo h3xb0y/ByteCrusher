@@ -98,19 +98,5 @@ namespace ByteCrusher.Core
 
       return kernel;
     }
-
-    public static Kernel ByFrameRate(this Kernel kernel, int frameRate)
-    {
-      kernel._frameRate = frameRate;
-      return kernel;
-    }
-
-    public static Kernel WithWidthAndHeight(this Kernel kernel, int width, int height)
-    {
-      kernel._width = width;
-      kernel._height = height;
-
-      return kernel;
-    }
   }
 }
