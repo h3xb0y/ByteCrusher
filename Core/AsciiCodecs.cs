@@ -32,6 +32,17 @@ namespace ByteCrusher.Core
     public string Build()
     {
       var newDrawing = " ";
+
+      foreach (var colorByPattern in _backgroundByPattern)
+      {
+        var pattern = colorByPattern.Key;
+        if(!_drawing.Contains(pattern))
+          continue;
+
+        var background = colorByPattern.Value;
+        newDrawing = _drawing.Replace(pattern, "\x1b[48;5;" + background + "m");
+      }
+      
       foreach (var colorByPattern in _colorsByPattern)
       {
         var pattern = colorByPattern.Key;
@@ -39,7 +50,11 @@ namespace ByteCrusher.Core
           continue;
 
         var color = colorByPattern.Value;
-        newDrawing = _drawing.Replace(pattern, "\x1b[38;5;" + color + "m" + pattern);
+        var coloredPattern = _drawing.Replace(pattern, "\x1b[38;5;" + color + "m" + pattern);
+        
+        newDrawing = newDrawing != " " 
+          ? newDrawing + coloredPattern 
+          : coloredPattern;
       }
 
       return newDrawing;
