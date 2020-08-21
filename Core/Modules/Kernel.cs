@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Threading;
 using ByteCrusher.Core.Entities;
+using ByteCrusher.Core.IO;
 
 namespace ByteCrusher.Core.Modules
 {
@@ -85,6 +86,7 @@ namespace ByteCrusher.Core.Modules
       var drawing = activeScene.Drawing(this);
       _logger.LogDrawing(drawing);
       Console.Write(drawing);
+      Time.RecalculateDelta();
     }
   }
 

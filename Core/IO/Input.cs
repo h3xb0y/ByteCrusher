@@ -2,7 +2,7 @@ using System;
 
 namespace ByteCrusher.Core.IO
 {
-  public class Input
+  public static class Input
   {
     public static ConsoleKey? GetKey()
     {

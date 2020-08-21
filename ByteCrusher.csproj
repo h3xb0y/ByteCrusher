@@ -49,6 +49,7 @@
     <Compile Include="Core\Extensions.cs" />
     <Compile Include="Core\Addition\AsciiCodecs.cs" />
     <Compile Include="Core\IO\Input.cs" />
+    <Compile Include="Core\IO\Time.cs" />
     <Compile Include="Core\Layer\Layer.cs" />
     <Compile Include="Core\Modules\Kernel.cs" />
     <Compile Include="Game\AlienController.cs" />
