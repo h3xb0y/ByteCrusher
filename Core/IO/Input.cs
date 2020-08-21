@@ -1,6 +1,6 @@
 using System;
 
-namespace ByteCrusher.Core
+namespace ByteCrusher.Core.IO
 {
   public class Input
   {

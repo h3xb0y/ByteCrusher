@@ -1,4 +1,4 @@
-namespace ByteCrusher.Core
+namespace ByteCrusher.Core.Data
 {
   public class Position
   {

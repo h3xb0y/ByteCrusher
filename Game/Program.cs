@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using ByteCrusher.Core;
+using ByteCrusher.Core.Entities;
 
 namespace ByteCrusher.Game
 {
@@ -8,7 +8,7 @@ namespace ByteCrusher.Game
   {
     public static void Main()
     {
-      new Core.Game(new FileLogger())
+      new Core.Entities.Game(new FileLogger())
         .WithScenes(Scenes())
         .WithWidthAndHeight(100, 20)
         .Play();

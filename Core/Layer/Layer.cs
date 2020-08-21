@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using ByteCrusher.Core.Data;
+using ByteCrusher.Core.Entities;
 
 namespace ByteCrusher.Core.Layer
 {

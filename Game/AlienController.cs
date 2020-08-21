@@ -1,5 +1,7 @@
 using System;
 using ByteCrusher.Core;
+using ByteCrusher.Core.Entities;
+using ByteCrusher.Core.IO;
 
 namespace ByteCrusher.Game
 {

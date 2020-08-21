@@ -1,4 +1,5 @@
-using ByteCrusher.Core;
+using ByteCrusher.Core.Addition;
+using ByteCrusher.Core.Entities;
 
 namespace ByteCrusher.Game
 {

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ByteCrusher.Core
+namespace ByteCrusher.Core.Addition
 {
   public class AsciiCode
   {

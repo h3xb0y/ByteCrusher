@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Threading;
+using ByteCrusher.Core.Entities;
 
-namespace ByteCrusher.Core
+namespace ByteCrusher.Core.Modules
 {
   public class Kernel
   {

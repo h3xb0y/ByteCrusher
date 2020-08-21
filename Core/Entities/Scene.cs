@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using ByteCrusher.Core.Modules;
 
-namespace ByteCrusher.Core
+namespace ByteCrusher.Core.Entities
 {
   public sealed class Scene
   {

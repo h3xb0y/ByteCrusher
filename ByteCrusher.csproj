@@ -39,19 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Camera.cs" />
-    <Compile Include="Core\Entity.cs" />
-    <Compile Include="Core\AsciiCodecs.cs" />
+    <Compile Include="Core\Data\Position.cs" />
+    <Compile Include="Core\Entities\Entity.cs" />
+    <Compile Include="Core\Entities\Game.cs" />
+    <Compile Include="Core\Entities\IEntityController.cs" />
+    <Compile Include="Core\Entities\IEntityDrawer.cs" />
+    <Compile Include="Core\Entities\ILogger.cs" />
+    <Compile Include="Core\Entities\Scene.cs" />
     <Compile Include="Core\Extensions.cs" />
-    <Compile Include="Core\Game.cs" />
-    <Compile Include="Core\Kernel.cs" />
-    <Compile Include="Core\IEntityController.cs" />
-    <Compile Include="Core\IEntityDrawer.cs" />
-    <Compile Include="Core\ILogger.cs" />
-    <Compile Include="Core\Input.cs" />
+    <Compile Include="Core\Addition\AsciiCodecs.cs" />
+    <Compile Include="Core\IO\Input.cs" />
     <Compile Include="Core\Layer\Layer.cs" />
-    <Compile Include="Core\Position.cs" />
-    <Compile Include="Core\Scene.cs" />
+    <Compile Include="Core\Modules\Kernel.cs" />
     <Compile Include="Game\AlienController.cs" />
     <Compile Include="Game\AlienEntity.cs" />
     <Compile Include="Game\BackgroundDrawer.cs" />
