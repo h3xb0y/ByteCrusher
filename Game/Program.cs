@@ -13,8 +13,8 @@ namespace ByteCrusher.Game
     public static void Main()
     {
       _game = new Core.Entities.Game(new FileLogger())
-        .WithScenes(Scenes())
-        .WithWidthAndHeight(100, 20);
+        .AddScenes(Scenes())
+        .SetWidthAndHeight(100, 20);
       
       _game.Play();
     }
@@ -28,12 +28,12 @@ namespace ByteCrusher.Game
     private static IEnumerable<Scene> Scenes()
     {
       yield return new Scene()
-        .WithEntity(
+        .AddEntity(
           new AlienEntity()
-            .WithController(new AlienController())
+            .AddController(new AlienController())
         )
-        .WithController(new FirstLevelController())
-        .WithBackground(new BackgroundDrawer());
+        .AddController(new FirstLevelController())
+        .AddBackground(new BackgroundDrawer());
     }
   }
 

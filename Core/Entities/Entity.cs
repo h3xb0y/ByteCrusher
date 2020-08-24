@@ -14,7 +14,7 @@ namespace ByteCrusher.Core.Entities
     internal void Process(Scene scene)
       => _controllers?.ForEach(c => c.Process(scene, this));
 
-    public Entity WithController(IEntityController controller)
+    public Entity AddController(IEntityController controller)
     {
       if (_controllers == null)
         _controllers = new List<IEntityController>();

@@ -9,7 +9,7 @@ namespace ByteCrusher.Core.Addition
 
     private string _drawing;
 
-    public AsciiCode WithDrawing(string drawing)
+    public AsciiCode AddDrawing(string drawing)
     {
       _drawing = drawing;
       return this;

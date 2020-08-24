@@ -18,7 +18,7 @@ namespace ByteCrusher.Core.Entities
         _services.Add(service);
     }
 
-    public Game WithWidthAndHeight(int width, int height)
+    public Game SetWidthAndHeight(int width, int height)
     {
       _kernel._width = width;
       _kernel._height = height;
@@ -26,15 +26,15 @@ namespace ByteCrusher.Core.Entities
       return this;
     }
 
-    public Game WithScenes(IEnumerable<Scene> scenes)
+    public Game AddScenes(IEnumerable<Scene> scenes)
     {
       foreach (var scene in scenes)
-        _kernel.WithScene(scene);
+        _kernel.AddScene(scene);
 
       return this;
     }
 
-    public Game WithService(IGameService service)
+    public Game AddService(IGameService service)
     {
       _services.Add(service);
       

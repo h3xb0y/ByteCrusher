@@ -92,7 +92,7 @@ namespace ByteCrusher.Core.Modules
 
   public static class GameExtensions
   {
-    public static Kernel WithScene(this Kernel kernel, Scene scene)
+    public static Kernel AddScene(this Kernel kernel, Scene scene)
     {
       if (kernel._scenes == null)
         kernel._scenes = new List<Scene>();

@@ -9,7 +9,7 @@ namespace ByteCrusher.Core.Entities
     private IEntityDrawer _drawer;
     private ISceneController _controller;
 
-    public Scene WithEntity(Entity entity)
+    public Scene AddEntity(Entity entity)
     {
       if (_entities == null)
         _entities = new List<Entity>();
@@ -19,13 +19,13 @@ namespace ByteCrusher.Core.Entities
       return this;
     }
 
-    public Scene WithBackground(IEntityDrawer drawer)
+    public Scene AddBackground(IEntityDrawer drawer)
     {
       _drawer = drawer;
       return this;
     }
 
-    public Scene WithController(ISceneController controller)
+    public Scene AddController(ISceneController controller)
     {
       _controller = controller;
       return this;
