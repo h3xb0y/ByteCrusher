@@ -6,7 +6,8 @@ namespace ByteCrusher.Core.Entities
   public sealed class Scene
   {
     private List<Entity> _entities;
-    private IEntityDrawer _backgroundDrawer;
+    private IEntityDrawer _drawer;
+    private ISceneController _controller;
 
     public Scene WithEntity(Entity entity)
     {
@@ -20,7 +21,13 @@ namespace ByteCrusher.Core.Entities
 
     public Scene WithBackground(IEntityDrawer drawer)
     {
-      _backgroundDrawer = drawer;
+      _drawer = drawer;
+      return this;
+    }
+
+    public Scene WithController(ISceneController controller)
+    {
+      _controller = controller;
       return this;
     }
 
@@ -29,15 +36,18 @@ namespace ByteCrusher.Core.Entities
       // TODO
     }
 
-    public void Process()
-      => _entities.ForEach(x => x.Process(this));
+    public void Process(int sceneWidth, int sceneHeight)
+    {
+      _controller?.Process(_entities, sceneWidth, sceneHeight);
+      _entities.ForEach(x => x.Process(this));
+    }
 
     public string Drawing(Kernel kernel)
     {
       var layer = new Layer.Layer(kernel._width, kernel._height);
 
-      if (_backgroundDrawer != null)
-        layer.Apply(_backgroundDrawer);
+      if (_drawer != null)
+        layer.Apply(_drawer);
 
       // apply all entities drawing by layering
       foreach (var entity in _entities)

@@ -45,6 +45,7 @@
     <Compile Include="Core\Entities\IEntityController.cs" />
     <Compile Include="Core\Entities\IEntityDrawer.cs" />
     <Compile Include="Core\Entities\ILogger.cs" />
+    <Compile Include="Core\Entities\ISceneController.cs" />
     <Compile Include="Core\Entities\Scene.cs" />
     <Compile Include="Core\Extensions.cs" />
     <Compile Include="Core\Addition\AsciiCodecs.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Game\AlienController.cs" />
     <Compile Include="Game\AlienEntity.cs" />
     <Compile Include="Game\BackgroundDrawer.cs" />
+    <Compile Include="Game\Level1_1\FirstLevelController.cs" />
     <Compile Include="Game\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

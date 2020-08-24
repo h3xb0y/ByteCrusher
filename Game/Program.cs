@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using ByteCrusher.Core.Entities;
+using ByteCrusher.Game.Level1_1;
 
 namespace ByteCrusher.Game
 {
@@ -14,6 +16,11 @@ namespace ByteCrusher.Game
         .Play();
     }
 
+    public static void Stop()
+    {
+      Environment.Exit(exitCode:0);
+    }
+
     private static IEnumerable<Scene> Scenes()
     {
       yield return new Scene()
@@ -21,7 +28,8 @@ namespace ByteCrusher.Game
           new AlienEntity()
             .WithController(new AlienController())
         )
-      .WithBackground(new BackgroundDrawer());
+        .WithController(new FirstLevelController())
+        .WithBackground(new BackgroundDrawer());
     }
   }
 

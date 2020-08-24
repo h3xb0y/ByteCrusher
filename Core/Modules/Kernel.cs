@@ -79,7 +79,7 @@ namespace ByteCrusher.Core.Modules
     {
       // process active scene redrawing by tick
       var activeScene = _scenes[_activeSceneIndex];
-      _scenes.ForEach(x => x.Process());
+      _scenes.ForEach(x => x.Process(_width, _height));
       
       Console.SetCursorPosition(0, 0);
       Console.CursorVisible = false;
