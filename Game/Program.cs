@@ -2,24 +2,28 @@
 using System.Collections.Generic;
 using System.IO;
 using ByteCrusher.Core.Entities;
+using ByteCrusher.Core.Services;
 using ByteCrusher.Game.Level1_1;
 
 namespace ByteCrusher.Game
 {
   internal static class Program
   {
+    private static Core.Entities.Game _game;
     public static void Main()
     {
-      new Core.Entities.Game(new FileLogger())
+      _game = new Core.Entities.Game(new FileLogger())
         .WithScenes(Scenes())
-        .WithWidthAndHeight(100, 20)
-        .Play();
+        .WithWidthAndHeight(100, 20);
+      
+      _game.Play();
     }
 
     public static void Stop()
-    {
-      Environment.Exit(exitCode:0);
-    }
+      => Environment.Exit(0);
+
+    public static GameServices Services()
+      => _game.GameServices();
 
     private static IEnumerable<Scene> Scenes()
     {

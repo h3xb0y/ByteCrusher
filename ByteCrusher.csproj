@@ -53,6 +53,8 @@
     <Compile Include="Core\IO\Time.cs" />
     <Compile Include="Core\Layer\Layer.cs" />
     <Compile Include="Core\Modules\Kernel.cs" />
+    <Compile Include="Core\Services\GameServices.cs" />
+    <Compile Include="Core\Services\ServicesCollection.cs" />
     <Compile Include="Game\AlienController.cs" />
     <Compile Include="Game\AlienEntity.cs" />
     <Compile Include="Game\BackgroundDrawer.cs" />
