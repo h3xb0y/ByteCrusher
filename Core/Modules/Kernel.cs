@@ -9,6 +9,8 @@ namespace ByteCrusher.Core.Modules
 {
   public class Kernel
   {
+    public KernelSettings Settings;
+    
     #region API
 
     [DllImport("kernel32.dll", SetLastError = true)]
@@ -30,16 +32,10 @@ namespace ByteCrusher.Core.Modules
 
     internal int _width;
     internal int _height;
-
-    internal int _frameRate = 1;
-
     internal List<Scene> _scenes;
 
     private Thread _thread;
-
     private ILogger _logger;
-    private bool _isPlaying;
-    private int _activeSceneIndex = 0;
 
     public Kernel(ILogger logger = null)
       => _logger = logger;
@@ -48,7 +44,6 @@ namespace ByteCrusher.Core.Modules
     {
       _scenes.ForEach(x => x.Initialize());
       _thread = new Thread(_StartThread);
-      _isPlaying = true;
       _thread.Start();
 
       // block input mode in console
@@ -63,22 +58,19 @@ namespace ByteCrusher.Core.Modules
       SetConsoleMode(handle, mode | 0x4);
     }
 
-    public void Stop()
-      => _isPlaying = false;
-
     private void _StartThread()
     {
-      while (_isPlaying)
+      while (true)
       {
         _Draw();
-        Thread.Sleep(_frameRate);
+        Thread.Sleep(Settings.FrameRate);
       }
     }
 
     private void _Draw()
     {
       // process active scene redrawing by tick
-      var activeScene = _scenes[_activeSceneIndex];
+      var activeScene = _scenes[Settings.SceneIndex];
       _scenes.ForEach(x => x.Process(_width, _height));
       
       Console.SetCursorPosition(0, 0);
@@ -88,6 +80,12 @@ namespace ByteCrusher.Core.Modules
       Console.Write(drawing);
       Time.RecalculateDelta();
     }
+  }
+
+  public struct KernelSettings
+  {
+    public int SceneIndex;
+    public int FrameRate;
   }
 
   public static class GameExtensions

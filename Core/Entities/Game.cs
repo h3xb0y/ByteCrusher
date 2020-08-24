@@ -14,8 +14,16 @@ namespace ByteCrusher.Core.Entities
       _kernel = new Kernel(logger);
       _services = new GameServices();
 
+      Initialize();
+    }
+
+    private void Initialize()
+    {
       foreach (var service in new ServicesCollection())
+      {
+        service.Initialize();
         _services.Add(service);
+      }
     }
 
     public Game SetWidthAndHeight(int width, int height)

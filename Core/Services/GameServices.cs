@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using ByteCrusher.Core.Modules;
 
 namespace ByteCrusher.Core.Services
 {
