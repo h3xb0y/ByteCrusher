@@ -15,13 +15,13 @@ namespace ByteCrusher.Core.Addition
       return this;
     }
 
-    public AsciiCode WhereColor(string pattern, string color)
+    public AsciiCode AddColor(string pattern, string color)
     {
       _colorsByPattern[pattern] = color;
       return this;
     }
 
-    public AsciiCode WhereColor(string pattern, string color, string backgroundColor)
+    public AsciiCode AddColor(string pattern, string color, string backgroundColor)
     {
       _colorsByPattern[pattern] = color;
       _backgroundByPattern[pattern] = backgroundColor;

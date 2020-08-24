@@ -23,17 +23,23 @@ namespace ByteCrusher.Game
 
   public class AlienDrawer : IEntityDrawer
   {
+    private readonly AsciiCode _asciiCode;
+    public AlienDrawer()
+    {
+      _asciiCode = new AsciiCode()
+        .AddColor("*", "150", "90")
+        .AddColor("]", "200", "90")
+        .AddColor("[", "200", "90");
+    }
+    
     public string Code()
       => " ]**[ \n" +
          "]****[\n" +
          " ]**[ ";
 
-    public string Replace(char element)
-      => new AsciiCode()
-        .AddDrawing(element.ToString())
-        .WhereColor("*", "150", "90")
-        .WhereColor("]", "200", "90")
-        .WhereColor("[", "200", "90")
+    public string Replace(string element)
+      => _asciiCode
+        .AddDrawing(element)
         .Build();
   }
 }

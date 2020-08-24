@@ -27,14 +27,21 @@ namespace ByteCrusher.Game
       "*|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*\n" +
       "***************************************************************************************************\n";
 
+    private readonly AsciiCode _asciiCode;
+
+    public BackgroundDrawer()
+    {
+      _asciiCode = new AsciiCode()
+        .AddColor("*", "250", "20")
+        .AddColor("|", "250", "10");
+    }
+
     public string Code()
       => _code;
 
-    public string Replace(char element)
-      => new AsciiCode()
-        .AddDrawing(element.ToString())
-        .WhereColor("*", "250", "20")
-        .WhereColor("|", "250", "10")
+    public string Replace(string element)
+      => _asciiCode
+        .AddDrawing(element)
         .Build();
   }
 }
