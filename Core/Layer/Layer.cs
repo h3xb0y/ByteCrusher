@@ -48,8 +48,13 @@ namespace ByteCrusher.Core.Layer
         
         for (var ii = 0; ii < line.Length; ii++)
         {
+          var symbol = splitedDrawing[i][ii];
           var replacedDrawing = drawer.Replace(splitedDrawing[i][ii]);
           var currentXPos = position?.X + ii ?? ii;
+          
+          if(symbol.ToString() == replacedDrawing && " " == replacedDrawing)
+            continue;
+          
           if(currentXPos >= currentLineArray.Length || currentXPos < 0)
             continue;
 
