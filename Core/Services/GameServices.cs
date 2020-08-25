@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using ByteCrusher.Core.Modules;
+using ByteCrusher.Core.Entities;
 
 namespace ByteCrusher.Core.Services
 {
@@ -23,7 +23,6 @@ namespace ByteCrusher.Core.Services
 
   public interface IGameService
   {
-    void Initialize();
-    void Process();
+    void Initialize(GameSettings settings);
   }
 }

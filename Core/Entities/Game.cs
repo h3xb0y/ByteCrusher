@@ -23,7 +23,7 @@ namespace ByteCrusher.Core.Entities
     {
       foreach (var service in new ServicesCollection())
       {
-        service.Initialize();
+        service.Initialize(_settings);
         _services.Add(service);
       }
     }

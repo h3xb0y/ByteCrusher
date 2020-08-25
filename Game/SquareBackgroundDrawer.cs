@@ -3,7 +3,7 @@ using ByteCrusher.Core.Entities;
 
 namespace ByteCrusher.Game
 {
-  public class BackgroundDrawer : IEntityDrawer
+  public class SquareBackgroundDrawer : IEntityDrawer
   {
     private const string _code =
       "***************************************************************************************************\n" +
@@ -29,7 +29,7 @@ namespace ByteCrusher.Game
 
     private readonly AsciiCode _asciiCode;
 
-    public BackgroundDrawer()
+    public SquareBackgroundDrawer()
     {
       _asciiCode = new AsciiCode()
         .AddColor("*", "250", "20")

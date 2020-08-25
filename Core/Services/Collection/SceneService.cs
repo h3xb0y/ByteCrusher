@@ -1,17 +1,18 @@
+using ByteCrusher.Core.Entities;
+
 namespace ByteCrusher.Core.Services.Collection
 {
   public class SceneService : IGameService
   {
-    public void Initialize()
+    private GameSettings _settings;
+    public void Initialize(GameSettings settings)
     {
+      _settings = settings;
     }
 
-    public void Process()
+    public void LoadNextLevel()
     {
-    }
-
-    public void LoadNext()
-    {
+      _settings.SceneIndex++;
     }
   }
 }
