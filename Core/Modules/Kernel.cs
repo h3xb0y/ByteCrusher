@@ -9,7 +9,6 @@ namespace ByteCrusher.Core.Modules
 {
   public class Kernel
   {
-    public KernelSettings Settings;
     
     #region API
 
@@ -29,20 +28,22 @@ namespace ByteCrusher.Core.Modules
     private const int STD_OUTPUT_HANDLE = -11;
 
     #endregion
-
-    internal int _width;
-    internal int _height;
-    internal List<Scene> _scenes;
+    
+    internal GameSettings _settings;
 
     private Thread _thread;
     private ILogger _logger;
 
-    public Kernel(ILogger logger = null)
-      => _logger = logger;
+    public Kernel(GameSettings settings, ILogger logger = null)
+    {
+      _settings = settings;
+      _logger = logger;
+    }
+      
 
     public void Start()
     {
-      _scenes.ForEach(x => x.Initialize());
+      _settings.Scenes.ForEach(x => x.Initialize());
       _thread = new Thread(_StartThread);
       _thread.Start();
 
@@ -63,14 +64,14 @@ namespace ByteCrusher.Core.Modules
       while (true)
       {
         _Draw();
-        Thread.Sleep(Settings.FrameRate);
+        Thread.Sleep(_settings.FrameRate);
       }
     }
 
     private void _Draw()
     {
-      var activeScene = _scenes[Settings.SceneIndex];
-      activeScene.Process(_width, _height);
+      var activeScene = _settings.Scenes[_settings.SceneIndex];
+      activeScene.Process(_settings.Width, _settings.Height);
       
       Console.SetCursorPosition(0, 0);
       Console.CursorVisible = false;
@@ -79,25 +80,6 @@ namespace ByteCrusher.Core.Modules
       
       Console.Write(drawing);
       Time.RecalculateDelta();
-    }
-  }
-
-  public struct KernelSettings
-  {
-    public int SceneIndex;
-    public int FrameRate;
-  }
-
-  public static class GameExtensions
-  {
-    public static Kernel AddScene(this Kernel kernel, Scene scene)
-    {
-      if (kernel._scenes == null)
-        kernel._scenes = new List<Scene>();
-
-      kernel._scenes.Add(scene);
-
-      return kernel;
     }
   }
 }

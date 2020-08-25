@@ -8,11 +8,13 @@ namespace ByteCrusher.Core.Entities
   {
     private readonly Kernel _kernel;
     private readonly GameServices _services;
+    private readonly GameSettings _settings;
 
     public Game(ILogger logger = null)
     {
-      _kernel = new Kernel(logger);
+      _settings = new GameSettings();
       _services = new GameServices();
+      _kernel = new Kernel(_settings, logger);
 
       Initialize();
     }
@@ -28,8 +30,8 @@ namespace ByteCrusher.Core.Entities
 
     public Game SetWidthAndHeight(int width, int height)
     {
-      _kernel._width = width;
-      _kernel._height = height;
+      _settings.Width = width;
+      _settings.Height = height;
 
       return this;
     }
@@ -37,7 +39,7 @@ namespace ByteCrusher.Core.Entities
     public Game AddScenes(IEnumerable<Scene> scenes)
     {
       foreach (var scene in scenes)
-        _kernel.AddScene(scene);
+        _settings.Scenes.Add(scene);
 
       return this;
     }
@@ -55,5 +57,15 @@ namespace ByteCrusher.Core.Entities
 
     public void Play()
       => _kernel.Start();
+  }
+
+  public class GameSettings
+  {
+    public List<Scene> Scenes = new List<Scene>();
+    public int SceneIndex;
+    public int FrameRate;
+    
+    public int Width;
+    public int Height;
   }
 }

@@ -44,7 +44,7 @@ namespace ByteCrusher.Core.Entities
 
     public string Drawing(Kernel kernel)
     {
-      var layer = new Layer.Layer(kernel._width, kernel._height);
+      var layer = new Layer.Layer(kernel._settings.Width, kernel._settings.Height);
 
       if (_drawer != null)
         layer.Apply(_drawer);
