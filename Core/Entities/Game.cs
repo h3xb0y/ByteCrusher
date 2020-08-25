@@ -54,6 +54,6 @@ namespace ByteCrusher.Core.Entities
       => _services;
 
     public void Play()
-      => _kernel.Play();
+      => _kernel.Start();
   }
 }

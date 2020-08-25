@@ -40,7 +40,7 @@ namespace ByteCrusher.Core.Modules
     public Kernel(ILogger logger = null)
       => _logger = logger;
 
-    public void Play()
+    public void Start()
     {
       _scenes.ForEach(x => x.Initialize());
       _thread = new Thread(_StartThread);
@@ -69,14 +69,14 @@ namespace ByteCrusher.Core.Modules
 
     private void _Draw()
     {
-      // process active scene redrawing by tick
       var activeScene = _scenes[Settings.SceneIndex];
-      _scenes.ForEach(x => x.Process(_width, _height));
+      activeScene.Process(_width, _height);
       
       Console.SetCursorPosition(0, 0);
       Console.CursorVisible = false;
+      
       var drawing = activeScene.Drawing(this);
-      _logger.LogDrawing(drawing);
+      
       Console.Write(drawing);
       Time.RecalculateDelta();
     }
