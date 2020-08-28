@@ -33,7 +33,7 @@ namespace ByteCrusher.Game
     {
       _asciiCode = new AsciiCode()
         .AddColor("*", "250", "20")
-        .AddColor("|", "250", "10");
+        .AddColor("|", "250", "10", false);
     }
 
     public string Code()
