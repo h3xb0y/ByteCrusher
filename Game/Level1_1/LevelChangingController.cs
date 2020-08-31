@@ -7,9 +7,12 @@ namespace ByteCrusher.Game.Level1_1
 {
   public class LevelChangingController : ISceneController
   {
-    public void Process(IEnumerable<Entity> _entities, int width, int height)
+    public void Process(IEnumerable<Entity>? _entities, int width, int height)
     {
-      var alien = _entities.First(x => x is AlienEntity);
+      var alien = _entities?.FirstOrDefault(x => x is AlienEntity);
+
+      if (alien == null)
+        return;
 
       if (alien.Position.X < width && alien.Position.Y < height)
         return;

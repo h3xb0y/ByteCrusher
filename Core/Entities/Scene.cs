@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using ByteCrusher.Core.Modules;
 
 namespace ByteCrusher.Core.Entities
@@ -39,7 +40,7 @@ namespace ByteCrusher.Core.Entities
     public void Process(int sceneWidth, int sceneHeight)
     {
       _controller?.Process(_entities, sceneWidth, sceneHeight);
-      _entities.ForEach(x => x.Process(this));
+      _entities?.ForEach(x => x.Process(this));
     }
 
     public string Drawing(Kernel kernel)
@@ -50,7 +51,7 @@ namespace ByteCrusher.Core.Entities
         layer.Apply(_drawer);
 
       // apply all entities drawing by layering
-      foreach (var entity in _entities)
+      foreach (var entity in _entities ?? Enumerable.Empty<Entity>())
         layer.Apply(entity.Drawer(), entity.Position);
 
       return layer.ToString();

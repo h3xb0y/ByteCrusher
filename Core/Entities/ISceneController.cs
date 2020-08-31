@@ -4,6 +4,6 @@ namespace ByteCrusher.Core.Entities
 {
   public interface ISceneController
   {
-    void Process(IEnumerable<Entity> _entities, int width, int height);
+    void Process(IEnumerable<Entity>? _entities, int width, int height);
   }
 }
