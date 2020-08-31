@@ -60,7 +60,7 @@
     <Compile Include="Game\AlienController.cs" />
     <Compile Include="Game\AlienEntity.cs" />
     <Compile Include="Game\SquareBackgroundDrawer.cs" />
-    <Compile Include="Game\Level1_1\Level1_1Controller.cs" />
+    <Compile Include="Game\Level1_1\LevelChangingController.cs" />
     <Compile Include="Game\Level1_1\Level1_2Controller.cs" />
     <Compile Include="Game\Program.cs" />
     <Compile Include="Game\XXXBackgroundDrawer.cs" />

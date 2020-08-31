@@ -32,7 +32,7 @@ namespace ByteCrusher.Game
           new AlienEntity()
             .AddController(new AlienController())
         )
-        .AddController(new Level1_1Controller())
+        .AddController(new LevelChangingController())
         .AddBackground(new SquareBackgroundDrawer());
 
       yield return new Scene()
@@ -40,7 +40,7 @@ namespace ByteCrusher.Game
           new AlienEntity()
             .AddController(new AlienController())
           )
-        .AddController(new Level1_2Controller())
+        .AddController(new LevelChangingController())
         .AddBackground(new XXXBackgroundDrawer());
     }
   }

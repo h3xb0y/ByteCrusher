@@ -12,7 +12,13 @@ namespace ByteCrusher.Core.Services.Collection
 
     public void LoadNextLevel()
     {
+      if (!HasNextLevel())
+        return;
+      
       _settings.SceneIndex++;
     }
+
+    public bool HasNextLevel()
+      => _settings.Scenes.Count > _settings.SceneIndex + 1;
   }
 }

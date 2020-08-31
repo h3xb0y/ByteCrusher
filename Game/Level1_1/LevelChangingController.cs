@@ -5,14 +5,21 @@ using ByteCrusher.Core.Services.Collection;
 
 namespace ByteCrusher.Game.Level1_1
 {
-  public class Level1_1Controller : ISceneController
+  public class LevelChangingController : ISceneController
   {
     public void Process(IEnumerable<Entity> _entities, int width, int height)
     {
       var alien = _entities.First(x => x is AlienEntity);
 
-      if (alien.Position.X >= width || alien.Position.Y >= height)
-        Program.Services().Get<SceneService>().LoadNextLevel();
+      if (alien.Position.X < width && alien.Position.Y < height)
+        return;
+
+      var sceneService = Program.Services().Get<SceneService>();
+
+      if (sceneService.HasNextLevel())
+        sceneService.LoadNextLevel();
+      else
+        Program.Stop();
     }
   }
 }
