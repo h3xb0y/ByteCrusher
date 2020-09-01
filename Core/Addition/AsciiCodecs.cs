@@ -16,12 +16,12 @@ namespace ByteCrusher.Core.Addition
       return this;
     }
 
-    public AsciiCode AddColor(string pattern, string color, string backgroundColor, bool usePattern = true)
+    public AsciiCode AddColor(string pattern, string color, string backgroundColor, bool canSkipPattern = false)
     {
       _colorsByPattern[pattern] = color;
       _backgroundByPattern[pattern] = backgroundColor;
       
-      if(!usePattern)
+      if(canSkipPattern)
         _skippedPatterns.Add(pattern);
 
       return this;
@@ -50,7 +50,8 @@ namespace ByteCrusher.Core.Addition
         var canSkip = _skippedPatterns.Contains(pattern);
 
         var color = colorByPattern.Value;
-        var coloredPattern = _drawing.Replace(pattern, "\x1b[38;5;" + color + "m" + (canSkip ? " "  : pattern));
+        var drawPattern = canSkip ? " " : pattern;
+        var coloredPattern = _drawing.Replace(pattern, "\x1b[38;5;" + color + "m" + drawPattern);
         
         newDrawing = newDrawing != " " 
           ? newDrawing + coloredPattern 
