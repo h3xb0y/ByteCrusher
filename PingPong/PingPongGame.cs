@@ -1,4 +1,4 @@
-﻿using ByteCrusher.Core.Entities;
+﻿using ByteCrusher.Src.Entities;
 
 namespace PingPong
 {

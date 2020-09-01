@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using ByteCrusher.Core.Entities;
+using ByteCrusher.Src.Entities;
 
-namespace ByteCrusher.Examples.Alien.Level1_1
+namespace AlienGame.Level1_1
 {
   public class Level1_2Controller : ISceneController
   {

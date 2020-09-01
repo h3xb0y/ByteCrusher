@@ -1,6 +1,6 @@
-using ByteCrusher.Core.Entities;
+using ByteCrusher.Src.Entities;
 
-namespace ByteCrusher.Core.Services.Collection
+namespace ByteCrusher.Src.Services.Collection
 {
   // TODO
   public class SoundService : IGameService

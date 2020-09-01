@@ -1,4 +1,4 @@
-namespace ByteCrusher.Core.Entities
+namespace ByteCrusher.Src.Entities
 {
   public interface IEntityController
   {

@@ -39,24 +39,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Data\Position.cs" />
-    <Compile Include="Core\Entities\Entity.cs" />
-    <Compile Include="Core\Entities\Game.cs" />
-    <Compile Include="Core\Entities\IEntityController.cs" />
-    <Compile Include="Core\Entities\IEntityDrawer.cs" />
-    <Compile Include="Core\Entities\ILogger.cs" />
-    <Compile Include="Core\Entities\ISceneController.cs" />
-    <Compile Include="Core\Entities\Scene.cs" />
-    <Compile Include="Core\Extensions.cs" />
-    <Compile Include="Core\Addition\AsciiCodecs.cs" />
-    <Compile Include="Core\IO\Input.cs" />
-    <Compile Include="Core\IO\Time.cs" />
-    <Compile Include="Core\Layer\Layer.cs" />
-    <Compile Include="Core\Modules\Kernel.cs" />
-    <Compile Include="Core\Services\Collection\SceneService.cs" />
-    <Compile Include="Core\Services\Collection\SoundService.cs" />
-    <Compile Include="Core\Services\GameServices.cs" />
-    <Compile Include="Core\Services\ServicesCollection.cs" />
+    <Compile Include="Src\Data\Position.cs" />
+    <Compile Include="Src\Entities\Entity.cs" />
+    <Compile Include="Src\Entities\Game.cs" />
+    <Compile Include="Src\Entities\IEntityController.cs" />
+    <Compile Include="Src\Entities\IEntityDrawer.cs" />
+    <Compile Include="Src\Entities\ILogger.cs" />
+    <Compile Include="Src\Entities\ISceneController.cs" />
+    <Compile Include="Src\Entities\Scene.cs" />
+    <Compile Include="Src\Extensions.cs" />
+    <Compile Include="Src\Addition\AsciiCodecs.cs" />
+    <Compile Include="Src\IO\Input.cs" />
+    <Compile Include="Src\IO\Time.cs" />
+    <Compile Include="Src\Layer\Layer.cs" />
+    <Compile Include="Src\Modules\Kernel.cs" />
+    <Compile Include="Src\Services\Collection\SceneService.cs" />
+    <Compile Include="Src\Services\Collection\SoundService.cs" />
+    <Compile Include="Src\Services\GameServices.cs" />
+    <Compile Include="Src\Services\ServicesCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

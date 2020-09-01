@@ -1,8 +1,8 @@
 using System;
-using ByteCrusher.Core.Addition;
-using ByteCrusher.Core.Entities;
+using ByteCrusher.Src.Addition;
+using ByteCrusher.Src.Entities;
 
-namespace ByteCrusher.Examples.Alien
+namespace AlienGame
 {
   public class SquareBackgroundDrawer : IEntityDrawer
   {

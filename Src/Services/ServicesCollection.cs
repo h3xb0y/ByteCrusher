@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using ByteCrusher.Core.Services.Collection;
+using ByteCrusher.Src.Services.Collection;
 
-namespace ByteCrusher.Core.Services
+namespace ByteCrusher.Src.Services
 {
   public class ServicesCollection : IEnumerable<IGameService>
   {

@@ -1,8 +1,8 @@
 using System;
-using ByteCrusher.Core.Entities;
-using ByteCrusher.Core.IO;
+using ByteCrusher.Src.Entities;
+using ByteCrusher.Src.IO;
 
-namespace ByteCrusher.Examples.Alien
+namespace AlienGame
 {
   public class AlienController : IEntityController
   {

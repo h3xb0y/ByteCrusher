@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using ByteCrusher.Core.Entities;
-using ByteCrusher.Core.Services.Collection;
+using ByteCrusher.Src.Entities;
+using ByteCrusher.Src.Services.Collection;
 
-namespace ByteCrusher.Examples.Alien.Level1_1
+namespace AlienGame.Level1_1
 {
   public class LevelChangingController : ISceneController
   {
