@@ -1,7 +1,7 @@
 using ByteCrusher.Core.Addition;
 using ByteCrusher.Core.Entities;
 
-namespace ByteCrusher.Game
+namespace ByteCrusher.Examples.Alien
 {
   public class SquareBackgroundDrawer : IEntityDrawer
   {

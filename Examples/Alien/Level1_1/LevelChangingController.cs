@@ -3,7 +3,7 @@ using System.Linq;
 using ByteCrusher.Core.Entities;
 using ByteCrusher.Core.Services.Collection;
 
-namespace ByteCrusher.Game.Level1_1
+namespace ByteCrusher.Examples.Alien.Level1_1
 {
   public class LevelChangingController : ISceneController
   {

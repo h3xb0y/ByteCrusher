@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using ByteCrusher.Core.Entities;
 using ByteCrusher.Core.Services;
-using ByteCrusher.Game.Level1_1;
+using ByteCrusher.Examples.Alien.Level1_1;
 
-namespace ByteCrusher.Game
+namespace ByteCrusher.Examples.Alien
 {
   internal static class Program
   {
-    private static Core.Entities.Game _game;
+    private static Game _game;
     public static void Main()
     {
-      _game = new Core.Entities.Game(new FileLogger())
+      _game = new Game(new FileLogger())
         .AddScenes(Scenes())
         .SetWidthAndHeight(100, 20);
       

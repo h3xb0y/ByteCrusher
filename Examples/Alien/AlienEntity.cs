@@ -2,7 +2,7 @@ using ByteCrusher.Core.Addition;
 using ByteCrusher.Core.Data;
 using ByteCrusher.Core.Entities;
 
-namespace ByteCrusher.Game
+namespace ByteCrusher.Examples.Alien
 {
   public class AlienEntity : Entity
   {
