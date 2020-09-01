@@ -13,12 +13,15 @@ namespace ByteCrusher.Examples.Alien
         case ConsoleKey.RightArrow:
           entity.Position.X += 1;
           break;
+          
         case ConsoleKey.DownArrow:
           entity.Position.Y += 1;
           break;
+          
         case ConsoleKey.LeftArrow:
           entity.Position.X -= 1;
           break;
+          
         case ConsoleKey.UpArrow:
           entity.Position.Y -= 1;
           break;

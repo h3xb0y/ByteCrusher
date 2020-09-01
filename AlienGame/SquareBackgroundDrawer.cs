@@ -1,3 +1,4 @@
+using System;
 using ByteCrusher.Core.Addition;
 using ByteCrusher.Core.Entities;
 
@@ -40,8 +41,12 @@ namespace ByteCrusher.Examples.Alien
       => _code;
 
     public string Replace(string element)
-      => _asciiCode
+    {
+      var color = new Random().Next(0, 250);
+      return _asciiCode
         .AddDrawing(element)
+        .AddColor("*", "250", color.ToString())
         .Build();
+    }
   }
 }

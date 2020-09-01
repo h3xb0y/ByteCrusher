@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{597B93F6-8095-4B14-9EDE-AB36C4DD814F}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{E8EB4023-F7E7-4773-875F-527520E15CA2}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ByteCrusher</RootNamespace>
-    <AssemblyName>ByteCrusher</AssemblyName>
+    <RootNamespace>AlienGame</RootNamespace>
+    <AssemblyName>AlienGame</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <LangVersion>8</LangVersion>
@@ -39,25 +39,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Data\Position.cs" />
-    <Compile Include="Core\Entities\Entity.cs" />
-    <Compile Include="Core\Entities\Game.cs" />
-    <Compile Include="Core\Entities\IEntityController.cs" />
-    <Compile Include="Core\Entities\IEntityDrawer.cs" />
-    <Compile Include="Core\Entities\ILogger.cs" />
-    <Compile Include="Core\Entities\ISceneController.cs" />
-    <Compile Include="Core\Entities\Scene.cs" />
-    <Compile Include="Core\Extensions.cs" />
-    <Compile Include="Core\Addition\AsciiCodecs.cs" />
-    <Compile Include="Core\IO\Input.cs" />
-    <Compile Include="Core\IO\Time.cs" />
-    <Compile Include="Core\Layer\Layer.cs" />
-    <Compile Include="Core\Modules\Kernel.cs" />
-    <Compile Include="Core\Services\Collection\SceneService.cs" />
-    <Compile Include="Core\Services\Collection\SoundService.cs" />
-    <Compile Include="Core\Services\GameServices.cs" />
-    <Compile Include="Core\Services\ServicesCollection.cs" />
+    <Compile Include="AlienController.cs" />
+    <Compile Include="AlienEntity.cs" />
+    <Compile Include="AlienGame.cs" />
+    <Compile Include="Level1_1\Level1_2Controller.cs" />
+    <Compile Include="Level1_1\LevelChangingController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SquareBackgroundDrawer.cs" />
+    <Compile Include="XXXBackgroundDrawer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ByteCrusher.csproj">
+      <Project>{597b93f6-8095-4b14-9ede-ab36c4dd814f}</Project>
+      <Name>ByteCrusher</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

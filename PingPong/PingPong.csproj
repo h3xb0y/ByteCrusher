@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{597B93F6-8095-4B14-9EDE-AB36C4DD814F}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{F48CA98E-5864-442C-BDE3-BC985AE8ADCD}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ByteCrusher</RootNamespace>
-    <AssemblyName>ByteCrusher</AssemblyName>
+    <RootNamespace>PingPong</RootNamespace>
+    <AssemblyName>PingPong</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <LangVersion>8</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -39,25 +38,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Data\Position.cs" />
-    <Compile Include="Core\Entities\Entity.cs" />
-    <Compile Include="Core\Entities\Game.cs" />
-    <Compile Include="Core\Entities\IEntityController.cs" />
-    <Compile Include="Core\Entities\IEntityDrawer.cs" />
-    <Compile Include="Core\Entities\ILogger.cs" />
-    <Compile Include="Core\Entities\ISceneController.cs" />
-    <Compile Include="Core\Entities\Scene.cs" />
-    <Compile Include="Core\Extensions.cs" />
-    <Compile Include="Core\Addition\AsciiCodecs.cs" />
-    <Compile Include="Core\IO\Input.cs" />
-    <Compile Include="Core\IO\Time.cs" />
-    <Compile Include="Core\Layer\Layer.cs" />
-    <Compile Include="Core\Modules\Kernel.cs" />
-    <Compile Include="Core\Services\Collection\SceneService.cs" />
-    <Compile Include="Core\Services\Collection\SoundService.cs" />
-    <Compile Include="Core\Services\GameServices.cs" />
-    <Compile Include="Core\Services\ServicesCollection.cs" />
+    <Compile Include="PingPongGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ByteCrusher.csproj">
+      <Project>{597b93f6-8095-4b14-9ede-ab36c4dd814f}</Project>
+      <Name>ByteCrusher</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
