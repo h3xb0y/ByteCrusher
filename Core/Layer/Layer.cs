@@ -7,7 +7,7 @@ namespace ByteCrusher.Core.Layer
 {
   public class Layer
   {
-    private Dictionary<int, string[]> _symbols;
+    private readonly Dictionary<int, string[]> _symbols;
 
     public Layer(int width, int height)
     {
@@ -18,9 +18,7 @@ namespace ByteCrusher.Core.Layer
         _symbols[i] = new string[width];
         
         for (var ii = 0; ii < width; ii++)
-        {
           _symbols[i][ii] = " ";
-        }
       }
     }
 

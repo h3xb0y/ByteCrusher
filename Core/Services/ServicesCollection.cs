@@ -13,8 +13,6 @@ namespace ByteCrusher.Core.Services
     }
 
     IEnumerator IEnumerable.GetEnumerator()
-    {
-      return GetEnumerator();
-    }
+      => GetEnumerator();
   }
 }

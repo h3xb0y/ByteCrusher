@@ -29,10 +29,10 @@ namespace ByteCrusher.Core.Modules
 
     #endregion
     
-    internal GameSettings _settings;
+    internal readonly GameSettings _settings;
+    internal readonly ILogger _logger;
 
     private Thread _thread;
-    private ILogger _logger;
 
     public Kernel(GameSettings settings, ILogger logger = null)
     {

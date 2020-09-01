@@ -6,9 +6,7 @@ namespace ByteCrusher.Core.Services.Collection
   {
     private GameSettings _settings;
     public void Initialize(GameSettings settings)
-    {
-      _settings = settings;
-    }
+      => _settings = settings;
 
     public void LoadNextLevel()
     {

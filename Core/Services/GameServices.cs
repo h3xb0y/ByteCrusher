@@ -6,7 +6,8 @@ namespace ByteCrusher.Core.Services
 {
   public class GameServices
   {
-    private Dictionary<Type, IGameService> _services = new Dictionary<Type, IGameService>();
+    private readonly Dictionary<Type, IGameService> _services = 
+      new Dictionary<Type, IGameService>();
     
     public T Get<T>() where T : IGameService, new()
     {
