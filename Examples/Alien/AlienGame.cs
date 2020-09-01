@@ -7,7 +7,7 @@ using ByteCrusher.Examples.Alien.Level1_1;
 
 namespace ByteCrusher.Examples.Alien
 {
-  internal static class Program
+  internal static class AlienGame
   {
     private static Game _game;
     public static void Main()

@@ -17,12 +17,12 @@ namespace ByteCrusher.Examples.Alien.Level1_1
       if (alien.Position.X < width && alien.Position.Y < height)
         return;
 
-      var sceneService = Program.Services().Get<SceneService>();
+      var sceneService = AlienGame.Services().Get<SceneService>();
 
       if (sceneService.HasNextLevel())
         sceneService.LoadNextLevel();
       else
-        Program.Stop();
+        AlienGame.Stop();
     }
   }
 }

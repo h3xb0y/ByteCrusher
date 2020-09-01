@@ -61,13 +61,10 @@
     <Compile Include="Examples\Alien\AlienEntity.cs" />
     <Compile Include="Examples\Alien\Level1_1\Level1_2Controller.cs" />
     <Compile Include="Examples\Alien\Level1_1\LevelChangingController.cs" />
-    <Compile Include="Examples\Alien\Program.cs" />
+    <Compile Include="Examples\Alien\AlienGame.cs" />
     <Compile Include="Examples\Alien\SquareBackgroundDrawer.cs" />
     <Compile Include="Examples\Alien\XXXBackgroundDrawer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Examples\PingPong" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
