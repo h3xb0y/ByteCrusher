@@ -30,11 +30,9 @@ namespace PingPong.Controllers
     private readonly AsciiCode _asciiCode;
 
     public MenuBackgroundController()
-    {
-      _asciiCode = new AsciiCode()
+      => _asciiCode = new AsciiCode()
         .AddColor("*", "250", "20")
         .AddColor("_", "250", "10", true);
-    }
 
     public string Code()
       => _code;

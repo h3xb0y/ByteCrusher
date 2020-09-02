@@ -4,18 +4,21 @@ using System.IO;
 using ByteCrusher.Entities;
 using ByteCrusher.Services;
 using PingPong.Controllers;
+using PingPong.Controllers.UI.Menu;
+using PingPong.Entities.UI.Menu;
 
 namespace PingPong
 {
-  internal class PingPongGame : Game 
+  internal class PingPongGame : Game
   {
     private static Game _game;
+
     public static void Main()
     {
       _game = new Game(new FileLogger())
         .AddScenes(Scenes())
         .SetWidthAndHeight(100, 20);
-      
+
       _game.Play();
     }
 
@@ -28,6 +31,9 @@ namespace PingPong
     private static IEnumerable<Scene> Scenes()
     {
       yield return new Scene()
+        .AddEntity(new StartButton())
+        .AddEntity(new ExitButton())
+        .AddController(new MainMenuController())
         .AddBackground(new MenuBackgroundController());
     }
   }
@@ -45,7 +51,7 @@ namespace PingPong
       if (!File.Exists(_drawingPath))
         File.Create(_drawingPath);
     }
-    
+
     public void LogInfo(string info)
     {
       using var stream = new StreamWriter(_path);
