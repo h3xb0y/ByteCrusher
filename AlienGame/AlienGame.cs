@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using AlienGame.Level1_1;
-using ByteCrusher.Src.Entities;
-using ByteCrusher.Src.Services;
+using ByteCrusher.Entities;
+using ByteCrusher.Entities;
+using ByteCrusher.Services;
 
 namespace AlienGame
 {

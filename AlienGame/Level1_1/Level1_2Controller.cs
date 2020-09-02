@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-using ByteCrusher.Src.Entities;
+using ByteCrusher.Entities;
+using ByteCrusher.Entities;
 
 namespace AlienGame.Level1_1
 {

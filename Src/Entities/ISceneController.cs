@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using ByteCrusher.Entities;
 
-namespace ByteCrusher.Src.Entities
+namespace ByteCrusher.Entities
 {
   public interface ISceneController
   {

@@ -1,10 +1,11 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Threading;
-using ByteCrusher.Src.Entities;
-using ByteCrusher.Src.IO;
+using ByteCrusher.Entities;
+using ByteCrusher.Entities;
+using ByteCrusher.IO;
 
-namespace ByteCrusher.Src.Modules
+namespace ByteCrusher.Modules
 {
   public class Kernel
   {

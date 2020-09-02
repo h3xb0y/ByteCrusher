@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using ByteCrusher.Src.Modules;
+using ByteCrusher.Entities;
+using ByteCrusher.Modules;
 
-namespace ByteCrusher.Src.Entities
+namespace ByteCrusher.Entities
 {
   public sealed class Scene
   {

@@ -1,6 +1,6 @@
 using System;
 
-namespace ByteCrusher.Src.IO
+namespace ByteCrusher.IO
 {
   public static class Time
   {

@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
-using ByteCrusher.Src.Data;
-using ByteCrusher.Src.Entities;
+using ByteCrusher.Entities;
+using ByteCrusher.Data;
+using ByteCrusher.Entities;
 
-namespace ByteCrusher.Src.Layer
+namespace ByteCrusher.Layer
 {
   public class Layer
   {

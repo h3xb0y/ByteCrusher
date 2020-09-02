@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ByteCrusher.Src
+namespace ByteCrusher
 {
   public static class Extensions
   {

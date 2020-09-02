@@ -1,6 +1,6 @@
 using System;
-using ByteCrusher.Src.Entities;
-using ByteCrusher.Src.IO;
+using ByteCrusher.Entities;
+using ByteCrusher.IO;
 
 namespace AlienGame
 {

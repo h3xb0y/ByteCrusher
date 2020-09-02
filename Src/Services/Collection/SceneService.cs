@@ -1,6 +1,6 @@
-using ByteCrusher.Src.Entities;
+using ByteCrusher.Entities;
 
-namespace ByteCrusher.Src.Services.Collection
+namespace ByteCrusher.Services.Collection
 {
   public class SceneService : IGameService
   {

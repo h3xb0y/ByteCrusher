@@ -1,4 +1,4 @@
-namespace ByteCrusher.Src.Entities
+namespace ByteCrusher.Entities
 {
   public interface ILogger
   {

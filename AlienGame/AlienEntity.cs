@@ -1,6 +1,7 @@
-using ByteCrusher.Src.Addition;
-using ByteCrusher.Src.Data;
-using ByteCrusher.Src.Entities;
+using ByteCrusher.Entities;
+using ByteCrusher.Addition;
+using ByteCrusher.Data;
+using ByteCrusher.Entities;
 
 namespace AlienGame
 {

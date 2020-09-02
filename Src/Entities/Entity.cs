@@ -1,7 +1,8 @@
 using System.Collections.Generic;
-using ByteCrusher.Src.Data;
+using ByteCrusher.Entities;
+using ByteCrusher.Data;
 
-namespace ByteCrusher.Src.Entities
+namespace ByteCrusher.Entities
 {
   public abstract class Entity
   {

@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using ByteCrusher.Src.Entities;
+using ByteCrusher.Entities;
 
-namespace ByteCrusher.Src.Services
+namespace ByteCrusher.Services
 {
   public class GameServices
   {
