@@ -42,6 +42,7 @@
     <Compile Include="Controllers\MenuBackgroundController.cs" />
     <Compile Include="Controllers\UI\Menu\MainMenuController.cs" />
     <Compile Include="Entities\UI\Menu\ExitButton.cs" />
+    <Compile Include="Entities\UI\Menu\IMenuElement.cs" />
     <Compile Include="Entities\UI\Menu\StartButton.cs" />
     <Compile Include="PingPongGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

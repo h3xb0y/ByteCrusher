@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using ByteCrusher.Entities;
 using ByteCrusher.IO;
 using PingPong.Entities.UI.Menu;
@@ -10,16 +11,24 @@ namespace PingPong.Controllers.UI.Menu
   {
     public void Process(IEnumerable<Entity> _entities, int width, int height)
     {
-      foreach (var entity in _entities)
+      var rightKeyPressed = Input.GetKey() == ConsoleKey.RightArrow;
+      var leftKeyPressed = Input.GetKey() == ConsoleKey.LeftArrow;
+
+      if (!leftKeyPressed && !rightKeyPressed)
+        return;
+      
+      foreach (var entity in _entities.OfType<IMenuElement>())
       {
+        entity.SetSelected(false);
+        
         switch (entity)
         {
           case StartButton startButton:
-            startButton.IsSelected = Input.GetKey() == ConsoleKey.LeftArrow;
+            startButton.SetSelected(leftKeyPressed);
             break;
-          
+
           case ExitButton exitButton:
-            exitButton.IsSelected = Input.GetKey() == ConsoleKey.RightArrow;
+            exitButton.SetSelected(rightKeyPressed);
             break;
         }
       }
