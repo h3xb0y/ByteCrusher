@@ -9,10 +9,15 @@ namespace PingPong.Controllers.UI.Menu
 {
   public class MainMenuController : ISceneController
   {
+    private Input _input;
+
+    public void InitializeIfNeeded(Game game)
+      => _input = game.Module<Input>();
+
     public void Process(IEnumerable<Entity> _entities, int width, int height)
     {
-      var rightKeyPressed = Input.GetKey() == ConsoleKey.RightArrow;
-      var leftKeyPressed = Input.GetKey() == ConsoleKey.LeftArrow;
+      var rightKeyPressed = _input?.PressedKey == ConsoleKey.RightArrow;
+      var leftKeyPressed = _input?.PressedKey == ConsoleKey.LeftArrow;
 
       if (!leftKeyPressed && !rightKeyPressed)
         return;
