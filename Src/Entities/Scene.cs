@@ -33,10 +33,8 @@ namespace ByteCrusher.Entities
       return this;
     }
 
-    public void Initialize()
-    {
-      // TODO
-    }
+    public void Initialize(Game game)
+      => _controller?.InitializeIfNeeded(game);
 
     public void Process(int sceneWidth, int sceneHeight)
     {

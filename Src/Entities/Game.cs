@@ -19,12 +19,12 @@ namespace ByteCrusher.Entities
       _services = new GameServices();
       _kernelModules = new List<IKernelModule> {new Time(), new Input()};
       _kernel = new Kernel(_settings, _kernelModules, logger);
-
-      Initialize();
     }
 
     private void Initialize()
     {
+      _settings.Scenes.ForEach(x => x.Initialize(this));
+      
       foreach (var service in new ServicesCollection())
       {
         service.Initialize(_settings);
@@ -65,12 +65,16 @@ namespace ByteCrusher.Entities
     public GameServices GameServices()
       => _services;
 
-    public IKernelModule Module<T>() where T : IKernelModule
+    public T Module<T>() where T : IKernelModule
       => _kernelModules.OfType<T>().FirstOrDefault();
 
 
     public void Play()
-      => _kernel.Start();
+    {
+      Initialize();
+
+      _kernel.Start();
+    }
   }
 
   public class GameSettings

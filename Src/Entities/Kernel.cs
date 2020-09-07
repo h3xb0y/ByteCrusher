@@ -43,7 +43,6 @@ namespace ByteCrusher.Entities
 
     public void Start()
     {
-      _settings.Scenes.ForEach(x => x.Initialize());
       _thread = new Thread(_StartThread);
       _thread.Start();
 
