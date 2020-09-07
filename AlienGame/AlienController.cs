@@ -6,9 +6,13 @@ namespace AlienGame
 {
   public class AlienController : IEntityController
   {
+    private Input _input;
+    public void InitializeIfNeeded(Game game)
+      => _input = game.Module<Input>();
+
     public void Process(Scene scene, Entity entity)
     {
-      switch (Input.GetKey())
+      switch (_input.PressedKey)
       {
         case ConsoleKey.RightArrow:
           entity.Position.X += 1;
