@@ -46,13 +46,14 @@
     <Compile Include="Src\Entities\IEntityDrawer.cs" />
     <Compile Include="Src\Entities\ILogger.cs" />
     <Compile Include="Src\Entities\ISceneController.cs" />
+    <Compile Include="Src\Entities\Kernel.cs" />
     <Compile Include="Src\Entities\Scene.cs" />
     <Compile Include="Src\Extensions.cs" />
     <Compile Include="Src\Addition\AsciiCodecs.cs" />
-    <Compile Include="Src\IO\Input.cs" />
-    <Compile Include="Src\IO\Time.cs" />
     <Compile Include="Src\Layer\Layer.cs" />
-    <Compile Include="Src\Modules\Kernel.cs" />
+    <Compile Include="Src\Modules\IKernelModule.cs" />
+    <Compile Include="Src\Modules\Implementations\Input.cs" />
+    <Compile Include="Src\Modules\Implementations\Time.cs" />
     <Compile Include="Src\Services\Collection\SceneService.cs" />
     <Compile Include="Src\Services\Collection\SoundService.cs" />
     <Compile Include="Src\Services\GameServices.cs" />

@@ -1,11 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Threading;
-using ByteCrusher.Entities;
-using ByteCrusher.Entities;
-using ByteCrusher.IO;
+using ByteCrusher.Modules;
 
-namespace ByteCrusher.Modules
+namespace ByteCrusher.Entities
 {
   public class Kernel
   {
@@ -31,12 +30,14 @@ namespace ByteCrusher.Modules
     
     internal readonly GameSettings _settings;
     internal readonly ILogger _logger;
+    internal readonly IEnumerable<IKernelModule> _modules;
 
     private Thread _thread;
 
-    public Kernel(GameSettings settings, ILogger logger = null)
+    public Kernel(GameSettings settings, IEnumerable<IKernelModule> modules, ILogger logger = null)
     {
       _settings = settings;
+      _modules = modules;
       _logger = logger;
     }
 
@@ -78,8 +79,9 @@ namespace ByteCrusher.Modules
       var drawing = activeScene.Drawing(this);
       
       Console.Write(drawing);
-      Time.RecalculateDelta();
-      Input.Update();
+      
+      foreach (var module in _modules)
+        module.Update();
     }
   }
 }
