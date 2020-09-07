@@ -80,6 +80,7 @@ namespace ByteCrusher.Modules
       
       Console.Write(drawing);
       Time.RecalculateDelta();
+      Input.Update();
     }
   }
 }
