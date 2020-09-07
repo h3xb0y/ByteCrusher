@@ -39,7 +39,6 @@ namespace ByteCrusher.Modules
       _settings = settings;
       _logger = logger;
     }
-      
 
     public void Start()
     {
