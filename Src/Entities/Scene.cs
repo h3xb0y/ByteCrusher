@@ -34,7 +34,10 @@ namespace ByteCrusher.Entities
     }
 
     public void Initialize(Game game)
-      => _controller?.InitializeIfNeeded(game);
+    {
+      _controller?.InitializeIfNeeded(game);
+      _entities.ForEach(x => x.Initialize(game));
+    }
 
     public void Process(int sceneWidth, int sceneHeight)
     {

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using ByteCrusher.Entities;
 using ByteCrusher.Data;
 
 namespace ByteCrusher.Entities
@@ -7,6 +6,9 @@ namespace ByteCrusher.Entities
   public abstract class Entity
   {
     public Position Position = new Position();
+
+    public void Initialize(Game game)
+      => _controllers?.ForEach(x => x.InitializeIfNeeded(game));
     
     private List<IEntityController> _controllers;
 
