@@ -7,8 +7,8 @@
     <ProjectGuid>{E8EB4023-F7E7-4773-875F-527520E15CA2}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AlienGame</RootNamespace>
-    <AssemblyName>AlienGame</AssemblyName>
+    <RootNamespace>Demo.AlienGame</RootNamespace>
+    <AssemblyName>Demo.AlienGame</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <LangVersion>8</LangVersion>
