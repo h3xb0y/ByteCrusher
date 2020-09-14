@@ -34,7 +34,7 @@ namespace PingPong
         .AddEntity(new StartButton())
         .AddEntity(new ExitButton())
         .AddController(new MainMenuController())
-        .AddBackground(new MenuBackgroundController());
+        .AddBackground(new MenuBackgroundDrawer());
     }
   }
 

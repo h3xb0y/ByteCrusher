@@ -3,7 +3,7 @@ using ByteCrusher.Entities;
 
 namespace PingPong.Controllers
 {
-  public class MenuBackgroundController : IEntityDrawer
+  public class MenuBackgroundDrawer : IEntityDrawer
   {
     private const string _code =
       "___________________________________________________________________________________________________\n" +
@@ -29,7 +29,7 @@ namespace PingPong.Controllers
 
     private readonly AsciiCode _asciiCode;
 
-    public MenuBackgroundController()
+    public MenuBackgroundDrawer()
       => _asciiCode = new AsciiCode()
         .AddColor("*", "250", "20")
         .AddColor("_", "250", "10", true);
