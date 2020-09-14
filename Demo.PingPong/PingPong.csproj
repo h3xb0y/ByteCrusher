@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\UI\Menu\MainMenuController.cs" />
+    <Compile Include="Drawer\LevelBackgroundDrawer.cs" />
     <Compile Include="Drawer\MenuBackgroundDrawer.cs" />
     <Compile Include="Entities\UI\Menu\ExitButton.cs" />
     <Compile Include="Entities\UI\Menu\IMenuElement.cs" />

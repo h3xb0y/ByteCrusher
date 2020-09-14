@@ -22,6 +22,9 @@ namespace PingPong.Entities.UI.Menu
     public override IEntityDrawer Drawer()
       => _exitDrawer;
 
+    public bool GetSelected()
+      => _exitDrawer.IsSelected;
+
     public void SetSelected(bool selected)
       => _exitDrawer.IsSelected = selected;
   }
@@ -30,12 +33,8 @@ namespace PingPong.Entities.UI.Menu
   {
     private readonly AsciiCode _asciiCode;
 
-    private bool _isSelected;
+    internal bool IsSelected;
 
-    internal bool IsSelected
-    {
-      set => _isSelected = value;
-    }
 
     public ExitDrawer()
       => _asciiCode = new AsciiCode();
@@ -46,10 +45,10 @@ namespace PingPong.Entities.UI.Menu
     public string Replace(string element)
       => _asciiCode
         .AddDrawing(element)
-        .AddColor("E", "100", _isSelected ? "90" : "50")
-        .AddColor("X", "100", _isSelected ? "90" : "50")
-        .AddColor("I", "100", _isSelected ? "90" : "50")
-        .AddColor("T", "100", _isSelected ? "90" : "50")
+        .AddColor("E", "100", IsSelected ? "90" : "50")
+        .AddColor("X", "100", IsSelected ? "90" : "50")
+        .AddColor("I", "100", IsSelected ? "90" : "50")
+        .AddColor("T", "100", IsSelected ? "90" : "50")
         .Build();
   }
 }
