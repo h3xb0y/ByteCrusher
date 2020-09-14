@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using AlienGame;
 using AlienGame.Level1_1;
-using ByteCrusher.Entities;
 using ByteCrusher.Entities;
 using ByteCrusher.Services;
 
-namespace AlienGame
+namespace Demo.AlienGame
 {
   internal static class AlienGame
   {
