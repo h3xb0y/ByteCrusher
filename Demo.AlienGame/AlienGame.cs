@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using AlienGame;
 using AlienGame.Level1_1;
 using ByteCrusher.Entities;
 using ByteCrusher.Services;
 
-namespace Demo.AlienGame
+namespace AlienGame
 {
   internal static class AlienGame
   {
@@ -40,7 +39,7 @@ namespace Demo.AlienGame
         .AddEntity(
           new AlienEntity()
             .AddController(new AlienController())
-          )
+        )
         .AddController(new LevelChangingController())
         .AddBackground(new XXXBackgroundDrawer());
     }

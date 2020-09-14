@@ -22,12 +22,12 @@ namespace AlienGame.Level1_1
       if (alien.Position.X < width && alien.Position.Y < height)
         return;
 
-      var sceneService = Demo.AlienGame.AlienGame.Services().Get<SceneService>();
+      var sceneService = AlienGame.Services().Get<SceneService>();
 
       if (sceneService.HasNextLevel())
         sceneService.LoadNextLevel();
       else
-        Demo.AlienGame.AlienGame.Stop();
+        AlienGame.Stop();
     }
   }
 }
