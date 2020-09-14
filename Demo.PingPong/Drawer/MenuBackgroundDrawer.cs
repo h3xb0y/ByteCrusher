@@ -1,7 +1,7 @@
 using ByteCrusher.Addition;
 using ByteCrusher.Entities;
 
-namespace PingPong.Controllers
+namespace PingPong.Drawer
 {
   public class MenuBackgroundDrawer : IEntityDrawer
   {

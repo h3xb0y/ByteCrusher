@@ -5,6 +5,7 @@ using ByteCrusher.Entities;
 using ByteCrusher.Services;
 using PingPong.Controllers;
 using PingPong.Controllers.UI.Menu;
+using PingPong.Drawer;
 using PingPong.Entities.UI.Menu;
 
 namespace PingPong
