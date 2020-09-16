@@ -61,10 +61,7 @@ namespace ByteCrusher.Entities
     private void _StartThread()
     {
       while (true)
-      {
         _Draw();
-        Thread.Sleep(_settings.FrameRate);
-      }
     }
 
     private void _Draw()

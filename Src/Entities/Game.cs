@@ -81,7 +81,6 @@ namespace ByteCrusher.Entities
   {
     public List<Scene> Scenes = new List<Scene>();
     public int SceneIndex;
-    public int FrameRate;
 
     public int Width;
     public int Height;
