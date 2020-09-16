@@ -4,6 +4,7 @@ using System.IO;
 using ByteCrusher.Entities;
 using ByteCrusher.Services;
 using PingPong.Controllers.Level;
+using PingPong.Controllers.Level.Entities;
 using PingPong.Controllers.UI.Menu;
 using PingPong.Drawer;
 using PingPong.Entities.Level;
@@ -43,6 +44,7 @@ namespace PingPong
           new PlayerEntity()
             .AddController(new PlayerController())
         )
+        .AddController(new LevelController())
         .AddBackground(new LevelBackgroundDrawer());
     }
   }

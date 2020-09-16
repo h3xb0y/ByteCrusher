@@ -2,7 +2,7 @@ using System;
 using ByteCrusher.Entities;
 using ByteCrusher.Modules.Implementations;
 
-namespace PingPong.Controllers.Level
+namespace PingPong.Controllers.Level.Entities
 {
   public class PlayerController : IEntityController
   {

@@ -39,7 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\Level\PlayerController.cs" />
+    <Compile Include="Controllers\Level\Entities\PlayerController.cs" />
+    <Compile Include="Controllers\Level\LevelController.cs" />
     <Compile Include="Controllers\UI\Menu\MainMenuController.cs" />
     <Compile Include="Drawer\LevelBackgroundDrawer.cs" />
     <Compile Include="Drawer\MenuBackgroundDrawer.cs" />
