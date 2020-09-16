@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using ByteCrusher.Entities;
 using ByteCrusher.Services;
+using PingPong.Controllers.Level;
 using PingPong.Controllers.UI.Menu;
 using PingPong.Drawer;
+using PingPong.Entities.Level;
 using PingPong.Entities.UI.Menu;
 
 namespace PingPong
@@ -35,8 +37,12 @@ namespace PingPong
         .AddEntity(new ExitButton())
         .AddController(new MainMenuController())
         .AddBackground(new MenuBackgroundDrawer());
-      
+
       yield return new Scene()
+        .AddEntity(
+          new PlayerEntity()
+            .AddController(new PlayerController())
+        )
         .AddBackground(new LevelBackgroundDrawer());
     }
   }
