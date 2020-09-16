@@ -4,14 +4,14 @@ using PingPong.Drawer;
 
 namespace PingPong.Entities.Level
 {
-  public class PlayerEntity : Entity
+  public class EnemyEntity : Entity
   {
     private readonly LevelEntityDrawer _drawer;
 
-    public PlayerEntity()
+    public EnemyEntity()
     {
       _drawer = new LevelEntityDrawer();
-      Position = new Position {X = 50, Y = 19};
+      Position = new Position {X = 50, Y = 0};
     }
 
     public override IEntityDrawer Drawer()
