@@ -45,6 +45,7 @@
     <Compile Include="Drawer\LevelBackgroundDrawer.cs" />
     <Compile Include="Drawer\LevelEntityDrawer.cs" />
     <Compile Include="Drawer\MenuBackgroundDrawer.cs" />
+    <Compile Include="Entities\Level\BallEntity.cs" />
     <Compile Include="Entities\Level\EnemyEntity.cs" />
     <Compile Include="Entities\Level\PlayerEntity.cs" />
     <Compile Include="Entities\UI\Menu\ExitButton.cs" />

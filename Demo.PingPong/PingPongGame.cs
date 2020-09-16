@@ -47,6 +47,9 @@ namespace PingPong
         .AddEntity(
             new EnemyEntity()
           )
+        .AddEntity(
+            new BallEntity()
+          )
         .AddController(new LevelController())
         .AddBackground(new LevelBackgroundDrawer());
     }
