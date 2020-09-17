@@ -20,6 +20,9 @@ namespace PingPong.Controllers.Level
     {
       if (player.Position.X > width)
         player.Position.X = 0;
+
+      if (player.Position.X < 0)
+        player.Position.X = width;
     }
   }
 }
