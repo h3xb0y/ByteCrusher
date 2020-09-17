@@ -17,7 +17,7 @@ namespace ByteCrusher.Layer
       for (var i = 0; i < height; i++)
       {
         _symbols[i] = new string[width];
-        
+
         for (var ii = 0; ii < width; ii++)
           _symbols[i][ii] = " ";
       }
@@ -27,10 +27,10 @@ namespace ByteCrusher.Layer
     {
       if (drawer == null)
         return;
-      
+
       var splitedDrawing = drawer.Code().SplitNewLine();
-        
-      if(splitedDrawing.Length > _symbols.Count)
+
+      if (splitedDrawing.Length > _symbols.Count)
         throw new Exception("Drawing height cannot be larger than game height.");
 
       for (var i = 0; i < splitedDrawing.Length; i++)
@@ -38,26 +38,26 @@ namespace ByteCrusher.Layer
         var currentYPos = position?.Y + i ?? i;
         if (currentYPos >= _symbols.Count || currentYPos < 0)
           continue;
-        
-        var currentLineArray = _symbols[currentYPos];
+
+        var currentLineArray = _symbols[(int) currentYPos];
         var line = splitedDrawing[i];
-        
-        if(line.Length > currentLineArray.Length)
+
+        if (line.Length > currentLineArray.Length)
           throw new Exception("Drawing length cannot be larger than game width.");
-        
+
         for (var ii = 0; ii < line.Length; ii++)
         {
           var symbol = splitedDrawing[i][ii].ToString();
           var replacedDrawing = drawer.Replace(symbol);
           var currentXPos = position?.X + ii ?? ii;
-          
-          if(symbol == replacedDrawing && " " == replacedDrawing)
-            continue;
-          
-          if(currentXPos >= currentLineArray.Length || currentXPos < 0)
+
+          if (symbol == replacedDrawing && " " == replacedDrawing)
             continue;
 
-          currentLineArray[currentXPos] = replacedDrawing;
+          if (currentXPos >= currentLineArray.Length || currentXPos < 0)
+            continue;
+
+          currentLineArray[(int) currentXPos] = replacedDrawing;
         }
       }
     }

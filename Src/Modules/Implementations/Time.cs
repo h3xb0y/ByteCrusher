@@ -12,7 +12,7 @@ namespace ByteCrusher.Modules.Implementations
     public void Update()
     {
       var now = DateTime.Now.Millisecond;
-      _dt = (now - _lastTime) / 1000;
+      _dt = Math.Abs(now - _lastTime) / 1000;
       _lastTime = now;
     }
   }
