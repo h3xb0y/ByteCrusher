@@ -1,37 +1,63 @@
 using ByteCrusher.Entities;
-using ByteCrusher.Modules.Implementations;
 
 namespace PingPong.Controllers.Level.Entities
 {
   public class BallController : IEntityController
   {
-    private Time _time;
     private Direction _direction;
 
     public void InitializeIfNeeded(Game game)
     {
-      _time = game.Module<Time>();
     }
 
     public void Process(Scene scene, Entity entity)
     {
+      var position = entity.Position;
+
+      if (position.X >= 100 - 1)
+      {
+        _direction = _direction == Direction.RightBottom
+          ? Direction.LeftBottom
+          : Direction.LeftTop;
+      }
+      else if(position.X <= 1)
+      {
+        _direction = _direction == Direction.LeftBottom
+          ? Direction.RightBottom
+          : Direction.RightTop;
+      }
+
+      if (position.Y <= 1)
+      {
+        _direction = _direction == Direction.LeftTop
+          ? Direction.LeftBottom
+          : Direction.RightBottom;
+      }
+
+      if (position.Y >= 20 - 1)
+      {
+        _direction = _direction == Direction.LeftBottom
+          ? Direction.LeftTop
+          : Direction.RightTop;
+      }
+        
       switch (_direction)
       {
         case Direction.LeftTop:
-          entity.Position.X -= _time.DeltaTime;
-          entity.Position.Y -= _time.DeltaTime;
+          position.X -= 1;
+          position.Y -= 1;
           break;
         case Direction.LeftBottom:
-          entity.Position.X -= _time.DeltaTime;
-          entity.Position.Y += _time.DeltaTime;
+          position.X -= 1;
+          position.Y += 1;
           break;
         case Direction.RightTop:
-          entity.Position.X += _time.DeltaTime;
-          entity.Position.Y -= _time.DeltaTime;
+          position.X += 1;
+          position.Y -= 1;
           break;
         case Direction.RightBottom:
-          entity.Position.X += _time.DeltaTime;
-          entity.Position.Y -= _time.DeltaTime;
+          position.X += 1;
+          position.Y += 1;
           break;
       }
     }
