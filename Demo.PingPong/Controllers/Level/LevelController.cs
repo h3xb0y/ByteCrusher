@@ -13,7 +13,9 @@ namespace PingPong.Controllers.Level
 
     public void Process(IEnumerable<Entity> _entities, int width, int height)
     {
-      ProcessPlayerPosition(_entities.OfType<PlayerEntity>().First(), width);
+      var enumerable = _entities as Entity[] ?? _entities.ToArray();
+      ProcessPlayerPosition(enumerable.OfType<PlayerEntity>().First(), width);
+      ProcessEnemyPosition(enumerable.OfType<EnemyEntity>().First(), enumerable.OfType<BallEntity>().First());
     }
 
     private static void ProcessPlayerPosition(Entity player, int width)
@@ -24,5 +26,8 @@ namespace PingPong.Controllers.Level
       if (player.Position.X < 0)
         player.Position.X = width;
     }
+
+    private static void ProcessEnemyPosition(Entity enemy, Entity ball)
+      => enemy.MoveTo(ball, 0.7f);
   }
 }
