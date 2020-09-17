@@ -49,6 +49,7 @@ namespace PingPong
           )
         .AddEntity(
             new BallEntity()
+              .AddController(new BallController())
           )
         .AddController(new LevelController())
         .AddBackground(new LevelBackgroundDrawer());

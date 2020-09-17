@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Level\Entities\BallController.cs" />
     <Compile Include="Controllers\Level\Entities\PlayerController.cs" />
     <Compile Include="Controllers\Level\LevelController.cs" />
     <Compile Include="Controllers\UI\Menu\MainMenuController.cs" />
