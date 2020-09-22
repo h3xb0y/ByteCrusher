@@ -1,14 +1,16 @@
+using System.Linq.Expressions;
 using ByteCrusher.Entities;
 
 namespace PingPong.Controllers.Level.Entities
 {
   public class BallController : IEntityController
   {
-    private Direction _direction;
+    private const float MovespeedKoef = 1f;
+    
+    private Direction _direction = Direction.RightTop;
 
     public void InitializeIfNeeded(Game game)
-    {
-    }
+      => Expression.Empty();
 
     public void Process(Scene scene, Entity entity)
     {
@@ -44,20 +46,20 @@ namespace PingPong.Controllers.Level.Entities
       switch (_direction)
       {
         case Direction.LeftTop:
-          position.X -= 1;
-          position.Y -= 1;
+          position.X -= 1 * MovespeedKoef;
+          position.Y -= 1 * MovespeedKoef;
           break;
         case Direction.LeftBottom:
-          position.X -= 1;
-          position.Y += 1;
+          position.X -= 1 * MovespeedKoef;
+          position.Y += 1 * MovespeedKoef;
           break;
         case Direction.RightTop:
-          position.X += 1;
-          position.Y -= 1;
+          position.X += 1 * MovespeedKoef;
+          position.Y -= 1 * MovespeedKoef;
           break;
         case Direction.RightBottom:
-          position.X += 1;
-          position.Y += 1;
+          position.X += 1 * MovespeedKoef;
+          position.Y += 1 * MovespeedKoef;
           break;
       }
     }

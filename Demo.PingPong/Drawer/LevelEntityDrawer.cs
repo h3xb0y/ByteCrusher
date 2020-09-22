@@ -6,7 +6,11 @@ namespace PingPong.Drawer
   public class LevelEntityDrawer : IEntityDrawer
   {
     private const string _code =
-      "*************";
+      "**\n" +
+      "**\n" +
+      "**\n" +
+      "**\n" +
+      "**\n";
 
     private readonly AsciiCode _asciiCode;
 

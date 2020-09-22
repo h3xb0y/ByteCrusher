@@ -17,12 +17,12 @@ namespace PingPong.Controllers.Level.Entities
 
       switch (key)
       {
-        case ConsoleKey.LeftArrow:
-          entity.Position.X -= 2;
+        case ConsoleKey.UpArrow:
+          entity.Position.Y -= 2;
           break;
         
-        case ConsoleKey.RightArrow:
-          entity.Position.X += 2;
+        case ConsoleKey.DownArrow:
+          entity.Position.Y += 2;
           break;
       }
     }
