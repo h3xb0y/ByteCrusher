@@ -8,6 +8,7 @@ using PingPong.Controllers.Level.Entities;
 using PingPong.Controllers.UI.Menu;
 using PingPong.Drawer;
 using PingPong.Entities.Level;
+using PingPong.Entities.UI.Level;
 using PingPong.Entities.UI.Menu;
 
 namespace PingPong
@@ -51,6 +52,7 @@ namespace PingPong
             new BallEntity()
               .AddController(new BallController())
           )
+        .AddEntity(new ScoreEntity())
         .AddController(new LevelController())
         .AddBackground(new LevelBackgroundDrawer());
     }
