@@ -1,3 +1,4 @@
+using ByteCrusher.Data;
 using ByteCrusher.Entities;
 
 namespace PingPong.Entities.UI.Level
@@ -5,6 +6,10 @@ namespace PingPong.Entities.UI.Level
   public class ScoreEntity : Entity
   {
     private readonly ScoreDrawer _drawer = new ScoreDrawer();
+
+    public ScoreEntity()
+      => Position = new Position{ X = 48, Y = 9};  
+    
     public override IEntityDrawer Drawer()
       => _drawer;
 
@@ -26,7 +31,7 @@ namespace PingPong.Entities.UI.Level
     }
 
     public string Code()
-      => $"PlayerScore : {_playerScore}, EnemyScore : {_enemyScore}";
+      => $"{_playerScore} : {_enemyScore} ";
 
     public string Replace(string element)
       => element;

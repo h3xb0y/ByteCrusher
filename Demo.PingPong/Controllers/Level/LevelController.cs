@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -39,10 +40,10 @@ namespace PingPong.Controllers.Level
       var isOnEnemyField = ballX == enemyX;
 
       if (isOnPlayerField)
-        score.IncreaseScore(false);
+        score.IncreaseScore(true);
 
       if (isOnEnemyField)
-        score.IncreaseScore(true);
+        score.IncreaseScore(false);
     }
 
     private static void ProcessPlayerPosition(Entity player, int height)

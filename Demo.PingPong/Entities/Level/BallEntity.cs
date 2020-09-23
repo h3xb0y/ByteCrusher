@@ -11,7 +11,7 @@ namespace PingPong.Entities.Level
     public BallEntity()
     {
       _drawer = new BallDrawer();
-      Position = new Position {X = 0, Y = 5};
+      Position = new Position {X = 50, Y = 10};
     }
 
     public override IEntityDrawer Drawer()

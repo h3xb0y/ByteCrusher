@@ -16,20 +16,20 @@ namespace PingPong.Controllers.Level.Entities
     {
       var position = entity.Position;
 
-      if (position.X >= 100 - 1)
+      if (position.X >= 100 - 2)
       {
         _direction = _direction == Direction.RightBottom
           ? Direction.LeftBottom
           : Direction.LeftTop;
       }
-      else if(position.X <= 1)
+      else if(position.X < 1)
       {
         _direction = _direction == Direction.LeftBottom
           ? Direction.RightBottom
           : Direction.RightTop;
       }
 
-      if (position.Y <= 1)
+      if (position.Y < 1)
       {
         _direction = _direction == Direction.LeftTop
           ? Direction.LeftBottom
