@@ -30,7 +30,7 @@ namespace PingPong.Controllers.Level
         ProcessEnemyPosition(enemy, ball);
     }
 
-    private static void ProcessScoreboard(Entity player, Entity enemy, Entity ball, ScoreEntity score)
+    private static void ProcessScoreboard(PlayerEntity player, EnemyEntity enemy, Entity ball, ScoreEntity score)
     {
       var ballX = (int)ball.Position.X;
       var playerX = (int)player.Position.X;
@@ -40,10 +40,22 @@ namespace PingPong.Controllers.Level
       var isOnEnemyField = ballX == enemyX;
 
       if (isOnPlayerField)
-        score.IncreaseScore(true);
+      {
+        var playerY = (int) player.Position.Y;
+        var ballY = (int) ball.Position.Y;
+
+        if (ballY < playerY || ballY > playerY + player.Height)
+          score.IncreaseScore(true);
+      }
 
       if (isOnEnemyField)
-        score.IncreaseScore(false);
+      {
+        var enemyY = (int) enemy.Position.Y;
+        var ballY = (int) ball.Position.Y;
+
+        if (ballY < enemyY || ballY > enemyY + enemy.Height)
+          score.IncreaseScore(false);
+      }
     }
 
     private static void ProcessPlayerPosition(Entity player, int height)

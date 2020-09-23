@@ -6,6 +6,8 @@ namespace PingPong.Entities.Level
 {
   public class PlayerEntity : Entity
   {
+    public int Height = 5;
+    
     private readonly LevelEntityDrawer _drawer;
 
     public PlayerEntity()
