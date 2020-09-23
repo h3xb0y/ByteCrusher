@@ -33,7 +33,7 @@ namespace PingPong.Controllers.Level
         ProcessEnemyPosition(enemy, ball);
     }
 
-    private void ProcessScoreboardVisibility(ScoreEntity score)
+    private static void ProcessScoreboardVisibility(ScoreEntity score)
     {
       if (DateTime.Now.Subtract(score.LastIncrease).Seconds > ScoreboardSecondsVisibility)
         score.Visible = false;
