@@ -35,7 +35,7 @@ namespace PingPong.Controllers.Level
 
     private static void ProcessScoreboardVisibility(ScoreEntity score)
     {
-      if (DateTime.Now.Subtract(score.LastIncrease).Seconds > ScoreboardSecondsVisibility)
+      if (DateTime.Now.Subtract(score.LastIncrease).Seconds >= ScoreboardSecondsVisibility)
         score.Visible = false;
     }
 
