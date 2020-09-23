@@ -10,6 +10,8 @@ namespace PingPong.Controllers.Level
 {
   public class LevelController : ISceneController
   {
+    private const int ScoreboardSecondsVisibility = 1;
+    
     public void InitializeIfNeeded(Game game)
       => Expression.Empty();
 
@@ -23,11 +25,18 @@ namespace PingPong.Controllers.Level
       var score = enumerable.OfType<ScoreEntity>().First();
 
       ProcessScoreboard(player, enemy, ball, score);
+      ProcessScoreboardVisibility(score);
       
       ProcessPlayerPosition(player, height);
 
       if (ball.Position.X > width / 2)
         ProcessEnemyPosition(enemy, ball);
+    }
+
+    private void ProcessScoreboardVisibility(ScoreEntity score)
+    {
+      if (DateTime.Now.Subtract(score.LastIncrease).Seconds > ScoreboardSecondsVisibility)
+        score.Visible = false;
     }
 
     private static void ProcessScoreboard(PlayerEntity player, EnemyEntity enemy, Entity ball, ScoreEntity score)
