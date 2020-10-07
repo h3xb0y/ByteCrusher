@@ -1,24 +1,25 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using ByteCrusher.Entities;
 using PingPong.Entities.Level;
 using PingPong.Entities.UI.Level;
 
 namespace PingPong.Controllers.Level
 {
-  public class LevelController : ISceneController
+  public class ScoreboardController : ISceneController
   {
     private const int ScoreboardSecondsVisibility = 1;
     
     public void InitializeIfNeeded(Game game)
-      => Expression.Empty();
-
-    public void Process(IEnumerable<Entity> entities, int width, int height)
     {
-      var enumerable = entities as Entity[] ?? entities.ToArray();
+      
+    }
 
+    public void Process(IEnumerable<Entity> _entities, int width, int height)
+    {
+      var enumerable = _entities as Entity[] ?? _entities.ToArray();
+      
       var enemy = enumerable.OfType<EnemyEntity>().First();
       var player = enumerable.OfType<PlayerEntity>().First();
       var ball = enumerable.OfType<BallEntity>().First();
@@ -26,11 +27,6 @@ namespace PingPong.Controllers.Level
 
       ProcessScoreboard(player, enemy, ball, score);
       ProcessScoreboardVisibility(score);
-      
-      ProcessPlayerPosition(player, height);
-
-      if (ball.Position.X > width / 2)
-        ProcessEnemyPosition(enemy, ball);
     }
 
     private static void ProcessScoreboardVisibility(ScoreEntity score)
@@ -66,17 +62,5 @@ namespace PingPong.Controllers.Level
           score.IncreaseScore(false);
       }
     }
-
-    private static void ProcessPlayerPosition(Entity player, int height)
-    {
-      if (player.Position.Y > height)
-        player.Position.Y = 0;
-
-      if (player.Position.Y < 0)
-        player.Position.Y = height;
-    }
-
-    private static void ProcessEnemyPosition(Entity enemy, Entity ball)
-      => enemy.MoveTo(ball, 0.7f);
   }
 }

@@ -41,7 +41,8 @@
   <ItemGroup>
     <Compile Include="Controllers\Level\Entities\BallController.cs" />
     <Compile Include="Controllers\Level\Entities\PlayerController.cs" />
-    <Compile Include="Controllers\Level\LevelController.cs" />
+    <Compile Include="Controllers\Level\PositionController.cs" />
+    <Compile Include="Controllers\Level\ScoreboardController.cs" />
     <Compile Include="Controllers\UI\Menu\MainMenuController.cs" />
     <Compile Include="Drawer\LevelBackgroundDrawer.cs" />
     <Compile Include="Drawer\LevelEntityDrawer.cs" />
