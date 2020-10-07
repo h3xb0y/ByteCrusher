@@ -9,7 +9,7 @@ namespace ByteCrusher.Entities
   {
     private List<Entity> _entities;
     private IEntityDrawer _drawer;
-    private ISceneController _controller;
+    private List<ISceneController> _controllers;
 
     public Scene AddEntity(Entity entity)
     {
@@ -29,19 +29,22 @@ namespace ByteCrusher.Entities
 
     public Scene AddController(ISceneController controller)
     {
-      _controller = controller;
+      if (_controllers == null)
+        _controllers = new List<ISceneController>();
+      
+      _controllers.Add(controller);
       return this;
     }
 
     public void Initialize(Game game)
     {
-      _controller?.InitializeIfNeeded(game);
+      _controllers?.ForEach(x => x.InitializeIfNeeded(game));
       _entities?.ForEach(x => x.Initialize(game));
     }
 
     public void Process(int sceneWidth, int sceneHeight)
     {
-      _controller?.Process(_entities, sceneWidth, sceneHeight);
+      _controllers?.ForEach(x => x.Process(_entities, sceneWidth, sceneHeight));
       _entities?.ForEach(x => x.Process(this));
     }
 
