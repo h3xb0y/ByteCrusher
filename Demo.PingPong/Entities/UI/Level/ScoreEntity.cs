@@ -25,25 +25,37 @@ namespace PingPong.Entities.UI.Level
       Visible = true;
       _drawer.IncreaseScore(isEnemyScore);
     }
+
+    public Score Score() => _drawer.Score;
   }
 
   internal class ScoreDrawer : IEntityDrawer
   {
-    private int _playerScore;
-    private int _enemyScore;
+    private Score _score;
+
+    public Score Score => _score;
 
     public void IncreaseScore(bool isEnemyScore)
     {
       if (isEnemyScore)
-        _enemyScore++;
+        _score.EnemyScore++;
       else
-        _playerScore++;
+        _score.PlayerScore++;
     }
 
     public string Code()
-      => $"{_playerScore} : {_enemyScore} ";
+      => _score.ToString();
 
     public string Replace(string element)
       => element;
+  }
+
+  public struct Score
+  {
+    public int EnemyScore;
+    public int PlayerScore;
+
+    public override string ToString()
+      => $"{PlayerScore} : {EnemyScore} ";
   }
 }
