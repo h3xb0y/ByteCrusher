@@ -12,7 +12,7 @@ namespace AlienGame.Level1_1
     public void InitializeIfNeeded(Game game)
       => Expression.Empty();
 
-    public void Process(IEnumerable<Entity>? _entities, int width, int height)
+    public void Process(List<Entity>? _entities, int width, int height)
     {
       var alien = _entities?.FirstOrDefault(x => x is AlienEntity);
 
