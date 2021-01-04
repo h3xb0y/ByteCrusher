@@ -12,13 +12,11 @@ namespace PingPong.Controllers.Level
     public void InitializeIfNeeded(Game game)
       => Expression.Empty();
 
-    public void Process(IEnumerable<Entity> entities, int width, int height)
+    public void Process(List<Entity> entities, int width, int height)
     {
-      var enumerable = entities as Entity[] ?? entities.ToArray();
-
-      var enemy = enumerable.OfType<EnemyEntity>().First();
-      var player = enumerable.OfType<PlayerEntity>().First();
-      var ball = enumerable.OfType<BallEntity>().First();
+      var enemy = entities.OfType<EnemyEntity>().First();
+      var player = entities.OfType<PlayerEntity>().First();
+      var ball = entities.OfType<BallEntity>().First();
       
       ProcessPlayerPosition(player, height);
 

@@ -38,9 +38,9 @@ namespace PingPong.Entities.UI.Level
     public void IncreaseScore(bool isEnemyScore)
     {
       if (isEnemyScore)
-        _score.EnemyScore++;
+        _score.Enemy++;
       else
-        _score.PlayerScore++;
+        _score.Player++;
     }
 
     public string Code()
@@ -52,10 +52,10 @@ namespace PingPong.Entities.UI.Level
 
   public struct Score
   {
-    public int EnemyScore;
-    public int PlayerScore;
+    public int Enemy;
+    public int Player;
 
     public override string ToString()
-      => $"{PlayerScore} : {EnemyScore} ";
+      => $"{Player} : {Enemy} ";
   }
 }

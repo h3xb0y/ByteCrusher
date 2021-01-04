@@ -16,14 +16,12 @@ namespace PingPong.Controllers.Level
       
     }
 
-    public void Process(IEnumerable<Entity> _entities, int width, int height)
+    public void Process(List<Entity> _entities, int width, int height)
     {
-      var enumerable = _entities as Entity[] ?? _entities.ToArray();
-      
-      var enemy = enumerable.OfType<EnemyEntity>().First();
-      var player = enumerable.OfType<PlayerEntity>().First();
-      var ball = enumerable.OfType<BallEntity>().First();
-      var score = enumerable.OfType<ScoreEntity>().First();
+      var enemy = _entities.OfType<EnemyEntity>().First();
+      var player = _entities.OfType<PlayerEntity>().First();
+      var ball = _entities.OfType<BallEntity>().First();
+      var score = _entities.OfType<ScoreEntity>().First();
 
       ProcessScoreboard(player, enemy, ball, score);
       ProcessScoreboardVisibility(score);

@@ -15,7 +15,7 @@ namespace PingPong.Controllers.UI.Menu
     public void InitializeIfNeeded(Game game)
       => _input = game.Module<Input>();
 
-    public void Process(IEnumerable<Entity> _entities, int width, int height)
+    public void Process(List<Entity> _entities, int width, int height)
     {
       var rightKeyPressed = _input?.PressedKey == ConsoleKey.RightArrow;
       var leftKeyPressed = _input?.PressedKey == ConsoleKey.LeftArrow;
