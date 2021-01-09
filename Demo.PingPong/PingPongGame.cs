@@ -13,7 +13,7 @@ using PingPong.Entities.UI.Menu;
 
 namespace PingPong
 {
-  internal class PingPongGame : Game
+  internal static class PingPongGame
   {
     private static Game _game;
 
