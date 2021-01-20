@@ -1,5 +1,6 @@
 using System.Linq.Expressions;
 using ByteCrusher.Entities;
+using PingPong.Services;
 
 namespace PingPong.Controllers.Level.Entities
 {
@@ -8,12 +9,18 @@ namespace PingPong.Controllers.Level.Entities
     private const float MovespeedKoef = 1f;
     
     private Direction _direction = Direction.RightTop;
-
+    private LevelStateService _levelState;
+    
     public void InitializeIfNeeded(Game game)
-      => Expression.Empty();
+    {
+      _levelState = game.GameServices().Get<LevelStateService>();
+    }
 
     public void Process(Scene scene, Entity entity)
     {
+      if(_levelState.State == LevelState.Death)
+        return;
+      
       var position = entity.Position;
 
       if (position.X >= 100 - 2)
@@ -46,19 +53,19 @@ namespace PingPong.Controllers.Level.Entities
       switch (_direction)
       {
         case Direction.LeftTop:
-          position.X -= 1 * MovespeedKoef;
+          position.X -= 2 * MovespeedKoef;
           position.Y -= 1 * MovespeedKoef;
           break;
         case Direction.LeftBottom:
-          position.X -= 1 * MovespeedKoef;
+          position.X -= 2 * MovespeedKoef;
           position.Y += 1 * MovespeedKoef;
           break;
         case Direction.RightTop:
-          position.X += 1 * MovespeedKoef;
+          position.X += 2 * MovespeedKoef;
           position.Y -= 1 * MovespeedKoef;
           break;
         case Direction.RightBottom:
-          position.X += 1 * MovespeedKoef;
+          position.X += 2 * MovespeedKoef;
           position.Y += 1 * MovespeedKoef;
           break;
       }

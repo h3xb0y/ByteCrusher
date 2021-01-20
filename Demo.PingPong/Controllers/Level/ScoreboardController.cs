@@ -4,22 +4,30 @@ using System.Linq;
 using ByteCrusher.Entities;
 using PingPong.Entities.Level;
 using PingPong.Entities.UI.Level;
+using PingPong.Services;
 
 namespace PingPong.Controllers.Level
 {
   public class ScoreboardController : ISceneController
   {
     private const int ScoreboardSecondsVisibility = 1;
+    private LevelStateService _levelState;
     
     public void InitializeIfNeeded(Game game)
     {
-      
+      _levelState = game.GameServices().Get<LevelStateService>();
     }
 
     public void Process(List<Entity> _entities, int width, int height)
     {
+      if (_levelState.State == LevelState.Death)
+        return;
+      
       var enemy = _entities.OfType<EnemyEntity>().First();
-      var player = _entities.OfType<PlayerEntity>().First();
+      var player = _entities.OfType<PlayerEntity>().FirstOrDefault();
+      if (player == null)
+        return;
+      
       var ball = _entities.OfType<BallEntity>().First();
       var score = _entities.OfType<ScoreEntity>().First();
 
@@ -30,7 +38,7 @@ namespace PingPong.Controllers.Level
     private static void ProcessScoreboardVisibility(ScoreEntity score)
     {
       if (DateTime.Now.Subtract(score.LastIncrease).Seconds >= ScoreboardSecondsVisibility)
-        score.Visible = false;
+        score.Enabled = false;
     }
 
     private static void ProcessScoreboard(PlayerEntity player, EnemyEntity enemy, Entity ball, ScoreEntity score)

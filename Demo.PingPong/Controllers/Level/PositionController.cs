@@ -3,17 +3,24 @@ using System.Linq;
 using System.Linq.Expressions;
 using ByteCrusher.Entities;
 using PingPong.Entities.Level;
+using PingPong.Services;
 
 namespace PingPong.Controllers.Level
 {
   public class PositionController : ISceneController
   {
+    private LevelStateService _levelState;
     
     public void InitializeIfNeeded(Game game)
-      => Expression.Empty();
+    {
+      _levelState = game.GameServices().Get<LevelStateService>();
+    }
 
     public void Process(List<Entity> entities, int width, int height)
     {
+      if (_levelState.State == LevelState.Death)
+        return;
+      
       var enemy = entities.OfType<EnemyEntity>().First();
       var player = entities.OfType<PlayerEntity>().First();
       var ball = entities.OfType<BallEntity>().First();

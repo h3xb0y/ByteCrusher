@@ -1,17 +1,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using ByteCrusher.Entities;
-using PingPong.Entities.Level;
 using PingPong.Entities.UI.Level;
+using PingPong.Services;
 
 namespace PingPong.Controllers.Level
 {
   public class LevelStateController : ISceneController
   {
-    private LevelState _state = LevelState.Play;
-    
+    private LevelStateService _levelState;
+
     public void InitializeIfNeeded(Game game)
     {
+      _levelState = game.GameServices().Get<LevelStateService>();
     }
 
     public void Process(List<Entity> entities, int width, int height)
@@ -23,18 +24,10 @@ namespace PingPong.Controllers.Level
 
     private void ChangeState(LevelState state, List<Entity> entities)
     {
-      if (_state == state)
+      if (_levelState.State == state)
         return;
-      
-      _state = state;
-      var player = entities.First(x => x is PlayerEntity);
-      entities.Remove(player);
-    }
-  }
 
-  enum LevelState
-  {
-    Play,
-    Death
+      _levelState.State = state;
+    }
   }
 }

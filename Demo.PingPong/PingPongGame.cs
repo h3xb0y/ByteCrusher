@@ -10,6 +10,7 @@ using PingPong.Drawer;
 using PingPong.Entities.Level;
 using PingPong.Entities.UI.Level;
 using PingPong.Entities.UI.Menu;
+using PingPong.Services;
 
 namespace PingPong
 {
@@ -21,6 +22,7 @@ namespace PingPong
     {
       _game = new Game(new FileLogger())
         .AddScenes(Scenes())
+        .AddService(new LevelStateService())
         .SetWidthAndHeight(100, 20);
 
       _game.Play();

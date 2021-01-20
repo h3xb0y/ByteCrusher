@@ -7,26 +7,23 @@ namespace PingPong.Entities.UI.Level
   public class ScoreEntity : Entity
   {
     public DateTime LastIncrease { get; private set; }
-    public bool Visible;
 
-    private readonly ScoreDrawer _drawer = new ScoreDrawer();
+    private ScoreDrawer? _drawer => Drawer as ScoreDrawer;
 
     public ScoreEntity()
-      => Position = new Position {X = 48, Y = 9};
-
-    public override IEntityDrawer Drawer()
-      => Visible
-        ? (IEntityDrawer) _drawer
-        : new EmptyEntityDrawer();
+    {
+      Position = new Position {X = 48, Y = 9};
+      Drawer = new ScoreDrawer();
+    }
 
     public void IncreaseScore(bool isEnemyScore)
     {
+      Enabled = true;
       LastIncrease = DateTime.Now;
-      Visible = true;
-      _drawer.IncreaseScore(isEnemyScore);
+      _drawer?.IncreaseScore(isEnemyScore);
     }
 
-    public Score Score() => _drawer.Score;
+    public Score Score() => Enabled ? _drawer.Score : default;
   }
 
   internal class ScoreDrawer : IEntityDrawer

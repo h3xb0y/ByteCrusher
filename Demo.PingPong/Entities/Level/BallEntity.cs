@@ -10,31 +10,28 @@ namespace PingPong.Entities.Level
 
     public BallEntity()
     {
-      _drawer = new BallDrawer();
       Position = new Position {X = 50, Y = 10};
+      Drawer = new BallDrawer();
     }
 
-    public override IEntityDrawer Drawer()
-      => _drawer;
-  }
+    internal class BallDrawer : IEntityDrawer
+    {
+      private const string _code =
+        "***";
 
-  internal class BallDrawer : IEntityDrawer
-  {
-    private const string _code =
-      "***";
+      private readonly AsciiCode _asciiCode;
 
-    private readonly AsciiCode _asciiCode;
+      public BallDrawer()
+        => _asciiCode = new AsciiCode();
 
-    public BallDrawer()
-      => _asciiCode = new AsciiCode();
+      public string Code()
+        => _code;
 
-    public string Code()
-      => _code;
-
-    public string Replace(string element)
-      => _asciiCode
-        .AddDrawing(element)
-        .AddColor("*", "100", "0", true)
-        .Build();
+      public string Replace(string element)
+        => _asciiCode
+          .AddDrawing(element)
+          .AddColor("*", "100", "0", true)
+          .Build();
+    }
   }
 }

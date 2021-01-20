@@ -6,11 +6,10 @@ namespace PingPong.Entities.UI.Menu
 {
   public class ExitButton : Entity, IMenuElement
   {
-    private readonly ExitDrawer _exitDrawer;
-
+    private ExitDrawer _exitDrawer => Drawer as ExitDrawer;
     public ExitButton()
     {
-      _exitDrawer = new ExitDrawer();
+      Drawer = new ExitDrawer();
 
       Position = new Position
       {
@@ -18,9 +17,6 @@ namespace PingPong.Entities.UI.Menu
         Y = 2
       };
     }
-
-    public override IEntityDrawer Drawer()
-      => _exitDrawer;
 
     public bool GetSelected()
       => _exitDrawer.IsSelected;

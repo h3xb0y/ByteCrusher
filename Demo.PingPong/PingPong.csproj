@@ -57,6 +57,7 @@
     <Compile Include="Entities\UI\Menu\StartButton.cs" />
     <Compile Include="PingPongGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\LevelStateService.cs" />
     <Compile Include="U.cs" />
   </ItemGroup>
   <ItemGroup>

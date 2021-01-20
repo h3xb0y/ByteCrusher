@@ -5,13 +5,12 @@ namespace PingPong.Entities.UI.Menu
 {
   public class StartButton : Entity, IMenuElement
   {
-    private readonly ButtonDrawer _textDrawer;
+    private ButtonDrawer _textDrawer => Drawer as ButtonDrawer;
 
     public StartButton()
-      => _textDrawer = new ButtonDrawer();
-
-    public override IEntityDrawer Drawer()
-      => _textDrawer;
+    {
+      Drawer = new ButtonDrawer();
+    }
 
     public bool GetSelected()
       => _textDrawer.IsSelected;
