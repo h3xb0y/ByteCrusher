@@ -68,6 +68,9 @@ namespace ByteCrusher.Entities
     public T Module<T>() where T : IKernelModule
       => _kernelModules.OfType<T>().FirstOrDefault();
 
+    public Scene Scene()
+      => _settings.Scenes[_settings.SceneIndex];
+
 
     public void Play()
     {

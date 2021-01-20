@@ -6,16 +6,28 @@ namespace ByteCrusher.Entities
   public abstract class Entity
   {
     public Position Position = new Position();
+    public bool Enabled = true;
+
+    private List<IEntityController> _controllers;
+
+    private IEntityDrawer _drawer;
+
+    public IEntityDrawer? Drawer
+    {
+      get => Enabled ? _drawer : new EmptyEntityDrawer();
+      set => _drawer = value;
+    }
 
     public void Initialize(Game game)
       => _controllers?.ForEach(x => x.InitializeIfNeeded(game));
-    
-    private List<IEntityController> _controllers;
-
-    public abstract IEntityDrawer Drawer();
 
     internal void Process(Scene scene)
-      => _controllers?.ForEach(c => c.Process(scene, this));
+    {
+      if (!Enabled)
+        return;
+
+      _controllers?.ForEach(c => c.Process(scene, this));
+    }
 
     public Entity AddController(IEntityController controller)
     {

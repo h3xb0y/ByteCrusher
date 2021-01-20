@@ -36,6 +36,17 @@ namespace ByteCrusher.Entities
       return this;
     }
 
+    public bool RemoveController<T>() where T : ISceneController
+    {
+      if (_controllers == null)
+        return false;
+
+      var removeCandidates = _controllers.Where(x => x is T).ToArray();
+      _controllers = _controllers.Except(removeCandidates).ToList();
+
+      return removeCandidates.Length > 0;
+    }
+
     public void Initialize(Game game)
     {
       _controllers?.ForEach(x => x.InitializeIfNeeded(game));
@@ -57,7 +68,7 @@ namespace ByteCrusher.Entities
 
       // apply all entities drawing by layering
       foreach (var entity in _entities ?? Enumerable.Empty<Entity>())
-        layer.Apply(entity.Drawer(), entity.Position);
+        layer.Apply(entity.Drawer, entity.Position);
 
       return layer.ToString();
     }
