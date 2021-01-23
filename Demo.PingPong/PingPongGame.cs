@@ -55,6 +55,7 @@ namespace PingPong
               .AddController(new BallController())
           )
         .AddEntity(new ScoreEntity())
+        .AddEntity(new LevelStateEntity())
         .AddController(new PositionController())
         .AddController(new ScoreboardController())
         .AddController(new LevelStateController())

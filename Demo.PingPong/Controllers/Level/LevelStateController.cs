@@ -18,16 +18,21 @@ namespace PingPong.Controllers.Level
     public void Process(List<Entity> entities, int width, int height)
     {
       var entity = entities.OfType<ScoreEntity>().First();
-      if (entity.Score().Enemy > 2)
+      var score = entity.Score();
+      if (score.Enemy > 2)
         ChangeState(LevelState.Death, entities);
+      else if(score.Player > 2)
+        ChangeState(LevelState.Win, entities);
     }
 
-    private void ChangeState(LevelState state, List<Entity> entities)
+    private void ChangeState(LevelState state, IEnumerable<Entity> entities)
     {
       if (_levelState.State == state)
         return;
 
       _levelState.State = state;
+      
+      entities.OfType<LevelStateEntity>().First().SetState(state);
     }
   }
 }

@@ -51,6 +51,7 @@
     <Compile Include="Entities\Level\BallEntity.cs" />
     <Compile Include="Entities\Level\EnemyEntity.cs" />
     <Compile Include="Entities\Level\PlayerEntity.cs" />
+    <Compile Include="Entities\UI\Level\LevelStateEntity.cs" />
     <Compile Include="Entities\UI\Level\ScoreEntity.cs" />
     <Compile Include="Entities\UI\Menu\ExitButton.cs" />
     <Compile Include="Entities\UI\Menu\IMenuElement.cs" />

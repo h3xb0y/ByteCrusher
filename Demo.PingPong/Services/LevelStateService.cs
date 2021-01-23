@@ -15,6 +15,7 @@ namespace PingPong.Services
   public enum LevelState
   {
     Play,
+    Win,
     Death
   }
 }
