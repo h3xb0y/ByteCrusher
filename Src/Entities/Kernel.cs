@@ -41,6 +41,11 @@ namespace ByteCrusher.Entities
       _logger = logger;
     }
 
+    public void Restart()
+    {
+      //TODO
+    }
+
     public void Start()
     {
       _thread = new Thread(_StartThread);
@@ -56,6 +61,11 @@ namespace ByteCrusher.Entities
       handle = GetStdHandle(STD_OUTPUT_HANDLE);
       GetConsoleMode(handle, out mode);
       SetConsoleMode(handle, mode | 0x4);
+    }
+
+    public void Stop()
+    {
+      _thread.Abort();
     }
 
     private void _StartThread()

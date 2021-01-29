@@ -78,6 +78,16 @@ namespace ByteCrusher.Entities
 
       _kernel.Start();
     }
+
+    public void Restart()
+    {
+      _kernel.Restart();
+    }
+
+    public void Stop()
+    {
+      _kernel.Stop();
+    }
   }
 
   public class GameSettings
