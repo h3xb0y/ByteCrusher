@@ -45,9 +45,9 @@
     <Compile Include="Src\Entities\IEntityController.cs" />
     <Compile Include="Src\Entities\IEntityDrawer.cs" />
     <Compile Include="Src\Entities\ILogger.cs" />
-    <Compile Include="Src\Entities\ISceneController.cs" />
     <Compile Include="Src\Entities\Kernel.cs" />
     <Compile Include="Src\Entities\Scene.cs" />
+    <Compile Include="Src\Entities\SceneController.cs" />
     <Compile Include="Src\Extensions.cs" />
     <Compile Include="Src\Addition\AsciiCodecs.cs" />
     <Compile Include="Src\Layer\Layer.cs" />

@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using ByteCrusher.Entities;
-using ByteCrusher.Modules;
 
 namespace ByteCrusher.Entities
 {
@@ -9,7 +7,7 @@ namespace ByteCrusher.Entities
   {
     private List<Entity> _entities;
     private IEntityDrawer _drawer;
-    private List<ISceneController> _controllers;
+    private List<SceneController> _controllers;
 
     public Scene AddEntity(Entity entity)
     {
@@ -27,16 +25,16 @@ namespace ByteCrusher.Entities
       return this;
     }
 
-    public Scene AddController(ISceneController controller)
+    public Scene AddController(SceneController controller)
     {
       if (_controllers == null)
-        _controllers = new List<ISceneController>();
+        _controllers = new List<SceneController>();
       
       _controllers.Add(controller);
       return this;
     }
 
-    public bool RemoveController<T>() where T : ISceneController
+    public bool RemoveController<T>() where T : SceneController
     {
       if (_controllers == null)
         return false;
@@ -49,7 +47,7 @@ namespace ByteCrusher.Entities
 
     public void Initialize(Game game)
     {
-      _controllers?.ForEach(x => x.InitializeIfNeeded(game));
+      _controllers?.ForEach(x => x.Initialize(game));
       _entities?.ForEach(x => x.Initialize(game));
     }
 
