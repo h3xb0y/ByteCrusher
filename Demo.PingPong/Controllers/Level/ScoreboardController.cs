@@ -8,17 +8,17 @@ using PingPong.Services;
 
 namespace PingPong.Controllers.Level
 {
-  public class ScoreboardController : ISceneController
+  public class ScoreboardController : SceneController
   {
     private const int ScoreboardSecondsVisibility = 1;
     private LevelStateService _levelState;
     
-    public void InitializeIfNeeded(Game game)
+    protected override void OnInitialize(Game game)
     {
       _levelState = game.GameServices().Get<LevelStateService>();
     }
 
-    public void Process(List<Entity> _entities, int width, int height)
+    protected override void OnProcess(List<Entity> _entities, int width, int height)
     {
       if (_levelState.State == LevelState.Death)
         return;

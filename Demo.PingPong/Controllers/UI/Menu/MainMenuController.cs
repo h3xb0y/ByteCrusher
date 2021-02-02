@@ -8,14 +8,14 @@ using PingPong.Entities.UI.Menu;
 
 namespace PingPong.Controllers.UI.Menu
 {
-  public class MainMenuController : ISceneController
+  public class MainMenuController : SceneController
   {
     private Input _input;
 
-    public void InitializeIfNeeded(Game game)
+    protected override void OnInitialize(Game game)
       => _input = game.Module<Input>();
 
-    public void Process(List<Entity> _entities, int width, int height)
+    protected override void OnProcess(List<Entity> _entities, int width, int height)
     {
       var rightKeyPressed = _input?.PressedKey == ConsoleKey.RightArrow;
       var leftKeyPressed = _input?.PressedKey == ConsoleKey.LeftArrow;

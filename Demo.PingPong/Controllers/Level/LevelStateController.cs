@@ -6,16 +6,16 @@ using PingPong.Services;
 
 namespace PingPong.Controllers.Level
 {
-  public class LevelStateController : ISceneController
+  public class LevelStateController : SceneController
   {
     private LevelStateService _levelState;
 
-    public void InitializeIfNeeded(Game game)
+    protected override void OnInitialize(Game game)
     {
       _levelState = game.GameServices().Get<LevelStateService>();
     }
 
-    public void Process(List<Entity> entities, int width, int height)
+    protected override void OnProcess(List<Entity> entities, int width, int height)
     {
       var entity = entities.OfType<ScoreEntity>().First();
       var score = entity.Score();

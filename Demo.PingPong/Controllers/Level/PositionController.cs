@@ -6,16 +6,16 @@ using PingPong.Services;
 
 namespace PingPong.Controllers.Level
 {
-  public class PositionController : ISceneController
+  public class PositionController : SceneController
   {
     private LevelStateService _levelState;
     
-    public void InitializeIfNeeded(Game game)
+    protected override void OnInitialize(Game game)
     {
       _levelState = game.GameServices().Get<LevelStateService>();
     }
 
-    public void Process(List<Entity> entities, int width, int height)
+    protected override void OnProcess(List<Entity> entities, int width, int height)
     {
       if (_levelState.State == LevelState.Death)
         return;
@@ -41,5 +41,9 @@ namespace PingPong.Controllers.Level
 
     private static void ProcessEnemyPosition(Entity enemy, Entity ball)
       => enemy.MoveTo(ball, 0.7f);
+
+    public void Dispose()
+    {
+    }
   }
 }
