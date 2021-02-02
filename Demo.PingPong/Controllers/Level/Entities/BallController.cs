@@ -4,19 +4,19 @@ using PingPong.Services;
 
 namespace PingPong.Controllers.Level.Entities
 {
-  public class BallController : IEntityController
+  public class BallController : EntityController
   {
     private const float MovespeedKoef = 1f;
     
     private Direction _direction = Direction.RightTop;
     private LevelStateService _levelState;
     
-    public void InitializeIfNeeded(Game game)
+    protected override void OnInitialize(Game game)
     {
       _levelState = game.GameServices().Get<LevelStateService>();
     }
 
-    public void Process(Scene scene, Entity entity)
+    protected override void OnProcess(Scene scene, Entity entity)
     {
       if(_levelState.State == LevelState.Death)
         return;
