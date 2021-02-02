@@ -81,7 +81,7 @@ namespace ByteCrusher.Entities
 
     public void Restart()
     {
-      _kernel.Restart();
+      _kernel.Restart(this);
     }
 
     public void Stop()

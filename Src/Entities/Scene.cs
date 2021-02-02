@@ -1,9 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace ByteCrusher.Entities
 {
-  public sealed class Scene
+  public sealed class Scene : IDisposable
   {
     private List<Entity> _entities;
     private IEntityDrawer _drawer;
@@ -69,6 +70,12 @@ namespace ByteCrusher.Entities
         layer.Apply(entity.Drawer, entity.Position);
 
       return layer.ToString();
+    }
+
+    public void Dispose()
+    {
+      _controllers?.ForEach(x => x.Dispose());
+      _entities?.ForEach(x => x.Dispose());
     }
   }
 }

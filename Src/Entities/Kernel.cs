@@ -41,9 +41,12 @@ namespace ByteCrusher.Entities
       _logger = logger;
     }
 
-    public void Restart()
+    public void Restart(Game game)
     {
-      //TODO
+      var activeScene = _settings.Scenes[_settings.SceneIndex];
+      activeScene.Dispose();
+      
+      activeScene.Initialize(game);
     }
 
     public void Start()

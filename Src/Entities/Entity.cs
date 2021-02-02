@@ -20,7 +20,10 @@ namespace ByteCrusher.Entities
     }
 
     public void Initialize(Game game)
-      => _controllers?.ForEach(x => x.Initialize(game));
+    {
+      _controllers?.ForEach(x => x.Initialize(game));
+      OnInitialize(game);
+    }
 
     internal void Process(Scene scene)
     {
@@ -43,6 +46,14 @@ namespace ByteCrusher.Entities
     public void Dispose()
     {
       _controllers?.ForEach(x => x.Dispose());
+      OnDispose();
     }
+    
+    //region APi
+    
+    protected virtual void OnDispose() {}
+    protected virtual void OnInitialize(Game game) {}
+    
+    //endregion
   }
 }
