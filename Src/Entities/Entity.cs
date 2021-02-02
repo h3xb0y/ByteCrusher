@@ -1,14 +1,15 @@
+using System;
 using System.Collections.Generic;
 using ByteCrusher.Data;
 
 namespace ByteCrusher.Entities
 {
-  public abstract class Entity
+  public abstract class Entity : IDisposable
   {
     public Position Position = new Position();
     public bool Enabled = true;
 
-    private List<IEntityController> _controllers;
+    private List<EntityController> _controllers;
 
     private IEntityDrawer _drawer;
 
@@ -19,7 +20,7 @@ namespace ByteCrusher.Entities
     }
 
     public void Initialize(Game game)
-      => _controllers?.ForEach(x => x.InitializeIfNeeded(game));
+      => _controllers?.ForEach(x => x.Initialize(game));
 
     internal void Process(Scene scene)
     {
@@ -29,14 +30,19 @@ namespace ByteCrusher.Entities
       _controllers?.ForEach(c => c.Process(scene, this));
     }
 
-    public Entity AddController(IEntityController controller)
+    public Entity AddController(EntityController controller)
     {
       if (_controllers == null)
-        _controllers = new List<IEntityController>();
+        _controllers = new List<EntityController>();
 
       _controllers.Add(controller);
 
       return this;
+    }
+
+    public void Dispose()
+    {
+      _controllers?.ForEach(x => x.Dispose());
     }
   }
 }

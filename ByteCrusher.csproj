@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Src\Data\Position.cs" />
     <Compile Include="Src\Entities\Entity.cs" />
+    <Compile Include="Src\Entities\EntityController.cs" />
     <Compile Include="Src\Entities\Game.cs" />
     <Compile Include="Src\Entities\IEntityController.cs" />
     <Compile Include="Src\Entities\IEntityDrawer.cs" />
