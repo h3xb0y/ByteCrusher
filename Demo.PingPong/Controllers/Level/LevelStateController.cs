@@ -15,6 +15,11 @@ namespace PingPong.Controllers.Level
       _levelState = game.GameServices().Get<LevelStateService>();
     }
 
+    protected override void OnDispose()
+    {
+      _levelState.State = default;
+    }
+
     protected override void OnProcess(List<Entity> entities, int width, int height)
     {
       var entity = entities.OfType<ScoreEntity>().First();

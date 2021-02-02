@@ -6,9 +6,7 @@ namespace PingPong.Entities.Level
 {
   public class BallEntity : Entity
   {
-    private readonly IEntityDrawer _drawer;
-
-    public BallEntity()
+    protected override void OnInitialize(Game game)
     {
       Position = new Position {X = 50, Y = 10};
       Drawer = new BallDrawer();

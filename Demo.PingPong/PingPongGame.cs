@@ -59,6 +59,7 @@ namespace PingPong
         .AddController(new PositionController())
         .AddController(new ScoreboardController())
         .AddController(new LevelStateController())
+        .AddController(new LevelActionController())
         .AddBackground(new LevelBackgroundDrawer());
     }
   }

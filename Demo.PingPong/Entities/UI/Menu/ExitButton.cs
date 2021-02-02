@@ -7,7 +7,8 @@ namespace PingPong.Entities.UI.Menu
   public class ExitButton : Entity, IMenuElement
   {
     private ExitDrawer _exitDrawer => Drawer as ExitDrawer;
-    public ExitButton()
+
+    protected override void OnInitialize(Game game)
     {
       Drawer = new ExitDrawer();
 

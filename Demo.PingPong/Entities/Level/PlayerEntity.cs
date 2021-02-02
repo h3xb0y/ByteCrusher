@@ -7,8 +7,8 @@ namespace PingPong.Entities.Level
   public class PlayerEntity : Entity
   {
     public int Height = 5;
-    
-    public PlayerEntity()
+
+    protected override void OnInitialize(Game game)
     {
       Drawer = new LevelEntityDrawer();
       Position = new Position {X = 0, Y = 10};

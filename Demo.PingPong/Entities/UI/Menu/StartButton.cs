@@ -7,7 +7,7 @@ namespace PingPong.Entities.UI.Menu
   {
     private ButtonDrawer _textDrawer => Drawer as ButtonDrawer;
 
-    public StartButton()
+    protected override void OnInitialize(Game game)
     {
       Drawer = new ButtonDrawer();
     }

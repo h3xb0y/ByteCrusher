@@ -10,7 +10,7 @@ namespace PingPong.Entities.UI.Level
 
     private ScoreDrawer? _drawer => Drawer as ScoreDrawer;
 
-    public ScoreEntity()
+    protected override void OnInitialize(Game game)
     {
       Position = new Position {X = 48, Y = 9};
       Drawer = new ScoreDrawer();
