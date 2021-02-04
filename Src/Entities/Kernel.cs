@@ -66,11 +66,6 @@ namespace ByteCrusher.Entities
       SetConsoleMode(handle, mode | 0x4);
     }
 
-    public void Stop()
-    {
-      _thread.Abort();
-    }
-
     private void _StartThread()
     {
       while (true)
