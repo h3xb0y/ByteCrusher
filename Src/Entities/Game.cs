@@ -87,7 +87,7 @@ namespace ByteCrusher.Entities
 
   public class GameSettings
   {
-    public List<Scene> Scenes = new List<Scene>();
+    public readonly List<Scene> Scenes = new List<Scene>();
     public int SceneIndex;
 
     public int Width;

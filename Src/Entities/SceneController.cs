@@ -21,6 +21,7 @@ namespace ByteCrusher.Entities
     }
 
     //region API
+    
     protected virtual void OnDispose()
     {
     }

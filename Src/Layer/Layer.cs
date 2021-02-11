@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using ByteCrusher.Entities;
 using ByteCrusher.Data;
-using ByteCrusher.Entities;
 
 namespace ByteCrusher.Layer
 {

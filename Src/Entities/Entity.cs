@@ -16,7 +16,7 @@ namespace ByteCrusher.Entities
     public IEntityDrawer? Drawer
     {
       get => Enabled ? _drawer : new EmptyEntityDrawer();
-      set => _drawer = value;
+      protected set => _drawer = value;
     }
 
     public void Initialize(Game game)
@@ -52,6 +52,7 @@ namespace ByteCrusher.Entities
     //region APi
     
     protected virtual void OnDispose() {}
+    
     protected virtual void OnInitialize(Game game) {}
     
     //endregion
