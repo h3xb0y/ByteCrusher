@@ -41,12 +41,16 @@ namespace ByteCrusher.Entities
       _logger = logger;
     }
 
+    private bool _isLocked;
+
     public void Restart(Game game)
     {
-      var activeScene = _settings.Scenes[_settings.SceneIndex];
-      activeScene.Dispose();
-      
-      activeScene.Initialize(game);
+      lock (_settings.Scenes)
+      {
+        var activeScene = _settings.Scenes[_settings.SceneIndex];
+        activeScene.Dispose();
+        activeScene.Initialize(game);
+      }
     }
 
     public void Start()
@@ -74,18 +78,21 @@ namespace ByteCrusher.Entities
 
     private void _Draw()
     {
-      var activeScene = _settings.Scenes[_settings.SceneIndex];
-      activeScene.Process(_settings.Width, _settings.Height);
+      lock (_settings.Scenes)
+      {
+        var activeScene = _settings.Scenes[_settings.SceneIndex];
+        activeScene.Process(_settings.Width, _settings.Height);
       
-      Console.SetCursorPosition(0, 0);
-      Console.CursorVisible = false;
+        Console.SetCursorPosition(0, 0);
+        Console.CursorVisible = false;
       
-      var drawing = activeScene.Drawing(this);
+        var drawing = activeScene.Drawing(this);
       
-      Console.Write(drawing);
+        Console.Write(drawing);
       
-      foreach (var module in _modules)
-        module.Update();
+        foreach (var module in _modules)
+          module.Update();
+      }
     }
   }
 }

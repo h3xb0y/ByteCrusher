@@ -6,17 +6,28 @@ namespace ByteCrusher.Entities
 {
   public sealed class Scene : IDisposable
   {
+    private List<Type> _entityTypes;
+    private List<Type> _controllerTypes;
+    
     private List<Entity> _entities;
     private IEntityDrawer _drawer;
     private List<SceneController> _controllers;
 
-    public Scene AddEntity(Entity entity)
+    public Scene Entity<T>() where T : Entity, new()
     {
-      if (_entities == null)
-        _entities = new List<Entity>();
+      if (_entityTypes == null)
+        _entityTypes = new List<Type>();
 
-      _entities.Add(entity);
+      _entityTypes.Add(typeof(T));
+      return this;
+    }
 
+    public Scene Controller<T>() where T : SceneController, new()
+    {
+      if(_controllerTypes == null)
+        _controllerTypes = new List<Type>();
+      
+      _controllerTypes.Add(typeof(T));
       return this;
     }
 
@@ -26,28 +37,28 @@ namespace ByteCrusher.Entities
       return this;
     }
 
-    public Scene AddController(SceneController controller)
-    {
-      if (_controllers == null)
-        _controllers = new List<SceneController>();
-      
-      _controllers.Add(controller);
-      return this;
-    }
-
-    public bool RemoveController<T>() where T : SceneController
-    {
-      if (_controllers == null)
-        return false;
-
-      var removeCandidates = _controllers.Where(x => x is T).ToArray();
-      _controllers = _controllers.Except(removeCandidates).ToList();
-
-      return removeCandidates.Length > 0;
-    }
-
     public void Initialize(Game game)
     {
+      if (_entityTypes != null)
+      {
+        _entities = new List<Entity>();
+        _entities.AddRange(
+          _entityTypes
+            .Select(x => (Entity) Activator.CreateInstance(x))
+            .ToArray()
+        );
+      }
+
+      if (_controllerTypes != null)
+      {
+        _controllers = new List<SceneController>();
+        _controllers.AddRange(
+          _controllerTypes
+            .Select(x => (SceneController) Activator.CreateInstance(x))
+            .ToArray()
+          );
+      }
+
       _controllers?.ForEach(x => x.Initialize(game));
       _entities?.ForEach(x => x.Initialize(game));
     }
@@ -75,7 +86,12 @@ namespace ByteCrusher.Entities
     public void Dispose()
     {
       _controllers?.ForEach(x => x.Dispose());
+      _controllers?.Clear();
+      _controllers = null;
+      
       _entities?.ForEach(x => x.Dispose());
+      _entities?.Clear();
+      _entities = null;
     }
   }
 }
