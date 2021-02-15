@@ -15,7 +15,7 @@ namespace PingPong.Entities.Level
     internal class BallDrawer : IEntityDrawer
     {
       private const string _code =
-        "***";
+        "**";
 
       private readonly AsciiCode _asciiCode;
 
