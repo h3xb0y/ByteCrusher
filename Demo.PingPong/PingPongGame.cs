@@ -37,27 +37,21 @@ namespace PingPong
     private static IEnumerable<Scene> Scenes()
     {
       yield return new Scene()
-        .AddEntity(new StartButton())
-        .AddEntity(new ExitButton())
-        .AddController(new MainMenuController())
+        .Entity<StartButton>()
+        .Entity<ExitButton>()
+        .Controller<MainMenuController>()
         .AddBackground(new MenuBackgroundDrawer());
 
       yield return new Scene()
-        .AddEntity(
-          new PlayerEntity()
-        )
-        .AddEntity(
-            new EnemyEntity()
-          )
-        .AddEntity(
-            new BallEntity()
-          )
-        .AddEntity(new ScoreEntity())
-        .AddEntity(new LevelStateEntity())
-        .AddController(new PositionController())
-        .AddController(new ScoreboardController())
-        .AddController(new LevelStateController())
-        .AddController(new LevelActionController())
+        .Entity<PlayerEntity>()
+        .Entity<EnemyEntity>()
+        .Entity<BallEntity>()
+        .Entity<ScoreEntity>()
+        .Entity<LevelStateEntity>()
+        .Controller<PositionController>()
+        .Controller<ScoreboardController>()
+        .Controller<LevelStateController>()
+        .Controller<LevelActionController>()
         .AddBackground(new LevelBackgroundDrawer());
     }
   }
