@@ -1,10 +1,11 @@
 using ByteCrusher.Addition;
 using ByteCrusher.Data;
 using ByteCrusher.Entities;
+using PingPong.Controllers.Level.Entities;
 
 namespace PingPong.Entities.Level
 {
-  public class BallEntity : Entity
+  public class BallEntity : Entity<BallController>
   {
     protected override void OnInitialize(Game game)
     {

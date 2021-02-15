@@ -45,14 +45,12 @@ namespace PingPong
       yield return new Scene()
         .AddEntity(
           new PlayerEntity()
-            .AddController(new PlayerController())
         )
         .AddEntity(
             new EnemyEntity()
           )
         .AddEntity(
             new BallEntity()
-              .AddController(new BallController())
           )
         .AddEntity(new ScoreEntity())
         .AddEntity(new LevelStateEntity())
