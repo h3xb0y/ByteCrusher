@@ -10,9 +10,9 @@ namespace ByteCrusher
       var strings = new List<string>();
       var clone = (string) @string.Clone();
       
-      for (var i = 0; i < clone.Length; i++)
+      for (var i = 1; i <= clone.Length; i++)
       {
-        if(clone[i] != '\n' && i != clone.Length - 1)
+        if(clone[i - 1] != '\n' && i != clone.Length)
           continue;
 
         strings.Add(clone.Substring(lastIndex, i - lastIndex).Replace("\n", string.Empty));
