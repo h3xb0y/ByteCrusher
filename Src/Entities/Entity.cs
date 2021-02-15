@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using ByteCrusher.Data;
 
 namespace ByteCrusher.Entities
@@ -8,8 +7,6 @@ namespace ByteCrusher.Entities
   {
     public Position Position = new Position();
     public bool Enabled = true;
-
-    private List<EntityController> _controllers;
 
     private IEntityDrawer _drawer;
 
@@ -21,40 +18,64 @@ namespace ByteCrusher.Entities
 
     public void Initialize(Game game)
     {
-      _controllers?.ForEach(x => x.Initialize(game));
+      _OnInitialize(game);
       OnInitialize(game);
-    }
-
-    internal void Process(Scene scene)
-    {
-      if (!Enabled)
-        return;
-
-      _controllers?.ForEach(c => c.Process(scene, this));
-    }
-
-    public Entity AddController(EntityController controller)
-    {
-      if (_controllers == null)
-        _controllers = new List<EntityController>();
-
-      _controllers.Add(controller);
-
-      return this;
     }
 
     public void Dispose()
     {
-      _controllers?.ForEach(x => x.Dispose());
+      _OnDispose();
       OnDispose();
     }
-    
+
     //region APi
-    
-    protected virtual void OnDispose() {}
-    
-    protected virtual void OnInitialize(Game game) {}
-    
+
+    protected virtual void OnDispose()
+    {
+    }
+
+    protected virtual void OnInitialize(Game game)
+    {
+    }
+
+    internal virtual void Process(Scene scene)
+    {
+    }
+
+    internal virtual void _OnDispose()
+    {
+    }
+
+    internal virtual void _OnInitialize(Game game)
+    {
+    }
+
     //endregion
+  }
+
+  public abstract class Entity<T> : Entity
+    where T : EntityController, new()
+  {
+    private EntityController _controller;
+
+    internal override void _OnInitialize(Game game)
+    {
+      _controller = new T();
+      _controller.Initialize(game);
+    }
+
+    internal override void Process(Scene scene)
+    {
+      if (!Enabled)
+        return;
+
+      _controller.Process(scene, this);
+    }
+
+    internal override void _OnDispose()
+    {
+      _controller.Dispose();
+      _controller = null;
+    }
   }
 }
