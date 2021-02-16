@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using ByteCrusher.Entities;
 using ByteCrusher.Services;
 using PingPong.Controllers.Level;
@@ -10,6 +9,7 @@ using PingPong.Drawer;
 using PingPong.Entities.Level;
 using PingPong.Entities.UI.Level;
 using PingPong.Entities.UI.Menu;
+using PingPong.Log;
 using PingPong.Services;
 
 namespace PingPong
@@ -53,35 +53,6 @@ namespace PingPong
         .Controller<LevelStateController>()
         .Controller<LevelActionController>()
         .AddBackground(new LevelBackgroundDrawer());
-    }
-  }
-
-  public class FileLogger : ILogger
-  {
-    private const string _path = "log.txt";
-
-    public FileLogger()
-    {
-      if (!File.Exists(_path))
-        File.Create(_path);
-    }
-
-    public void LogInfo(string info)
-    {
-      using var stream = new StreamWriter(_path);
-      stream.WriteLine(info);
-    }
-
-    public void LogError(string error)
-    {
-      using var stream = new StreamWriter(_path);
-      stream.WriteLine($"Error {error}");
-    }
-
-    public void LogException(object sender, UnhandledExceptionEventArgs e)
-    {
-      using var stream = new StreamWriter(_path);
-      stream.WriteLine($"Exception {e.ExceptionObject}");
     }
   }
 }
