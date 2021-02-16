@@ -77,5 +77,11 @@ namespace PingPong
       using var stream = new StreamWriter(_path);
       stream.WriteLine($"Error {error}");
     }
+
+    public void LogException(object sender, UnhandledExceptionEventArgs e)
+    {
+      using var stream = new StreamWriter(_path);
+      stream.WriteLine($"Exception {e.ExceptionObject}");
+    }
   }
 }
