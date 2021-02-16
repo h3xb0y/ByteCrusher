@@ -8,7 +8,6 @@ namespace ByteCrusher.Entities
 {
   public class Kernel
   {
-    
     #region API
 
     [DllImport("kernel32.dll", SetLastError = true)]
@@ -27,12 +26,13 @@ namespace ByteCrusher.Entities
     private const int STD_OUTPUT_HANDLE = -11;
 
     #endregion
-    
+
     internal readonly GameSettings _settings;
     internal readonly ILogger _logger;
     internal readonly IEnumerable<IKernelModule> _modules;
 
     private Thread _thread;
+    private bool _isNeedRestart;
 
     public Kernel(GameSettings settings, IEnumerable<IKernelModule> modules, ILogger logger = null)
     {
@@ -43,12 +43,7 @@ namespace ByteCrusher.Entities
 
     public void Restart()
     {
-      lock (_settings.Scenes)
-      {
-        var activeScene = _settings.Scenes[_settings.SceneIndex];
-        activeScene.Dispose();
-        activeScene.Initialize();
-      }
+      _isNeedRestart = true;
     }
 
     public void Start()
@@ -79,15 +74,23 @@ namespace ByteCrusher.Entities
       lock (_settings.Scenes)
       {
         var activeScene = _settings.Scenes[_settings.SceneIndex];
+        if (_isNeedRestart)
+        {
+          activeScene.Dispose();
+          activeScene.Initialize();
+
+          _isNeedRestart = false;
+        }
+        
         activeScene.Process(_settings.Width, _settings.Height);
-      
+
         Console.SetCursorPosition(0, 0);
         Console.CursorVisible = false;
-      
+
         var drawing = activeScene.Drawing(this);
-      
+
         Console.Write(drawing);
-      
+
         foreach (var module in _modules)
           module.Update();
       }
