@@ -16,10 +16,10 @@ namespace ByteCrusher.Entities
       protected set => _drawer = value;
     }
 
-    public void Initialize(Game game)
+    public void Initialize()
     {
-      _OnInitialize(game);
-      OnInitialize(game);
+      _OnInitialize();
+      OnInitialize();
     }
 
     public void Dispose()
@@ -34,7 +34,7 @@ namespace ByteCrusher.Entities
     {
     }
 
-    protected virtual void OnInitialize(Game game)
+    protected virtual void OnInitialize()
     {
     }
 
@@ -46,7 +46,7 @@ namespace ByteCrusher.Entities
     {
     }
 
-    internal virtual void _OnInitialize(Game game)
+    internal virtual void _OnInitialize()
     {
     }
 
@@ -58,10 +58,10 @@ namespace ByteCrusher.Entities
   {
     private EntityController _controller;
 
-    internal override void _OnInitialize(Game game)
+    internal override void _OnInitialize()
     {
       _controller = new T();
-      _controller.Initialize(game);
+      _controller.Initialize();
     }
 
     internal override void Process(Scene scene)

@@ -5,9 +5,9 @@ namespace ByteCrusher.Entities
 {
   public abstract class SceneController : IDisposable
   {
-    public void Initialize(Game game)
+    public void Initialize()
     {
-      OnInitialize(game);
+      OnInitialize();
     }
 
     public void Process(List<Entity>? entities, int width, int height)
@@ -26,7 +26,7 @@ namespace ByteCrusher.Entities
     {
     }
 
-    protected virtual void OnInitialize(Game game)
+    protected virtual void OnInitialize()
     {
     }
 

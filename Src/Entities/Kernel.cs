@@ -41,15 +41,13 @@ namespace ByteCrusher.Entities
       _logger = logger;
     }
 
-    private bool _isLocked;
-
-    public void Restart(Game game)
+    public void Restart()
     {
       lock (_settings.Scenes)
       {
         var activeScene = _settings.Scenes[_settings.SceneIndex];
         activeScene.Dispose();
-        activeScene.Initialize(game);
+        activeScene.Initialize();
       }
     }
 

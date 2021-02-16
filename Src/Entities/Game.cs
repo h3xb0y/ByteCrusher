@@ -23,7 +23,7 @@ namespace ByteCrusher.Entities
 
     private void Initialize()
     {
-      _settings.Scenes.ForEach(x => x.Initialize(this));
+      _settings.Scenes.ForEach(x => x.Initialize());
       
       foreach (var service in new ServicesCollection())
       {
@@ -81,7 +81,7 @@ namespace ByteCrusher.Entities
 
     public void Restart()
     {
-      _kernel.Restart(this);
+      _kernel.Restart();
     }
   }
 

@@ -37,7 +37,7 @@ namespace ByteCrusher.Entities
       return this;
     }
 
-    public void Initialize(Game game)
+    public void Initialize()
     {
       if (_entityTypes != null)
       {
@@ -59,8 +59,8 @@ namespace ByteCrusher.Entities
           );
       }
 
-      _controllers?.ForEach(x => x.Initialize(game));
-      _entities?.ForEach(x => x.Initialize(game));
+      _controllers?.ForEach(x => x.Initialize());
+      _entities?.ForEach(x => x.Initialize());
     }
 
     public void Process(int sceneWidth, int sceneHeight)
