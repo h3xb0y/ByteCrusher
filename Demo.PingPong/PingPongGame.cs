@@ -16,24 +16,23 @@ namespace PingPong
 {
   internal static class PingPongGame
   {
-    private static Game _game;
-    public static Game Instance => _game;
+    public static Game Instance { get; private set; }
 
     public static void Main()
     {
-      _game = new Game(new FileLogger())
+      Instance = new Game(new FileLogger())
         .AddScenes(Scenes())
         .AddService(new LevelStateService())
         .SetWidthAndHeight(100, 20);
 
-      _game.Play();
+      Instance.Play();
     }
 
     public static void Stop()
       => Environment.Exit(0);
 
     public static GameServices Services()
-      => _game.GameServices();
+      => Instance.GameServices();
 
     private static IEnumerable<Scene> Scenes()
     {
