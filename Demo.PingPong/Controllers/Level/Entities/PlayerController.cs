@@ -10,10 +10,10 @@ namespace PingPong.Controllers.Level.Entities
     private Input _input;
     private LevelStateService _levelState;
     
-    protected override void OnInitialize(Game game)
+    protected override void OnInitialize()
     {
-      _levelState = game.GameServices().Get<LevelStateService>();
-      _input = game.Module<Input>();
+      _levelState = PingPongGame.Instance.GameServices().Get<LevelStateService>();
+      _input = PingPongGame.Instance.Module<Input>();
     }
 
     protected override void OnProcess(Scene scene, Entity entity)

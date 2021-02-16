@@ -17,6 +17,7 @@ namespace PingPong
   internal static class PingPongGame
   {
     private static Game _game;
+    public static Game Instance => _game;
 
     public static void Main()
     {

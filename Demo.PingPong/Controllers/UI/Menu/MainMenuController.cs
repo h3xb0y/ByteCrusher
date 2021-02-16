@@ -12,8 +12,8 @@ namespace PingPong.Controllers.UI.Menu
   {
     private Input _input;
 
-    protected override void OnInitialize(Game game)
-      => _input = game.Module<Input>();
+    protected override void OnInitialize()
+      => _input = PingPongGame.Instance.Module<Input>();
 
     protected override void OnProcess(List<Entity> _entities, int width, int height)
     {

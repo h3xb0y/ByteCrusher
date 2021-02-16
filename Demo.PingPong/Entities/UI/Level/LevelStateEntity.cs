@@ -8,7 +8,7 @@ namespace PingPong.Entities.UI.Level
   {
     private LevelStateDrawer? _drawer => Drawer as LevelStateDrawer;
 
-    protected override void OnInitialize(Game game)
+    protected override void OnInitialize()
     {
       Position = new Position {X = 48, Y = 12};
       Drawer = new LevelStateDrawer();

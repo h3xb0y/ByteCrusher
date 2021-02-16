@@ -7,7 +7,7 @@ namespace PingPong.Entities.Level
 {
   public class BallEntity : Entity<BallController>
   {
-    protected override void OnInitialize(Game game)
+    protected override void OnInitialize()
     {
       Position = new Position {X = 50, Y = 10};
       Drawer = new BallDrawer();

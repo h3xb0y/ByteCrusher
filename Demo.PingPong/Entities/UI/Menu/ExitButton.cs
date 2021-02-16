@@ -8,7 +8,7 @@ namespace PingPong.Entities.UI.Menu
   {
     private ExitDrawer _exitDrawer => Drawer as ExitDrawer;
 
-    protected override void OnInitialize(Game game)
+    protected override void OnInitialize()
     {
       Drawer = new ExitDrawer();
 

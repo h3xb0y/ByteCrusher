@@ -11,9 +11,9 @@ namespace PingPong.Controllers.Level.Entities
     private Direction _direction = Direction.RightTop;
     private LevelStateService _levelState;
     
-    protected override void OnInitialize(Game game)
+    protected override void OnInitialize()
     {
-      _levelState = game.GameServices().Get<LevelStateService>();
+      _levelState = PingPongGame.Instance.GameServices().Get<LevelStateService>();
     }
 
     protected override void OnProcess(Scene scene, Entity entity)

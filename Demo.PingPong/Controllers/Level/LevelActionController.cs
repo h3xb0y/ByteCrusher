@@ -8,17 +8,14 @@ namespace PingPong.Controllers.Level
   public class LevelActionController : SceneController
   {
     private Input _input;
-    private Game _game;
-    protected override void OnInitialize(Game game)
-    {
-      _input = game.Module<Input>();
-      _game = game;
-    }
+    
+    protected override void OnInitialize()
+      => _input = PingPongGame.Instance.Module<Input>();
 
     protected override void OnProcess(List<Entity> entities, int width, int height)
     {
       if(_input.PressedKey == ConsoleKey.R)
-        _game.Restart();
+        PingPongGame.Instance.Restart();
     }
   }
 }
