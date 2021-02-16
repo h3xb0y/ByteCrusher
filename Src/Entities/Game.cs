@@ -12,13 +12,25 @@ namespace ByteCrusher.Entities
     private readonly GameServices _services;
     private readonly GameSettings _settings;
     private readonly List<IKernelModule> _kernelModules;
+    private readonly ILogger _logger;
+    
+    public ILogger Logger => _logger;
 
     public Game(ILogger logger = null)
     {
+      _logger = logger;
       _settings = new GameSettings();
       _services = new GameServices();
       _kernelModules = new List<IKernelModule> {new Time(), new Input()};
-      _kernel = new Kernel(_settings, _kernelModules, logger);
+      _kernel = new Kernel(_settings, _kernelModules, _logger);
+      
+      InitializeCore();
+    }
+
+    private void InitializeCore()
+    {
+      if (_logger != null)
+        System.AppDomain.CurrentDomain.UnhandledException += (o, e) => _logger.LogException(o, e);
     }
 
     private void Initialize()
