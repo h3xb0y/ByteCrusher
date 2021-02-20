@@ -23,25 +23,25 @@ namespace PingPong.Controllers.Level
       if (_levelState.State != LevelState.Play)
         return;
       
-      var enemy = _entities.OfType<EnemyEntity>().First();
-      var player = _entities.OfType<PlayerEntity>().FirstOrDefault();
+      var enemy = _entities.OfType<Enemy>().First();
+      var player = _entities.OfType<PlayerPlayer>().FirstOrDefault();
       if (player == null)
         return;
       
-      var ball = _entities.OfType<BallEntity>().First();
-      var score = _entities.OfType<ScoreEntity>().First();
+      var ball = _entities.OfType<Ball>().First();
+      var score = _entities.OfType<ScoreText>().First();
 
       ProcessScoreboard(player, enemy, ball, score);
       ProcessScoreboardVisibility(score);
     }
 
-    private static void ProcessScoreboardVisibility(ScoreEntity score)
+    private static void ProcessScoreboardVisibility(ScoreText score)
     {
       if (DateTime.Now.Subtract(score.LastIncrease).Seconds >= ScoreboardSecondsVisibility)
         score.Enabled = false;
     }
 
-    private static void ProcessScoreboard(PlayerEntity player, EnemyEntity enemy, Entity ball, ScoreEntity score)
+    private static void ProcessScoreboard(PlayerPlayer player, Enemy enemy, Entity ball, ScoreText score)
     {
       var ballX = (int)ball.Position.X;
       var playerX = (int)player.Position.X;
@@ -55,7 +55,7 @@ namespace PingPong.Controllers.Level
         var playerY = (int) player.Position.Y;
         var ballY = (int) ball.Position.Y;
 
-        if (ballY < playerY || ballY > playerY + player.Height)
+        if (ballY < playerY || ballY > playerY + PlayerPlayer.Height)
           score.IncreaseScore(true);
       }
 
@@ -64,7 +64,7 @@ namespace PingPong.Controllers.Level
         var enemyY = (int) enemy.Position.Y;
         var ballY = (int) ball.Position.Y;
 
-        if (ballY < enemyY || ballY > enemyY + enemy.Height)
+        if (ballY < enemyY || ballY > enemyY + Enemy.Height)
           score.IncreaseScore(false);
       }
     }

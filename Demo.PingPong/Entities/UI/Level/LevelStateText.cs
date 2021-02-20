@@ -4,11 +4,11 @@ using PingPong.Services;
 
 namespace PingPong.Entities.UI.Level
 {
-  public class LevelStateEntity : Text
+  public class LevelStateText : Text
   {
     protected override void OnInitialize()
     {
-      Position = new Position {X = 48, Y = 12};
+      Position = new Position {X = 40, Y = 12};
       Color = "0";
       Enabled = false;
     }

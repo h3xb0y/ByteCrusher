@@ -4,7 +4,7 @@ using ByteCrusher.UI;
 
 namespace PingPong.Entities.UI.Level
 {
-  public class ScoreEntity : Text
+  public class ScoreText : Text
   {
     public DateTime LastIncrease { get; private set; }
     

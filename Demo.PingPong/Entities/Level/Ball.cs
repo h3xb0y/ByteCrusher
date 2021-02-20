@@ -5,7 +5,7 @@ using PingPong.Controllers.Level.Entities;
 
 namespace PingPong.Entities.Level
 {
-  public class BallEntity : Entity<BallController>
+  public class Ball : Entity<BallController>
   {
     protected override void OnInitialize()
     {

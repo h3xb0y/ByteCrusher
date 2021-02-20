@@ -44,11 +44,11 @@ namespace PingPong
         .AddBackground(new MenuBackgroundDrawer());
 
       yield return new Scene()
-        .Entity<PlayerEntity>()
-        .Entity<EnemyEntity>()
-        .Entity<BallEntity>()
-        .Entity<ScoreEntity>()
-        .Entity<LevelStateEntity>()
+        .Entity<PlayerPlayer>()
+        .Entity<Enemy>()
+        .Entity<Ball>()
+        .Entity<ScoreText>()
+        .Entity<LevelStateText>()
         .Controller<PositionController>()
         .Controller<ScoreboardController>()
         .Controller<LevelStateController>()

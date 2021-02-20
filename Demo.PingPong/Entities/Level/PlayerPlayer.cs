@@ -5,9 +5,9 @@ using PingPong.Drawer;
 
 namespace PingPong.Entities.Level
 {
-  public class PlayerEntity : Entity<PlayerController>
+  public class PlayerPlayer : Entity<PlayerController>
   {
-    public int Height = 5;
+    public const int Height = 5;
 
     protected override void OnInitialize()
     {

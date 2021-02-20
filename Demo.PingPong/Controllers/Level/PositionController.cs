@@ -20,9 +20,9 @@ namespace PingPong.Controllers.Level
       if (_levelState.State != LevelState.Play)
         return;
       
-      var enemy = entities.OfType<EnemyEntity>().First();
-      var player = entities.OfType<PlayerEntity>().First();
-      var ball = entities.OfType<BallEntity>().First();
+      var enemy = entities.OfType<Enemy>().First();
+      var player = entities.OfType<PlayerPlayer>().First();
+      var ball = entities.OfType<Ball>().First();
       
       ProcessPlayerPosition(player, height);
 

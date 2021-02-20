@@ -22,7 +22,7 @@ namespace PingPong.Controllers.Level
 
     protected override void OnProcess(List<Entity> entities, int width, int height)
     {
-      var entity = entities.OfType<ScoreEntity>().First();
+      var entity = entities.OfType<ScoreText>().First();
       var score = entity.Score();
       if (score.Enemy > 2)
         ChangeState(LevelState.Death, entities);
@@ -37,7 +37,7 @@ namespace PingPong.Controllers.Level
 
       _levelState.State = state;
       
-      entities.OfType<LevelStateEntity>().First().SetState(state);
+      entities.OfType<LevelStateText>().First().SetState(state);
     }
   }
 }
