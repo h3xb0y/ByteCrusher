@@ -9,8 +9,8 @@ namespace PingPong.Entities.UI.Menu
     {
       Position = new Position
       {
-        X = 15,
-        Y = 2
+        X = 60,
+        Y = 8
       };
 
       Value = "Exit";

@@ -39,6 +39,7 @@ namespace PingPong
       yield return new Scene()
         .Entity<StartButton>()
         .Entity<ExitButton>()
+        .Entity<PingPongText>()
         .Controller<MainMenuController>()
         .AddBackground(new MenuBackgroundDrawer());
 

@@ -56,6 +56,7 @@
     <Compile Include="Entities\UI\Level\LevelStateEntity.cs" />
     <Compile Include="Entities\UI\Level\ScoreEntity.cs" />
     <Compile Include="Entities\UI\Menu\ExitButton.cs" />
+    <Compile Include="Entities\UI\Menu\PingPongText.cs" />
     <Compile Include="Entities\UI\Menu\StartButton.cs" />
     <Compile Include="Log\FileLogger.cs" />
     <Compile Include="PingPongGame.cs" />

@@ -3,22 +3,18 @@ using ByteCrusher.UI;
 
 namespace PingPong.Entities.UI.Menu
 {
-  public class StartButton : SelectableText
+  public class PingPongText : Text
   {
     protected override void OnInitialize()
     {
       Position = new Position
       {
-        X = 30,
-        Y = 8
+        X = 40,
+        Y = 5
       };
-      
-      Value = "Start";
+
+      Value = "Demo.PingPong";
       Color = "100";
-      BackgroundColor = "50";
-      SelectedBackgroundColor = "90";
-      
-      SetSelected(true);
     }
   }
 }
