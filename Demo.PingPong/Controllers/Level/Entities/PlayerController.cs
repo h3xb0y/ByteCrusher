@@ -18,7 +18,7 @@ namespace PingPong.Controllers.Level.Entities
 
     protected override void OnProcess(Scene scene, Entity entity)
     {
-      if (_levelState.State == LevelState.Death)
+      if (_levelState.State != LevelState.Play)
         return;
       
       var key = _input.PressedKey;

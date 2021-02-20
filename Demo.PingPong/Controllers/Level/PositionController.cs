@@ -17,7 +17,7 @@ namespace PingPong.Controllers.Level
 
     protected override void OnProcess(List<Entity> entities, int width, int height)
     {
-      if (_levelState.State == LevelState.Death)
+      if (_levelState.State != LevelState.Play)
         return;
       
       var enemy = entities.OfType<EnemyEntity>().First();

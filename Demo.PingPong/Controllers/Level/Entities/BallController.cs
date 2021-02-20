@@ -1,4 +1,3 @@
-using System.Linq.Expressions;
 using ByteCrusher.Entities;
 using PingPong.Services;
 
@@ -14,11 +13,12 @@ namespace PingPong.Controllers.Level.Entities
     protected override void OnInitialize()
     {
       _levelState = PingPongGame.Instance.GameServices().Get<LevelStateService>();
+      _direction = _direction.RandomValue();
     }
 
     protected override void OnProcess(Scene scene, Entity entity)
     {
-      if(_levelState.State == LevelState.Death)
+      if(_levelState.State != LevelState.Play)
         return;
       
       var position = entity.Position;

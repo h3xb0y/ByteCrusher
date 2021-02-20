@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using ByteCrusher.Entities;
 using PingPong.Services;
 
@@ -22,10 +23,18 @@ namespace PingPong
           return "You win! Press `R` for restart";
         case LevelState.Death:
           return "You lose! Press `R` for restart";
-        
+
         default:
           throw new ArgumentOutOfRangeException(nameof(state), state, null);
       }
+    }
+
+    private static Random _random = new Random();
+
+    public static T RandomValue<T>(this T value)
+    {
+      var values = Enum.GetValues(typeof(T));
+      return (T) values.GetValue(_random.Next(values.Length));
     }
   }
 }
