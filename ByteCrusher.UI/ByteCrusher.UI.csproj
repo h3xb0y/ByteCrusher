@@ -39,7 +39,9 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="Src\TextEntity.cs" />
+        <Compile Include="Src\ISelectable.cs" />
+        <Compile Include="Src\SelectableText.cs" />
+        <Compile Include="Src\Text.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\ByteCrusher.csproj">
