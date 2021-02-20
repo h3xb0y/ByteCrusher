@@ -4,6 +4,7 @@ using System.Linq;
 using ByteCrusher.Entities;
 using ByteCrusher.Modules.Implementations;
 using ByteCrusher.Services.Collection;
+using ByteCrusher.UI;
 using PingPong.Entities.UI.Menu;
 
 namespace PingPong.Controllers.UI.Menu
@@ -21,9 +22,9 @@ namespace PingPong.Controllers.UI.Menu
       var leftKeyPressed = _input?.PressedKey == ConsoleKey.LeftArrow;
       var enterPressed = _input?.PressedKey == ConsoleKey.Enter;
 
-      var menuElements = _entities.OfType<IMenuElement>();
+      var menuElements = _entities.OfType<SelectableText>();
 
-      var enumerable = menuElements as IMenuElement[] ?? menuElements.ToArray();
+      var enumerable = menuElements as SelectableText[] ?? menuElements.ToArray();
 
       if (enterPressed)
       {

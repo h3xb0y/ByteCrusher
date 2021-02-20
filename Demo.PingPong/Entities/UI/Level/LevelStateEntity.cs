@@ -1,17 +1,15 @@
 using ByteCrusher.Data;
-using ByteCrusher.Entities;
+using ByteCrusher.UI;
 using PingPong.Services;
 
 namespace PingPong.Entities.UI.Level
 {
-  public class LevelStateEntity : Entity
+  public class LevelStateEntity : Text
   {
-    private LevelStateDrawer? _drawer => Drawer as LevelStateDrawer;
-
     protected override void OnInitialize()
     {
       Position = new Position {X = 48, Y = 12};
-      Drawer = new LevelStateDrawer();
+      Color = "0";
       Enabled = false;
     }
 
@@ -19,22 +17,8 @@ namespace PingPong.Entities.UI.Level
     {
       if (!Enabled)
         Enabled = true;
-      
-      _drawer.SetState(state); 
+
+      Value = state.ToUiString();
     }
-  }
-  
-  internal class LevelStateDrawer : IEntityDrawer
-  {
-    private LevelState _state;
-    
-    public void SetState(LevelState state)
-      => _state = state;
-
-    public string Code()
-      => _state.ToUiString();
-
-    public string Replace(string element)
-      => element;
   }
 }
