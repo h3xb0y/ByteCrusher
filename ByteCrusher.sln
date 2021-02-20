@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingPong", "Demo.PingPong\P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteCrusher.UI", "ByteCrusher.UI\ByteCrusher.UI.csproj", "{B8F53308-15EE-4A84-A8E5-C97AEE7D6EA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snake", "Snake\Snake.csproj", "{85E9C755-4F02-4591-B789-7E2A8D340201}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snake", "Demo.Snake\Snake.csproj", "{85E9C755-4F02-4591-B789-7E2A8D340201}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
