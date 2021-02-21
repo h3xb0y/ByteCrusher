@@ -39,6 +39,11 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Controllers\Entities\FoodController.cs" />
+        <Compile Include="Controllers\Entities\SnakeController.cs" />
+        <Compile Include="Controllers\FoodSpawnController.cs" />
+        <Compile Include="Entities\Food.cs" />
+        <Compile Include="Entities\Snake.cs" />
         <Compile Include="Log\FileLogger.cs" />
         <Compile Include="SnakeGame.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

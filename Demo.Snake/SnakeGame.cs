@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ByteCrusher.Entities;
+using Snake.Controllers;
 using Snake.Log;
 
 namespace Snake
@@ -9,7 +10,7 @@ namespace Snake
   {
     public static Game Instance { get; private set; }
     
-    public static void Main(string[] args)
+    public static void Main()
     {
       Instance = new Game(new FileLogger())
         .AddScenes(Scenes())
@@ -23,7 +24,9 @@ namespace Snake
 
     private static IEnumerable<Scene> Scenes()
     {
-      yield return null;
+      yield return new Scene()
+        .Entity<Entities.Snake>()
+        .Controller<FoodSpawnController>();
     }
   }
 }
