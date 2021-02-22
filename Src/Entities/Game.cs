@@ -3,13 +3,14 @@ using System.Linq;
 using ByteCrusher.Modules;
 using ByteCrusher.Modules.Implementations;
 using ByteCrusher.Services;
+using ByteCrusher.Services.Collection;
 
 namespace ByteCrusher.Entities
 {
   public class Game
   {
     private readonly Kernel _kernel;
-    private readonly GameServices _services;
+    private readonly List<IGameService> _services;
     private readonly GameSettings _settings;
     private readonly List<IKernelModule> _kernelModules;
     private readonly ILogger _logger;
@@ -20,7 +21,7 @@ namespace ByteCrusher.Entities
     {
       _logger = logger;
       _settings = new GameSettings();
-      _services = new GameServices();
+      _services = new List<IGameService>{new SceneService(), new SoundService()};
       _kernelModules = new List<IKernelModule> {new Time(), new Input()};
       _kernel = new Kernel(_settings, _kernelModules, _logger);
       
@@ -35,13 +36,8 @@ namespace ByteCrusher.Entities
 
     private void Initialize()
     {
+      _services.ForEach(x => x.Initialize(_settings));
       _settings.Scenes.ForEach(x => x.Initialize());
-      
-      foreach (var service in new ServicesCollection())
-      {
-        service.Initialize(_settings);
-        _services.Add(service);
-      }
     }
 
     public Game SetWidthAndHeight(int width, int height)
@@ -74,9 +70,9 @@ namespace ByteCrusher.Entities
       return this;
     }
 
-    public GameServices GameServices()
-      => _services;
-
+    public T GameService<T>() where T : IGameService
+      => _services.OfType<T>().FirstOrDefault();
+    
     public T Module<T>() where T : IKernelModule
       => _kernelModules.OfType<T>().FirstOrDefault();
 

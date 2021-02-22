@@ -47,6 +47,7 @@
     <Compile Include="Src\Entities\Game.cs" />
     <Compile Include="Src\Entities\IEntityDrawer.cs" />
     <Compile Include="Src\Entities\ILogger.cs" />
+    <Compile Include="Src\Entities\InitializationSceneController.cs" />
     <Compile Include="Src\Entities\Kernel.cs" />
     <Compile Include="Src\Entities\Scene.cs" />
     <Compile Include="Src\Entities\SceneController.cs" />
@@ -58,8 +59,7 @@
     <Compile Include="Src\Modules\Implementations\Time.cs" />
     <Compile Include="Src\Services\Collection\SceneService.cs" />
     <Compile Include="Src\Services\Collection\SoundService.cs" />
-    <Compile Include="Src\Services\GameServices.cs" />
-    <Compile Include="Src\Services\ServicesCollection.cs" />
+    <Compile Include="Src\Services\IGameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

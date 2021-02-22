@@ -6,12 +6,15 @@ namespace ByteCrusher.Entities
 {
   public sealed class Scene : IDisposable
   {
+    private readonly List<Entity> _entities = new List<Entity>();
+    
     private List<Type> _entityTypes;
     private List<Type> _controllerTypes;
+    private List<Type> _initControllerTypes;
     
-    private List<Entity> _entities;
     private IEntityDrawer _drawer;
     private List<SceneController> _controllers;
+    private List<InitializationSceneController> _initControllers;
 
     public Scene Entity<T>() where T : Entity, new()
     {
@@ -31,6 +34,15 @@ namespace ByteCrusher.Entities
       return this;
     }
 
+    public Scene InitController<T>() where T : InitializationSceneController, new()
+    {
+      if(_initControllerTypes == null)
+        _initControllerTypes = new List<Type>();
+      
+      _initControllerTypes.Add(typeof(T));
+      return this;
+    }
+    
     public Scene AddBackground(IEntityDrawer drawer)
     {
       _drawer = drawer;
@@ -41,14 +53,23 @@ namespace ByteCrusher.Entities
     {
       if (_entityTypes != null)
       {
-        _entities = new List<Entity>();
         _entities.AddRange(
           _entityTypes
             .Select(x => (Entity) Activator.CreateInstance(x))
             .ToArray()
         );
       }
-
+      
+      if (_initControllerTypes != null)
+      {
+        _initControllers = new List<InitializationSceneController>();
+        _initControllers.AddRange(
+          _initControllerTypes
+            .Select(x => (InitializationSceneController) Activator.CreateInstance(x))
+            .ToArray()
+        );
+      }
+      
       if (_controllerTypes != null)
       {
         _controllers = new List<SceneController>();
@@ -59,6 +80,7 @@ namespace ByteCrusher.Entities
           );
       }
 
+      _initControllers?.ForEach(x => x.Initialize(_entities));
       _controllers?.ForEach(x => x.Initialize());
       _entities?.ForEach(x => x.Initialize());
     }
@@ -89,9 +111,12 @@ namespace ByteCrusher.Entities
       _controllers?.Clear();
       _controllers = null;
       
-      _entities?.ForEach(x => x.Dispose());
-      _entities?.Clear();
-      _entities = null;
+      _initControllers?.ForEach(x => x.Dispose());
+      _initControllers?.Clear();
+      _initControllers = null;
+      
+      _entities.ForEach(x => x.Dispose());
+      _entities.Clear();
     }
   }
 }
