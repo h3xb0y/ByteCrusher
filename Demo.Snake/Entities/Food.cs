@@ -1,7 +1,7 @@
 using ByteCrusher.Entities;
-using Snake.Controllers.Entities;
+using SnakeGame.Controllers.Entities;
 
-namespace Snake.Entities
+namespace SnakeGame.Entities
 {
   public class Food : Entity<FoodController>
   {

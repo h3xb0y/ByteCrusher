@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using ByteCrusher.Entities;
-using Snake.Controllers;
-using Snake.Log;
+using SnakeGame.Controllers;
+using SnakeGame.Log;
 
-namespace Snake
+namespace SnakeGame
 {
   internal class SnakeGame
   {

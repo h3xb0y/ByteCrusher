@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using ByteCrusher.Entities;
 
-namespace Snake.Controllers
+namespace SnakeGame.Controllers
 {
   public class FoodSpawnController : SceneController
   {

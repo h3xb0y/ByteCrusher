@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using ByteCrusher.Entities;
 
-namespace Snake.Log
+namespace SnakeGame.Log
 {
   public class FileLogger : ILogger
   {

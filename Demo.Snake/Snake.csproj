@@ -7,8 +7,8 @@
         <ProjectGuid>{85E9C755-4F02-4591-B789-7E2A8D340201}</ProjectGuid>
         <OutputType>Exe</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>Snake</RootNamespace>
-        <AssemblyName>Snake</AssemblyName>
+        <RootNamespace>SnakeGame</RootNamespace>
+        <AssemblyName>SnakeGame</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <LangVersion>8</LangVersion>
