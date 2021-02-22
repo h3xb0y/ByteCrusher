@@ -40,13 +40,19 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Controllers\Entities\FoodController.cs" />
-        <Compile Include="Controllers\Entities\SnakeController.cs" />
+        <Compile Include="Controllers\Entities\SnakePartController.cs" />
         <Compile Include="Controllers\FoodSpawnController.cs" />
+        <Compile Include="Controllers\SnakeController.cs" />
         <Compile Include="Entities\Food.cs" />
-        <Compile Include="Entities\Snake.cs" />
+        <Compile Include="Entities\SnakePart.cs" />
         <Compile Include="Log\FileLogger.cs" />
+        <Compile Include="Model\Food.cs" />
+        <Compile Include="Model\MovementDirection.cs" />
+        <Compile Include="Model\Snake.cs" />
+        <Compile Include="Model\SnakeBodyPart.cs" />
         <Compile Include="SnakeGame.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="U.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\ByteCrusher.csproj">

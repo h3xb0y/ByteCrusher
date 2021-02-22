@@ -2,7 +2,7 @@ using ByteCrusher.Entities;
 
 namespace SnakeGame.Controllers.Entities
 {
-  public class SnakeController : EntityController
+  public class SnakePartController : EntityController
   {
     protected override void OnDispose()
     {

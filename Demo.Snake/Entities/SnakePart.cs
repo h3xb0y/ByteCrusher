@@ -3,7 +3,7 @@ using SnakeGame.Controllers.Entities;
 
 namespace SnakeGame.Entities
 {
-  public class Snake : Entity<SnakeController>
+  public class SnakePart : Entity<SnakePartController>
   {
     protected override void OnDispose()
     {

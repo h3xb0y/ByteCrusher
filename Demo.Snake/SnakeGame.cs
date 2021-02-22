@@ -25,7 +25,7 @@ namespace SnakeGame
     private static IEnumerable<Scene> Scenes()
     {
       yield return new Scene()
-        .Entity<Entities.Snake>()
+        .Controller<SnakeController>()
         .Controller<FoodSpawnController>();
     }
   }
