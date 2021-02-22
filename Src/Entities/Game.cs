@@ -48,6 +48,13 @@ namespace ByteCrusher.Entities
       return this;
     }
 
+    public Game SleepInterval(int sleepInterval)
+    {
+      _settings.SleepInterval = sleepInterval;
+
+      return this;
+    }
+
     public Game AddScenes(IEnumerable<Scene> scenes)
     {
       foreach (var scene in scenes)
@@ -97,6 +104,7 @@ namespace ByteCrusher.Entities
   {
     public readonly List<Scene> Scenes = new List<Scene>();
     public int SceneIndex;
+    public int SleepInterval;
 
     public int Width;
     public int Height;
