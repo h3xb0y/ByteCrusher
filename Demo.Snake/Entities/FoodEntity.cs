@@ -1,9 +1,8 @@
 using ByteCrusher.Entities;
-using SnakeGame.Controllers.Entities;
 
 namespace SnakeGame.Entities
 {
-  public class FoodEntity : Entity<FoodController>
+  public class FoodEntity : Entity
   {
     protected override void OnInitialize()
       => Drawer = new FoodDrawer();

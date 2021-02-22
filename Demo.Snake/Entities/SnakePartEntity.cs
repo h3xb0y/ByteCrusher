@@ -1,5 +1,4 @@
 using ByteCrusher.Entities;
-using SnakeGame.Controllers.Entities;
 
 namespace SnakeGame.Entities
 {
