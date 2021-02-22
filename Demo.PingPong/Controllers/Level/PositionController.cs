@@ -12,7 +12,7 @@ namespace PingPong.Controllers.Level
     
     protected override void OnInitialize()
     {
-      _levelState = PingPongGame.Instance.GameServices().Get<LevelStateService>();
+      _levelState = PingPongGame.Instance.GameService<LevelStateService>();
     }
 
     protected override void OnProcess(List<Entity> entities, int width, int height)

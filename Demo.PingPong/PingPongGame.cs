@@ -31,9 +31,6 @@ namespace PingPong
     public static void Stop()
       => Environment.Exit(0);
 
-    public static GameServices Services()
-      => Instance.GameServices();
-
     private static IEnumerable<Scene> Scenes()
     {
       yield return new Scene()

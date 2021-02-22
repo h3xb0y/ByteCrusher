@@ -33,7 +33,7 @@ namespace PingPong.Controllers.UI.Menu
         switch (selectedElement)
         {
           case StartButton _:
-            PingPongGame.Services().Get<SceneService>().LoadNextLevel();
+            PingPongGame.Instance.GameService<SceneService>().LoadNextLevel();
             break;
 
           case ExitButton _:
