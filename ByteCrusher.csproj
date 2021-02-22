@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Src\Addition\Interfaces\ICloneable.cs" />
     <Compile Include="Src\Data\Position.cs" />
     <Compile Include="Src\Entities\Entity.cs" />
     <Compile Include="Src\Entities\EntityController.cs" />
