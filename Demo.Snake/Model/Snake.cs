@@ -1,36 +1,42 @@
 using System.Collections.Generic;
-using System.Linq;
 using ByteCrusher.Data;
 
 namespace SnakeGame.Model
 {
   public class Snake
   {
-    private readonly List<SnakeBodyPart> _bodyParts;
-    private readonly MovementDirection _direction;
-    private readonly SnakeBodyPart _head;
+    public readonly List<SnakeBodyPart> BodyParts;
+    public readonly SnakeBodyPart Head;
 
-    public Snake()
+    public MovementDirection Direction;
+
+    private int _areaWidth;
+    private int _areaHeight;
+
+    public Snake(int areaWidth, int areaHeight)
     {
-      _bodyParts = new List<SnakeBodyPart>();
-      _head = new SnakeBodyPart {Position = new Position {X = 10, Y = 10}};
-      _bodyParts.Add(_head);
-      _direction = MovementDirection.Left;
+      _areaWidth = areaWidth;
+      _areaHeight = areaHeight;
+
+      BodyParts = new List<SnakeBodyPart>();
+      Head = new SnakeBodyPart(_areaWidth, _areaHeight) {Position = new Position {X = 10, Y = 10}};
+      BodyParts.Add(Head);
+      Direction = MovementDirection.Left;
     }
 
     public bool Move()
     {
-      if (!_head.CanMoveTo(_direction))
+      if (!Head.CanMoveTo(Direction))
         return false;
 
       Position lastPosition = null;
 
-      foreach (var bodyPart in _bodyParts)
+      foreach (var bodyPart in BodyParts)
       {
         if (lastPosition == null)
         {
           lastPosition = bodyPart.Position.Clone();
-          bodyPart.MoveTo(_direction);
+          bodyPart.MoveTo(Direction);
         }
         else
         {
@@ -43,13 +49,15 @@ namespace SnakeGame.Model
       return true;
     }
 
-    public bool Eat(Food food)
+    public SnakeBodyPart Eat(Food food)
     {
-      if (!_head.Position.Equals(food.Position))
-        return false;
+      if (!Head.Position.Equals(food.Position))
+        return null;
 
-      _bodyParts.Add(new SnakeBodyPart {Position = food.Position.Clone()});
-      return true;
+      var bodyPart = new SnakeBodyPart(_areaWidth, _areaHeight) {Position = food.Position.Clone()};
+      BodyParts.Add(bodyPart);
+
+      return bodyPart;
     }
   }
 }

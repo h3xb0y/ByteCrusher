@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using ByteCrusher.Entities;
 using SnakeGame.Controllers;
+using SnakeGame.Controllers.Init;
 using SnakeGame.Log;
+using SnakeGame.Services;
 
 namespace SnakeGame
 {
@@ -14,6 +16,7 @@ namespace SnakeGame
     {
       Instance = new Game(new FileLogger())
         .AddScenes(Scenes())
+        .AddService(new GameData())
         .SetWidthAndHeight(100, 20);
 
       Instance.Play();
@@ -25,8 +28,10 @@ namespace SnakeGame
     private static IEnumerable<Scene> Scenes()
     {
       yield return new Scene()
-        .Controller<SnakeController>()
-        .Controller<FoodSpawnController>();
+        .InitController<InitSnakeController>()
+        .Controller<InputController>()
+        .Controller<SnakeMovementController>()
+        .Controller<FoodController>();
     }
   }
 }

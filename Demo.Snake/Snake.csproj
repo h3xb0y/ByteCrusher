@@ -41,15 +41,19 @@
     <ItemGroup>
         <Compile Include="Controllers\Entities\FoodController.cs" />
         <Compile Include="Controllers\Entities\SnakePartController.cs" />
-        <Compile Include="Controllers\FoodSpawnController.cs" />
-        <Compile Include="Controllers\SnakeController.cs" />
-        <Compile Include="Entities\Food.cs" />
-        <Compile Include="Entities\SnakePart.cs" />
+        <Compile Include="Controllers\FoodController.cs" />
+        <Compile Include="Controllers\Init\InitSnakeController.cs" />
+        <Compile Include="Controllers\InputController.cs" />
+        <Compile Include="Controllers\SnakeMovementController.cs" />
+        <Compile Include="Entities\FoodEntity.cs" />
+        <Compile Include="Entities\SnakePartEntity.cs" />
         <Compile Include="Log\FileLogger.cs" />
         <Compile Include="Model\Food.cs" />
+        <Compile Include="Model\GameData.cs" />
         <Compile Include="Model\MovementDirection.cs" />
         <Compile Include="Model\Snake.cs" />
         <Compile Include="Model\SnakeBodyPart.cs" />
+        <Compile Include="Services\GameData.cs" />
         <Compile Include="SnakeGame.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="U.cs" />

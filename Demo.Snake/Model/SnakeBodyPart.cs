@@ -7,6 +7,15 @@ namespace SnakeGame.Model
   {
     public Position Position;
 
+    private readonly int _areaWidth;
+    private readonly int _areaHeight;
+    
+    public SnakeBodyPart(int areaWidth, int areaHeight)
+    {
+      _areaWidth = areaWidth;
+      _areaHeight = areaHeight;
+    }
+
     public bool CanMoveTo(MovementDirection direction)
     {
       switch (direction)
@@ -14,11 +23,11 @@ namespace SnakeGame.Model
         case MovementDirection.Left:
           return Position.X > 1;
         case MovementDirection.Right:
-          return Position.X < 100; // todo 
+          return Position.X < _areaWidth - 1;
         case MovementDirection.Top:
           return Position.Y > 0;
         case MovementDirection.Bottom:
-          return Position.Y < 20;
+          return Position.Y < _areaHeight - 1;
         default:
           throw new ArgumentOutOfRangeException(nameof(direction), direction, "Unknown direction value");
       }
@@ -35,10 +44,10 @@ namespace SnakeGame.Model
           Position.X++;
           return;
         case MovementDirection.Top:
-          Position.Y++;
+          Position.Y--;
           break;
         case MovementDirection.Bottom:
-          Position.Y--;
+          Position.Y++;
           break;
         default:
           throw new ArgumentOutOfRangeException(nameof(direction), direction, "Unknown direction value");
