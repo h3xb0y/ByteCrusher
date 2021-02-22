@@ -19,9 +19,9 @@ namespace SnakeGame.Model
       _areaHeight = areaHeight;
 
       BodyParts = new List<SnakeBodyPart>();
-      Head = new SnakeBodyPart(_areaWidth, _areaHeight) {Position = new Position {X = 10, Y = 10}};
+      Head = new SnakeBodyPart(_areaWidth, _areaHeight) {Position = new Position {X = 5, Y = 5}};
       BodyParts.Add(Head);
-      Direction = MovementDirection.Left;
+      Direction = MovementDirection.Right;
     }
 
     public bool Move()

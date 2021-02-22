@@ -17,7 +17,8 @@ namespace SnakeGame
       Instance = new Game(new FileLogger())
         .AddScenes(Scenes())
         .AddService(new GameData())
-        .SetWidthAndHeight(100, 20);
+        .SleepInterval(50)
+        .SetWidthAndHeight(50, 10);
 
       Instance.Play();
     }
