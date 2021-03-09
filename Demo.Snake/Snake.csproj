@@ -43,6 +43,7 @@
         <Compile Include="Controllers\Init\InitSnakeController.cs" />
         <Compile Include="Controllers\InputController.cs" />
         <Compile Include="Controllers\SnakeMovementController.cs" />
+        <Compile Include="Drawers\BackgroundDrawer.cs" />
         <Compile Include="Entities\FoodEntity.cs" />
         <Compile Include="Entities\SnakePartEntity.cs" />
         <Compile Include="Log\FileLogger.cs" />

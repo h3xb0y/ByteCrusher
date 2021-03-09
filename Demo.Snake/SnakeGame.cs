@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ByteCrusher.Entities;
 using SnakeGame.Controllers;
 using SnakeGame.Controllers.Init;
+using SnakeGame.Drawers;
 using SnakeGame.Log;
 using SnakeGame.Services;
 
@@ -18,7 +19,7 @@ namespace SnakeGame
         .AddScenes(Scenes())
         .AddService(new GameData())
         .SleepInterval(50)
-        .SetWidthAndHeight(50, 10);
+        .SetWidthAndHeight(100, 20);
 
       Instance.Play();
     }
@@ -32,7 +33,8 @@ namespace SnakeGame
         .InitController<InitSnakeController>()
         .Controller<InputController>()
         .Controller<SnakeMovementController>()
-        .Controller<FoodController>();
+        .Controller<FoodController>()
+        .AddBackground(new BackgroundDrawer());
     }
   }
 }

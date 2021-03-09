@@ -9,12 +9,20 @@ namespace SnakeGame.Services
     public Snake Snake;
     public int AreaWidth;
     public int AreaHeight;
+    public GameState State;
 
     public void Initialize(GameSettings settings)
     {
       AreaWidth = settings.Width;
       AreaHeight = settings.Height;
       Snake = new Snake(AreaWidth, AreaHeight);
+      State = GameState.Play;
     }
+  }
+
+  public enum GameState
+  {
+    Play,
+    Dead
   }
 }

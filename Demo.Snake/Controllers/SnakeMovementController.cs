@@ -1,22 +1,25 @@
 using System.Collections.Generic;
 using ByteCrusher.Entities;
-using SnakeGame.Model;
+using SnakeGame.Services;
 using GameData = SnakeGame.Services.GameData;
 
 namespace SnakeGame.Controllers
 {
   public class SnakeMovementController : SceneController
   {
-    private Snake _snake;
+    private GameData _data;
     
     protected override void OnInitialize()
     {
-      _snake = SnakeGame.Instance.GameService<GameData>().Snake;
+      _data = SnakeGame.Instance.GameService<GameData>();
     }
 
     protected override void OnProcess(List<Entity> entities, int width, int height)
     {
-      _snake.Move();
+      if (_data.Snake.Move())
+        return;
+
+      _data.State = GameState.Dead;
     }
   }
 }
