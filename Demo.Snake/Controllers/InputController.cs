@@ -21,16 +21,16 @@ namespace SnakeGame.Controllers
 
     protected override void OnProcess(List<Entity> entities, int width, int height)
     {
-      if (_input.PressedKey == ConsoleKey.LeftArrow)
+      if (_input.PressedKey == ConsoleKey.LeftArrow && _snake.Direction != MovementDirection.Right)
         _snake.Direction = MovementDirection.Left;
 
-      if (_input.PressedKey == ConsoleKey.RightArrow)
+      if (_input.PressedKey == ConsoleKey.RightArrow && _snake.Direction != MovementDirection.Left)
         _snake.Direction = MovementDirection.Right;
 
-      if (_input.PressedKey == ConsoleKey.UpArrow)
+      if (_input.PressedKey == ConsoleKey.UpArrow && _snake.Direction != MovementDirection.Bottom)
         _snake.Direction = MovementDirection.Top;
 
-      if (_input.PressedKey == ConsoleKey.DownArrow)
+      if (_input.PressedKey == ConsoleKey.DownArrow && _snake.Direction != MovementDirection.Bottom)
         _snake.Direction = MovementDirection.Bottom;
     }
 
