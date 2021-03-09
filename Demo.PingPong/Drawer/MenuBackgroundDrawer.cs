@@ -31,7 +31,6 @@ namespace PingPong.Drawer
 
     public MenuBackgroundDrawer()
       => _asciiCode = new AsciiCode()
-        .AddColor("*", "250", "20")
         .AddColor("_", "250", "10", true);
 
     public string Code()
