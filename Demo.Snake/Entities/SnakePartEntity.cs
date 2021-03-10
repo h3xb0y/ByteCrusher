@@ -10,7 +10,7 @@ namespace SnakeGame.Entities
     private class SnakePartDrawer : IEntityDrawer
     {
       public string Code()
-        => "*";
+        => "o";
 
       public string Replace(string element)
         => element;

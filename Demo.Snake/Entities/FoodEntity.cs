@@ -10,7 +10,7 @@ namespace SnakeGame.Entities
     private class FoodDrawer : IEntityDrawer
     {
       public string Code()
-        => "O";
+        => "o";
 
       public string Replace(string element)
         => element;

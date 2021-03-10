@@ -19,7 +19,7 @@ namespace SnakeGame
         .AddScenes(Scenes())
         .AddService(new GameData())
         .SleepInterval(50)
-        .SetWidthAndHeight(100, 20);
+        .SetWidthAndHeight(50, 20);
 
       Instance.Play();
     }
