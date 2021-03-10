@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteCrusher", "ByteCrusher.csproj", "{597B93F6-8095-4B14-9EDE-AB36C4DD814F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteCrusher", "ByteCrusher\ByteCrusher.csproj", "{597B93F6-8095-4B14-9EDE-AB36C4DD814F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{E69BAE54-8CAE-404B-94F9-764A6856C095}"
 EndProject

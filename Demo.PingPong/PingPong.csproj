@@ -65,13 +65,13 @@
     <Compile Include="U.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ByteCrusher.csproj">
-      <Project>{597b93f6-8095-4b14-9ede-ab36c4dd814f}</Project>
-      <Name>ByteCrusher</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ByteCrusher.UI\ByteCrusher.UI.csproj">
       <Project>{b8f53308-15ee-4a84-a8e5-c97aee7d6ea7}</Project>
       <Name>ByteCrusher.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ByteCrusher\ByteCrusher.csproj">
+      <Project>{597b93f6-8095-4b14-9ede-ab36c4dd814f}</Project>
+      <Name>ByteCrusher</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

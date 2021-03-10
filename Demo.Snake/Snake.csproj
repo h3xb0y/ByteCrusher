@@ -57,7 +57,7 @@
         <Compile Include="U.cs" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\ByteCrusher.csproj">
+      <ProjectReference Include="..\ByteCrusher\ByteCrusher.csproj">
         <Project>{597b93f6-8095-4b14-9ede-ab36c4dd814f}</Project>
         <Name>ByteCrusher</Name>
       </ProjectReference>

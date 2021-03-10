@@ -40,26 +40,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Src\Addition\Interfaces\ICloneable.cs" />
-    <Compile Include="Src\Data\Position.cs" />
-    <Compile Include="Src\Entities\Entity.cs" />
-    <Compile Include="Src\Entities\EntityController.cs" />
-    <Compile Include="Src\Entities\Game.cs" />
-    <Compile Include="Src\Entities\IEntityDrawer.cs" />
-    <Compile Include="Src\Entities\ILogger.cs" />
-    <Compile Include="Src\Entities\InitializationSceneController.cs" />
-    <Compile Include="Src\Entities\Kernel.cs" />
-    <Compile Include="Src\Entities\Scene.cs" />
-    <Compile Include="Src\Entities\SceneController.cs" />
-    <Compile Include="Src\Extensions.cs" />
-    <Compile Include="Src\Addition\AsciiCode.cs" />
-    <Compile Include="Src\Layer\Layer.cs" />
-    <Compile Include="Src\Modules\IKernelModule.cs" />
-    <Compile Include="Src\Modules\Implementations\Input.cs" />
-    <Compile Include="Src\Modules\Implementations\Time.cs" />
-    <Compile Include="Src\Services\Collection\SceneService.cs" />
-    <Compile Include="Src\Services\Collection\SoundService.cs" />
-    <Compile Include="Src\Services\IGameService.cs" />
+    <Compile Include="Addition\AsciiCode.cs" />
+    <Compile Include="Addition\Interfaces\ICloneable.cs" />
+    <Compile Include="Data\Position.cs" />
+    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\EntityController.cs" />
+    <Compile Include="Entities\Game.cs" />
+    <Compile Include="Entities\IEntityDrawer.cs" />
+    <Compile Include="Entities\ILogger.cs" />
+    <Compile Include="Entities\InitializationSceneController.cs" />
+    <Compile Include="Entities\Kernel.cs" />
+    <Compile Include="Entities\Scene.cs" />
+    <Compile Include="Entities\SceneController.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Layer\Layer.cs" />
+    <Compile Include="Modules\IKernelModule.cs" />
+    <Compile Include="Modules\Implementations\Input.cs" />
+    <Compile Include="Modules\Implementations\Time.cs" />
+    <Compile Include="Services\Collection\SceneService.cs" />
+    <Compile Include="Services\Collection\SoundService.cs" />
+    <Compile Include="Services\IGameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
