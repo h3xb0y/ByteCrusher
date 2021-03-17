@@ -1,2 +1,5 @@
 # ByteCrusher
-ASCII Game Engine written on .NET
+
+Experimental ASCII Console Game Framework written on `.NET`. 
+
+In development.
