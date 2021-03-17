@@ -1,2 +1,2 @@
 # ByteCrusher
-ASCII Game Engine written on c#
+ASCII Game Engine written on .NET
